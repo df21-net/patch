@@ -1,0 +1,2013 @@
+INF 1.0
+
+LEVELNAME DTENTION
+
+items 162
+
+
+item: sector        name: complete
+    seq
+   class: elevator move_floor
+       speed: 0
+     stop: 0 hold
+     stop: 1 hold
+     stop: 2 hold
+         message: 2 droidoff_msg m_trigger 131072
+         message: 2 droiddummy master_on
+     stop: 3 complete
+    seqend
+    
+item: line    name: traintriptrig    num: 3
+    seq
+    class: trigger switch1
+    event_mask: 256
+    entity_mask: 8
+    client: traintripdummy1
+    client: traintripdummy2
+    seqend
+    
+item: line    name: traintriptrig2    num: 7
+    seq
+    class: trigger switch1
+    event_mask: 256
+    entity_mask: 8
+    client: traintripdummy2
+    seqend
+    
+item: sector    name: traintripdummy1
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 traintriptrig(3) done
+        page: 0 beep-01.voc
+    stop: 0 3
+    seqend
+    
+item: sector    name: traintripdummy2
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 train_a1 next_stop
+    stop: 0 2
+    master: off
+    seqend
+    
+item: line    name: tripshuttertrig    num: 4
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: tripshutter
+    seqend
+    
+item: sector    name: tripshutter
+    seq
+    class: elevator move_ceiling
+    speed: 2
+    stop: @0 hold
+        message: 0 tripshuttertrig(4) done
+    stop: @10 20
+    seqend
+    
+item: sector        name: reddoor1
+    seq
+    class: elevator door
+        event_mask: 48
+        speed: 6
+        sound: 1 DOOR1-3.VOC
+        sound: 2 DOOR-04.VOC
+        sound: 3 DOOR1-3.VOC
+        key: red
+    seqend
+    
+item: sector        name: reddoor2
+    seq
+    class: elevator door
+        event_mask: 48
+        speed: 6
+        sound: 1 DOOR1-3.VOC
+        sound: 2 DOOR-04.VOC
+        sound: 3 DOOR1-3.VOC
+        key: red
+    seqend
+    
+item: sector        name: reddoor3
+    seq
+    class: elevator door
+        event_mask: 48
+        speed: 6
+        sound: 1 DOOR1-3.VOC
+        sound: 2 DOOR-04.VOC
+        sound: 3 DOOR1-3.VOC
+        key: red
+    seqend
+    
+item: sector    name: blockfield
+    seq
+    class: elevator scroll_wall
+    angle: 243
+    speed: 999
+    class: elevator change_wall_light
+    speed: 20
+    stop: 31 0
+    stop: 8 0
+    class: elevator morph_move2
+    event_mask: 65536
+    speed: 0
+    angle: 0
+    stop: 0 hold
+    stop: 200 0.2
+        message: 1 traintripdummy1 master_off
+        message: 1 traintripdummy2 master_on
+    stop: 0 0.2
+    stop: 200 0.2
+    stop: 0 0.2
+    stop: 200 0.2
+    stop: 0 0.2
+    stop: 200 0.2
+    stop: 0 0.2
+    stop: 200 0.2
+    stop: 0 0.2
+    stop: 200 0.3
+    stop: 0 0.2
+    stop: 200 0.3
+    stop: 0 0.2
+    stop: 200 0.3
+    stop: 0 0.2
+    stop: 200 0.4
+    stop: 0 0.2
+    stop: 200 0.4
+    stop: 0 0.2
+    stop: 200 0.4
+    stop: 0 0.1
+    stop: 200 5.5
+	message: 23 complete complete 0
+    stop: 200 0
+	page: 24 kyle004.voc
+    stop: 200 terminate
+	sound: 1 0
+	sound: 2 0
+	sound: 3 0
+    seqend
+    
+item: line    name: droidlock    num: 16
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: droiddummy
+    client: droidoff
+    seqend
+    
+item: sector    name: droiddummy
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+	message: 1 droidoff master_off
+	message: 1 clonealarm master_off
+    stop: 2 4
+        message: 2 droidend wakeup
+		page: 2 r2.voc
+    stop: 3 14
+		page: 3 r2.voc
+    stop: 4 0
+		page: 4 r2.voc
+        message: 4 complete complete 2
+    stop: 5 terminate
+    master: off
+    seqend
+    
+item: sector    name: droidoff
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 droidlock(16) done
+    stop: 1 1
+        message: 1 droidoff_msg m_trigger 65536
+    seqend
+    
+item: sector    name: droidoff_msg
+    seq
+class: trigger
+    event_mask: 65536
+    text: 1000
+    sound: 0
+class: trigger
+    event_mask: 131072
+    text: 1001
+    sound: 0
+    seqend
+   
+item: sector    name: droidfield1
+    seq
+    class: elevator scroll_wall
+    angle: 243
+    speed: 999
+    slave: droidfield2
+    slave: droidfield3
+    slave: droidfield4
+    class: elevator change_wall_light
+    speed: 20
+    stop: 31 0
+    stop: 8 0
+    slave: droidfield2
+    slave: droidfield3
+    slave: droidfield4
+    seqend
+
+item: sector    name: train_a1
+    seq
+    class: elevator morph_move2
+    event_mask: 0
+    angle: 270
+    speed: 10
+    stop: 0 hold
+        message: 0 traintriptrig(3) done
+        message: 0 traintriptrig2(7) done
+    stop: 200 hold
+        message: 1 traintriptrig(3) done
+
+        message: 1 traintriptrig2(7) done
+    slave: train_a2
+    slave: train_a3
+    slave: train_a4
+    class: elevator scroll_floor
+    angle: 270
+    speed: 10
+    stop: 0 hold
+    stop: 200 hold
+    flags: 0
+    slave: train_a2
+    slave: train_a3
+    slave: train_a4
+    seqend
+    
+item: sector    name: traintrack
+    seq
+    class: elevator change_wall_light
+    speed: 27
+    stop: 16 0.1
+    stop: 0 0.1
+    seqend
+
+item: line    name: lockramptrig    num: 11
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: lockramp01
+    message: next_stop
+    seqend
+    
+item: sector    name: lockramp01
+    seq
+    class: elevator move_ceiling
+    stop: @0 hold
+        message: 0 lockramptrig(11) done
+        message: 0 fieldgen(40) done
+    stop: @12 3
+    seqend
+    
+item: sector    name: secureport
+    seq
+    class: elevator move_floor
+    stop: @0 hold
+    stop: @4 hold
+    seqend
+    
+item: line    name: hexhatch01trig1    num: 1
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: hexhatch01
+    message: next_stop
+    seqend
+    
+item: line    name: hexhatch01trig2    num: 0
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: hexhatch01
+    message: next_stop
+    seqend
+    
+item: sector    name: hexhatch01
+
+    seq
+    class: elevator move_ceiling
+    stop: @0 hold
+
+        message: 0 hexhatch01trig1(1) done
+        message: 0 hexhatch01trig2(0) done
+    stop: @12 4
+    seqend
+    
+item: line    name: hexfieldtrig01    num: 2
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: hexfielddummy
+    seqend
+    
+item: sector    name: hexfielddummy
+    seq
+    class: elevator move_floor
+    speed: 0
+    stop: @0 hold
+    stop: @0 hold
+        message: 1 hexfield02(4) clear_bits 3 10
+        message: 1 hexfield02(4) clear_bits 1 1
+        message: 1 hexhatch01trig1(4) clear_bits 3 10
+        message: 1 hexhatch01trig1(4) clear_bits 1 1
+        message: 1 hexfield01 next_stop
+        page: 1 beamfld1.voc
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    seqend
+    
+item: sector    name: hexfield01
+    seq
+    class: elevator scroll_wall
+    angle: 0
+    speed: 0
+    stop: 0 hold
+    stop: 128 hold
+    slave: hexfield03
+    slave: hexfield04
+    slave: hexfield06
+    seqend
+
+item: sector    name: fieldgen
+    seq
+    class: elevator change_light
+    stop: 12 0
+    stop: 28 0
+    speed: 20
+    seqend
+    
+item: line    name: fieldgen    num: 40
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: lockramp01
+    message: next_stop
+    seqend
+    
+item: sector    name: fieldy02
+    seq
+    class: elevator change_light
+    stop: 18 0
+    stop: 28 0
+    speed: 30
+    seqend
+    
+item: sector    name: fieldy01
+    seq
+    class: elevator change_light
+    stop: 18 0
+    stop: 28 0
+    speed: 30
+    seqend
+    
+item: sector    name: circelev_wtube2
+    seq
+    class: elevator change_light
+    stop: 12 0
+    stop: 28 0
+    speed: 20
+    seqend
+
+item: sector    name: decision
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 hold
+    stop: 2 hold
+    stop: 3 hold
+    stop: 4 0
+        message: 4 open1 next_stop
+        message: 4 reset1 next_stop
+    seqend
+    
+item: line    name: t1    num: 3
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: e1
+    client: decision
+    seqend    
+
+item: sector    name: e1
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 open1 master_on
+    seqend
+    
+item: sector    name: open1
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 open2 next_stop
+    master: off
+    seqend
+    
+item: line    name: t2    num: 3
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: e2
+    client: decision
+    seqend
+    
+item: sector    name: e2
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 open2 master_on
+        message: 1 e1 master_off
+    seqend
+    
+item: sector    name: open2
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 open3 next_stop
+    master: off
+    seqend
+    
+item: line    name: t3    num: 3
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: e3
+    client: decision
+    seqend
+    
+item: sector    name: e3
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 open3 master_on
+        message: 1 e2 master_off
+        message: 1 e1 master_off
+    seqend
+    
+item: sector    name: open3
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 open4 next_stop
+    master: off
+    seqend
+    
+item: line    name: t4    num: 3
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: e4
+    client: decision
+    seqend
+    
+item: sector    name: e4
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 open4 master_on
+        message: 1 e3 master_off
+        message: 1 e2 master_off
+        message: 1 e1 master_off
+    seqend
+    
+item: sector    name: open4
+    seq
+    class: elevator change_light
+
+    speed: 0
+    stop: 0 hold
+    stop: 1 0
+        message: 1 opener next_stop
+    master: off
+    seqend
+    
+item: sector    name: reset1
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 reset2 next_stop
+    seqend
+    
+item: sector    name: reset2
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 reset3 next_stop
+    seqend
+    
+item: sector    name: reset3
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 .25
+        message: 1 reset4 next_stop
+    seqend
+    
+item: sector    name: reset4
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 0
+        message: 1 resetter next_stop
+    seqend
+    
+item: sector    name: resetter
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 2
+    stop: 2 0
+        message: 2 e1 master_on
+        message: 2 e2 master_on
+        message: 2 e3 master_on
+        message: 2 e4 master_on
+        message: 2 t1(3) done
+        message: 2 t2(3) done
+        message: 2 t3(3) done
+        message: 2 t4(3) done
+		message: 2 open1 master_off
+        message: 2 open2 master_off
+        message: 2 open3 master_off
+        message: 2 open4 master_off
+    seqend
+    
+item: sector    name: opener
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 1 0
+    stop: 2 3
+        message: 2 blockfield next_stop 65536
+        message: 2 resetter master_off
+        page: 2 fieldoff.voc
+        message: 2 traintripdummy1 master_off
+        message: 2 traintripdummy2 master_on
+    stop: 3 terminate
+    seqend
+    
+item: line    name: circroomtrig    num: 2
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: circledge_w
+    message: next_stop
+    seqend
+    
+item: sector    name: circledge_w
+    seq
+    class: elevator move_fc
+    speed: 2
+    stop: @-16 hold
+    stop: @0 terminate
+    slave: circledge_e
+    seqend
+    
+item: line    name: circelev_w    num: 6
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: circelev_w
+    seqend
+    
+item: sector    name: circelev_w
+    seq
+    class: elevator move_fc
+    speed: 24
+    stop: @0 hold
+        message: 0 circelev_w(6) done
+    stop: @22 0
+        adjoin: 1 circelev_we 4 circelev_wtube2 15
+        adjoin: 1 circelev_we 5 circelev_wtube2 14
+        adjoin: 1 circelev_we 6 circelev_wtube2 13
+        adjoin: 1 circelev_ws 3 circelev_wtube2 9
+        adjoin: 1 circelev_ww 0 circelev_wtube2 5
+        adjoin: 1 circelev_ww 1 circelev_wtube2 4
+        adjoin: 1 circelev_ww 2 circelev_wtube2 3
+    stop: @142 0
+        adjoin: 2 circelev_we 4 circelev_wtube3 15
+        adjoin: 2 circelev_we 5 circelev_wtube3 14
+        adjoin: 2 circelev_we 6 circelev_wtube3 13
+        adjoin: 2 circelev_ws 3 circelev_wtube3 9
+        adjoin: 2 circelev_ww 0 circelev_wtube3 5
+        adjoin: 2 circelev_ww 1 circelev_wtube3 4
+        adjoin: 2 circelev_ww 2 circelev_wtube3 3
+        adjoin: 2 circelev_w 0 circelev_wtube3 19
+    stop: @160 hold
+        message: 3 circelev_w(6) done
+    stop: @142 0
+        adjoin: 4 circelev_we 4 circelev_wtube2 15
+        adjoin: 4 circelev_we 5 circelev_wtube2 14
+        adjoin: 4 circelev_we 6 circelev_wtube2 13
+        adjoin: 4 circelev_ws 3 circelev_wtube2 9
+        adjoin: 4 circelev_ww 0 circelev_wtube2 5
+        adjoin: 4 circelev_ww 1 circelev_wtube2 4
+        adjoin: 4 circelev_ww 2 circelev_wtube2 3
+        adjoin: 4 circelev_w 0 circelev_wtube1 19
+    stop: @22 0
+        adjoin: 5 circelev_we 4 circelev_wtube1 15
+        adjoin: 5 circelev_we 5 circelev_wtube1 14
+        adjoin: 5 circelev_we 6 circelev_wtube1 13
+        adjoin: 5 circelev_ws 3 circelev_wtube1 9
+        adjoin: 5 circelev_ww 0 circelev_wtube1 5
+        adjoin: 5 circelev_ww 1 circelev_wtube1 4
+        adjoin: 5 circelev_ww 2 circelev_wtube1 3
+    slave: circelev_ww
+    slave: circelev_we
+    slave: circelev_ws
+    seqend
+
+    
+item: sector    name: dualdoor1
+    seq
+    class: elevator move_ceiling
+
+    speed: 8
+    stop: @0 hold
+    stop: @8 hold
+    slave: dualdoor2
+    seqend
+    
+item: line    name: dualswitch1    num: 1
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: dualopen
+    seqend
+    
+item: line    name: dualswitch2    num: 1
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: dualopen
+    seqend
+    
+item: sector    name: dualdummy1
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 dualopen goto_stop 0
+        message: 0 dualdummy2 master_on
+        message: 0 dualswitch1(1) done
+        message: 0 dualswitch2(1) done
+    stop: 0 6
+        message: 1 dualopen next_stop
+    stop: 0 1
+        message: 2 dualdummy2 master_off
+        message: 2 dualopen goto_stop 0
+        message: 2 dualkiller next_stop
+seqend
+    
+item: sector    name: dualdummy2
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 dualopen goto_stop 0
+        message: 0 dualdummy1 master_on
+        message: 0 dualswitch1(1) done
+        message: 0 dualswitch2(1) done
+    stop: 0 6
+        message: 1 dualopen next_stop
+    stop: 0 1
+        message: 2 dualdummy1 master_off
+        message: 2 dualopen goto_stop 0
+        message: 2 dualkiller next_stop
+    seqend
+    
+item: sector    name: dualopen
+    seq
+    class: elevator move_floor
+    speed: 0
+    stop: 0 hold
+    stop: 0 hold
+    stop: 0 hold
+        message: 2 dualdummy1 master_off
+        message: 2 dualdummy2 master_off
+        message: 2 dualdoor1 next_stop
+    seqend
+
+item: sector    name: dualkiller
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 dualopen goto_stop 0
+    stop: 0 hold
+        message: 1 dualopen goto_stop 0
+    seqend
+
+    
+item: line    name: blueclue    num: 6
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: bluedummy
+    seqend
+    
+item: sector    name: blueclue
+    seq
+    class: elevator move_floor
+
+    event_mask: 16
+    speed: 0
+    stop: @0 hold
+    stop: @0 0
+        message: 1 fieldclue1 next_stop
+    stop: @0 terminate
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    key: blue
+    seqend
+
+item: sector    name: bluedummy
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 blueclue(6) done
+        page: 0 beep-01.voc
+    stop: 1 2
+    stop: 2 hold
+        message: 2 blueclue(6) done
+        page: 2 beep-01.voc
+    stop: 3 2
+    seqend
+    
+item: sector    name: fieldclue1
+    seq
+    class: elevator move_fc
+    event_mask: 0
+    speed: 2
+    stop: @0 hold
+    stop: @0 0
+        message: 1 bluedummy master_off
+        message: 1 cluegen1 master_on
+        message: 1 cluegen2 master_on
+    stop: @-16 hold
+    slave: fieldclue2
+    seqend
+    
+item: sector    name: fieldclue2
+    seq
+    class: elevator change_light
+    speed: 40
+    stop: 31 0.1
+    stop: 18 0.1
+    slave: fieldclue1
+    seqend
+    
+item: sector    name: outercdoor
+    seq
+    class: elevator move_floor
+    event_mask: 16
+    speed: 0
+    stop: @0 hold
+        message: 0 cdoor_w next_stop
+        message: 0 cdoor_e next_stop        
+    stop: @0 4
+        message: 1 cdoor_w next_stop
+        message: 1 cdoor_e next_stop
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    seqend
+    
+item: sector    name: cdoor_w
+    seq
+    class: elevator morph_move1
+    event_mask: 0
+    angle: 270
+    speed: 4
+    stop: 0 hold
+    stop: 6 hold
+    seqend
+    
+item: sector    name: cdoor_e
+    seq
+    class: elevator morph_move1
+    event_mask: 0
+    angle: 90
+    speed: 4
+    stop: 0 hold
+    stop: 6 hold
+    seqend
+    
+item: sector    name: circelev_se
+    seq
+    class: elevator move_floor
+    event_mask: 0
+    speed: 8
+    stop: @0 hold
+    	message: 0 circelev_se(11) done
+    stop: @48 7
+    seqend
+    
+item: line    name: circelev_se    num: 11
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: circelev_se
+    seqend
+    
+item: sector    name: circelev_sw
+    seq
+    class: elevator move_floor
+    event_mask: 0
+    speed: 8
+    stop: @0 hold
+    	message: 0 circelev_sw(2) done
+    stop: @48 7
+    seqend
+    
+item: line    name: circelev_sw    num: 2
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: circelev_sw
+    seqend
+    
+item: sector    name: uppercdoor_se
+    seq
+    class: elevator move_floor
+    event_mask: 16
+    speed: 0
+    stop: @0 hold
+        message: 0 n_uppercdoor_se next_stop
+        message: 0 s_uppercdoor_se        
+    stop: @0 4
+        message: 1 n_uppercdoor_se next_stop
+        message: 1 s_uppercdoor_se
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    seqend
+    
+item: sector    name: n_uppercdoor_se
+    seq
+    class: elevator morph_move1
+
+    event_mask: 0
+    angle: 0
+    speed: 4
+
+    stop: 0 hold
+    stop: 7 hold
+    seqend
+    
+item: sector    name: s_uppercdoor_se
+    seq
+    class: elevator morph_move1
+    event_mask: 0
+    angle: 180
+    speed: 4
+    stop: 0 hold
+    stop: 7 hold
+    seqend
+    
+item: sector    name: uppercdoor_sw
+    seq
+    class: elevator move_floor
+    event_mask: 16
+    speed: 0
+    stop: @0 hold
+        message: 0 n_uppercdoor_sw next_stop
+        message: 0 s_uppercdoor_sw        
+    stop: @0 4
+        message: 1 n_uppercdoor_sw next_stop
+        message: 1 s_uppercdoor_sw
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    seqend
+    
+item: sector    name: n_uppercdoor_sw
+    seq
+    class: elevator morph_move1
+    event_mask: 0
+    angle: 0
+    speed: 4
+    stop: 0 hold
+    stop: 7 hold
+    seqend
+    
+item: sector    name: s_uppercdoor_sw
+    seq
+    class: elevator morph_move1
+    event_mask: 0
+    angle: 180
+    speed: 4
+    stop: 0 hold
+    stop: 7 hold
+    seqend
+    
+item: sector    name: centerdock
+    seq
+    class: elevator move_floor
+    event_mask: 32
+    speed: 8
+    stop: @0 hold
+        message: 0 centerdock(11) done        
+    stop: @-32 hold
+    seqend
+    
+item: line    name: centerdock    num: 11
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: centerdock
+    seqend
+
+item: line    name: floater_ntrig    num: 3
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: floater_nmac
+    seqend
+    
+item: line    name: floater_etrig    num: 3
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: floater_emac
+    seqend
+    
+item: line    name: floater_strig    num: 1
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: floater_smac
+    seqend
+    
+item: line    name: floater_wtrig    num: 1
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: floater_wdummy
+    client: floater_wdummy2
+    client: giantdoor_wonce 
+    seqend
+
+item: sector    name: giantdoor_wonce
+    seq
+    class: elevator change_light
+    event_mask: 0
+    speed: 0
+    stop: 0 0
+    stop: 1 3 
+    stop: 2 0
+        message: 2 giantdoor_w1 next_stop
+        message: 2 giantdoor_w2 next_stop
+    stop: 3 terminate
+	master: off
+   seqend
+
+item: sector    name: floater_wdummy
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 floater_wmac next_stop
+    stop: 1 hold
+        message: 1 floater_wmac next_stop
+	key: yellow
+    seqend
+    
+item: sector    name: floater_wmac
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 floater_w master_on 65552
+        message: 0 floater_w next_stop 65552
+    stop: 1 hold
+        message: 1 floater_w master_on 65552
+        message: 1 floater_w next_stop 65552
+        message: 1 floater_wdummy2 master_off
+        message: 1 giantdoor_wonce master_on
+    seqend
+
+item: sector    name: floater_wdummy2
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+        message: 0 floater_wtrig(1) done
+    stop: 1 1
+    seqend
+    
+item: sector    name: giantdoor_s1
+    seq
+    class: elevator morph_move2
+    event_mask: 0
+    speed: 6
+    angle: 270
+    stop: 0 hold
+    stop: 16 1
+    seqend
+    
+item: sector    name: giantdoor_s2
+    seq
+    class: elevator morph_move2
+    event_mask: 0
+    speed: 6
+    angle: 90
+    stop: 0 hold
+    stop: 16 1
+    seqend
+
+item: sector    name: floater_s
+    seq
+class: elevator morph_move2
+    event_mask: 65552
+    speed: 16
+    angle: 180
+    stop: 0 hold
+        message: 0 platform_s(11) done
+        message: 0 floater_strig(1) done
+    stop: 60 0
+        message: 1 giantdoor_s1 next_stop
+        message: 1 giantdoor_s2 next_stop
+    stop: 309 hold
+        message: 2 platform_s(11) done
+        message: 2 floater_strig(1) done
+    stop: 120 0
+        message: 3 giantdoor_s1 next_stop
+        message: 3 giantdoor_s2 next_stop
+    flags: 2
+    sound: 1 repstart.voc
+    sound: 2 replift.voc
+    sound: 3 repstop.voc
+class: elevator change_light
+    speed: 8
+    stop: 31 0
+    stop: 20 0
+class: trigger
+    event_mask: 4
+    sound: 0
+    text: 1002
+    seqend
+    
+item: line    name: platform_s    num: 11
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: floater_smac
+    seqend
+    
+item: sector    name: floater_smac
+    seq
+    class: elevator change_light
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+        message: 1 floater_s next_stop
+    seqend
+    
+item: sector    name: floater_emac
+    seq
+    class: elevator change_light
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+        message: 1 floater_e next_stop
+    seqend
+    
+item: sector    name: floater_nmac
+    seq
+    class: elevator change_light
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+        message: 1 floater_n next_stop
+    seqend
+    
+item: sector    name: floater_salt
+    seq
+    class: elevator change_light
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+        message: 0 floater_s master_on 65536
+        message: 0 floater_s next_stop 65536
+    stop: 1 hold
+        message: 1 floater_s master_on 65536
+
+        message: 1 floater_s next_stop 65536
+    key: yellow
+    seqend
+
+item: sector    name: giantdoor_w1
+    seq
+    class: elevator morph_move2
+    event_mask: 0
+    speed: 6
+    angle: 0
+    stop: 0 hold
+    stop: 19 3
+    seqend
+    
+item: sector    name: giantdoor_w2
+    seq
+    class: elevator morph_move2
+    event_mask: 0
+    speed: 6
+    angle: 180
+    stop: 0 hold
+    stop: 19 3
+    seqend
+    
+item: sector    name: floater_w
+    seq
+class: elevator morph_move2
+    event_mask: 65552
+    speed: 16
+    angle: 90
+    stop: 0 0
+        message: 0 floater_w_s master_off
+        message: 0 floater_w_n master_off
+        message: 0 floater_wtrig(1) done
+    stop: 65 0
+        message: 1 giantdoor_w1 next_stop
+        message: 1 giantdoor_w2 next_stop
+    stop: 217 hold
+        message: 2 floatswitch_n(1) done
+        message: 2 floater_wtrig(1) done
+    stop: 195 0
+        message: 3 giantdoor_w1 next_stop
+        message: 3 giantdoor_w2 next_stop
+    stop: 0 hold
+        message: 4 floatswitch_n(1) done
+        message: 4 floatswitch_s(1) done
+        message: 4 floater_w_s master_on
+        message: 4 floater_w_n master_on
+        message: 4 floater_wtrig(1) done
+    flags: 2
+    master: off
+    sound: 1 repstart.voc
+    sound: 2 replift.voc
+    sound: 3 repstop.voc
+class: elevator morph_spin2
+    event_mask: 131072
+    speed: 4
+    center: 32 995
+    stop: 0 hold
+        message: 0 floatswitch_n(1) done
+        message: 0 floatswitch_s(1) done
+        message: 0 floater_w_n master_on
+        message: 0 floater_w_s master_on
+        message: 0 floater_w master_on 65552
+        message: 0 floater_wtrig(1) done
+    stop: 0 0
+        message: 1 floater_wtrig(1) m_trigger
+    stop: -180 4
+    sound: 1 repstart.voc
+    sound: 2 replift.voc
+    sound: 3 repstop.voc
+class: elevator morph_spin2
+    event_mask: 262144
+    speed: 4
+    center: 32 778.25
+    stop: 0 hold
+        message: 0 floatswitch_n(1) done
+        message: 0 floatswitch_s(1) done
+        message: 0 floater_w_n master_on
+        message: 0 floater_w_s master_on
+        message: 0 floater_w master_on 65552
+        message: 0 floater_wtrig(1) done
+    stop: 0 0
+        message: 1 floater_wtrig(1) m_trigger
+    stop: 180 4
+    sound: 1 repstart.voc
+    sound: 2 replift.voc
+    sound: 3 repstop.voc
+class: elevator change_light
+    speed: 8
+    stop: 31 0
+    stop: 20 0
+class: trigger
+    event_mask: 4
+    sound: 0
+    text: 1002
+    seqend
+
+item: sector    name: floater_w_s    
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 0
+    stop: 1 hold
+        message: 1 floatswitch_n(1) done
+        message: 1 floatswitch_s(1) done
+    stop: 1 2
+        message: 2 floater_w next_stop 262144
+        message: 2 floater_w_n master_off
+        message: 2 floater_w master_off 65552
+    master: off
+    seqend
+    
+item: sector    name: floater_w_n    
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 0
+    stop: 1 hold
+        message: 1 floatswitch_n(1) done
+        message: 1 floatswitch_s(1) done
+    stop: 1 2
+        message: 2 floater_w next_stop 131072
+        message: 2 floater_w_s master_off
+        message: 2 floater_w master_off 65552
+    master: off
+    seqend
+    
+item: line    name: floatswitch_s    num: 1
+    seq
+    class: trigger switch1
+    event_mask: 256
+    entity_mask: 8
+    client: floater_w_s
+    seqend
+    
+item: line    name: floatswitch_n    num: 1
+    seq
+    class: trigger switch1
+    event_mask: 256
+    entity_mask: 8
+    client: floater_w_n
+    seqend
+    
+item: sector    name: clonesystem
+    seq
+    class: elevator change_light
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 1 hold
+    stop: 2 hold
+    stop: 3 hold
+    stop: 4 hold
+    stop: 5 hold
+    stop: 6 hold
+    stop: 7 2.5
+        page: 7 fieldoff.voc
+        message: 7 w15 master_on 65536
+        message: 7 w15 master_on 131072
+        message: 7 complete complete 1
+	stop: 9 2.5
+        page: 8 fieldoff.voc
+    stop: 10 2.5
+        page: 9 fieldoff.voc
+    stop: 11 4
+        page: 10 fieldoff.voc
+    stop: 12 0
+        message: 11 clonealarm master_on
+        message: 11 centerdock master_on
+        message: 11 east1 master_on
+        message: 11 s2 master_on
+        message: 11 s3 master_on
+    stop: 12 terminate
+    seqend
+    
+item: sector    name: clonealarm
+    seq
+    class: elevator change_light
+    event_mask: 0
+    speed: 0
+    stop: 0 1.5
+        page: 0 invalarm.voc
+    stop: 1 1.5
+        page: 1 invalarm.voc
+	master: off
+    seqend
+    
+item: sector    name: w15
+    seq
+    class: elevator change_wall_light
+    event_mask: 65536
+    speed: 68
+    stop: 24 0
+    stop: 1 0
+    slave: w1
+    slave: w2
+    slave: w3
+    slave: w4
+    slave: w5
+    slave: w6
+    slave: w7
+    slave: w8
+    slave: w9
+    slave: w10
+    slave: w11
+    slave: w12
+    slave: w13
+    slave: w14
+    slave: w15
+    slave: chasm
+    slave: n1
+    slave: n2
+    slave: n3
+    slave: n4
+    slave: s1
+    slave: s2
+    slave: s3
+    slave: s4
+	master: off
+    class: elevator scroll_wall
+    event_mask: 131072
+
+    speed: 0
+    stop: 0 0.7
+    stop: 128 0.7
+    angle: 90
+    slave: w9
+    slave: w10
+    slave: w11
+    slave: w12
+    slave: w13
+    slave: w14
+    slave: w15
+	master: off
+    seqend
+    
+item: sector    name: w1
+    seq
+    class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 128 terminate
+    angle: 90
+    seqend
+
+item: sector    name: w1blast
+    seq
+    class: elevator change_light
+    event_mask: 64
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+    stop: 2 0
+        page: 2 cloneoff.voc
+        message: 2 w1 next_stop
+        message: 2 clonesystem next_stop
+    stop: 3 terminate
+    seqend
+    
+item: sector    name: w2
+    seq
+    class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 128 terminate
+    angle: 90
+    seqend
+
+item: sector    name: w2blast
+    seq
+    class: elevator change_light
+    event_mask: 64
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+    stop: 2 0
+        page: 2 cloneoff.voc
+        message: 2 w2 next_stop
+        message: 2 clonesystem next_stop
+    stop: 3 terminate
+    seqend    
+    
+item: sector    name: w3
+    seq
+    class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 128 terminate
+    angle: 90
+    seqend
+    
+item: sector    name: w3blast
+    seq
+    class: elevator change_light
+    event_mask: 64
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+    stop: 2 0
+        page: 2 cloneoff.voc
+        message: 2 w3 next_stop
+        message: 2 clonesystem next_stop
+    stop: 3 terminate
+    seqend
+        
+item: sector    name: w4
+    seq
+    class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 128 terminate
+    angle: 90
+    seqend
+    
+item: line    name: w5    num: 9
+    seq
+    class: trigger switch1
+    event_mask: 256
+    entity_mask: 8
+    client: floater_wyellow
+    seqend
+    
+item: sector    name: w5
+    seq
+    class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 128 terminate
+    angle: 90
+    seqend
+
+item: sector    name: w5blast
+    seq
+    class: elevator change_light
+    event_mask: 64
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+    stop: 2 0
+        page: 2 cloneoff.voc
+        message: 2 w5 next_stop
+        message: 2 clonesystem next_stop
+    stop: 3 terminate
+    seqend
+    
+item: sector    name: w6
+    seq
+    class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 128 terminate
+    angle: 90
+    seqend
+
+item: sector    name: w6blast
+    seq
+    class: elevator change_light
+    event_mask: 64
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+    stop: 2 0
+        page: 2 cloneoff.voc
+        message: 2 w6 next_stop
+        message: 2 clonesystem next_stop
+    stop: 3 terminate
+    seqend
+    
+item: sector    name: w7
+    seq
+    class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 128 terminate
+    angle: 90
+    seqend
+
+
+item: sector    name: w7blast
+    seq
+    class: elevator change_light
+
+    event_mask: 64
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+    stop: 2 0
+      page: 2 cloneoff.voc
+    message: 2 w7 next_stop
+    message: 2 clonesystem next_stop
+    stop: 3 terminate
+    seqend
+    
+
+item: sector    name: w8
+    seq
+    class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    stop: 0 hold
+    stop: 128 terminate
+    angle: 90
+    seqend
+
+item: sector    name: w8blast
+    seq
+    class: elevator change_light
+    event_mask: 64
+    speed: 0
+    stop: 0 hold
+    stop: 1 1
+    stop: 2 0
+        page: 2 cloneoff.voc
+        message: 2 w8 next_stop
+        message: 2 clonesystem next_stop
+    stop: 3 terminate
+    seqend
+    
+item: sector    name: outercdoor2
+    seq
+    class: elevator move_floor
+    event_mask: 16
+    speed: 0
+    stop: @0 hold
+        message: 0 cdoor_w2 next_stop
+        message: 0 cdoor_e2 next_stop        
+    stop: @0 4
+        message: 1 cdoor_w2 next_stop
+        message: 1 cdoor_e2 next_stop
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    key: yellow
+    seqend
+    
+item: sector    name: cdoor_w2
+    seq
+    class: elevator morph_move1
+    event_mask: 0
+    angle: 270
+    speed: 4
+    stop: 0 hold
+    stop: 6 hold
+    seqend
+    
+item: sector    name: cdoor_e2
+    seq
+    class: elevator morph_move1
+    event_mask: 0
+    angle: 90
+    speed: 4
+    stop: 0 hold
+    stop: 6 hold
+    seqend
+    
+item: sector    name: outercdoor3
+    seq
+    class: elevator move_floor
+    event_mask: 16
+    speed: 0
+    stop: @0 hold
+        message: 0 cdoor_w3 next_stop
+        message: 0 cdoor_e3 next_stop        
+    stop: @0 4
+        message: 1 cdoor_w3 next_stop
+        message: 1 cdoor_e3 next_stop
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    seqend
+    
+item: sector    name: cdoor_w3
+    seq
+    class: elevator morph_move1
+    event_mask: 0
+    angle: 270
+    speed: 4
+    stop: 0 hold
+    stop: 6 hold
+    seqend
+    
+item: sector    name: cdoor_e3
+    seq
+    class: elevator morph_move1
+    event_mask: 0
+    angle: 90
+    speed: 4
+    stop: 0 hold
+    stop: 6 hold
+    seqend
+    
+item: sector    name: giantdoor_s1
+    seq
+    class: elevator morph_move2
+    event_mask: 0
+    speed: 6
+    angle: 270
+    stop: 0 hold
+    stop: 19 4
+    seqend
+    
+item: sector    name: giantdoor_s2
+    seq
+    class: elevator morph_move2
+    event_mask: 0
+    speed: 6
+    angle: 90
+    stop: 0 hold
+    stop: 19 4
+    seqend
+
+item: sector    name: floater_n
+    seq
+
+    class: elevator morph_move2
+    event_mask: 16
+    speed: 16
+    angle: 0
+    stop: 0 hold
+
+        message: 0 platform_n(11) done
+        message: 0 floater_ntrig(3) done
+    stop: 45 0
+        message: 1 giantdoor_n1 next_stop
+        message: 1 giantdoor_n2 next_stop
+    stop: 309 hold
+        message: 2 platform_n(11) done
+        message: 2 floater_ntrig(3) done
+    stop: 140 0
+        message: 3 giantdoor_n1 next_stop
+        message: 3 giantdoor_n2 next_stop
+    sound: 1 repstart.voc
+    sound: 2 replift.voc
+    sound: 3 repstop.voc
+    flags: 2
+    class: elevator change_light
+    speed: 8
+    stop: 31 0
+    stop: 20 0
+    class: trigger
+    event_mask: 4
+    sound: 0
+    text: 1002
+    seqend
+    
+item: line    name: platform_n    num: 11
+
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: floater_nmac
+    seqend
+    
+item: sector    name: giantdoor_n1
+    seq
+    class: elevator morph_move2
+    event_mask: 0
+    speed: 6
+    angle: 270
+    stop: 0 hold
+    stop: 16 1
+    seqend
+    
+item: sector    name: giantdoor_n2
+    seq
+    class: elevator morph_move2
+    event_mask: 0
+    speed: 6
+    angle: 90
+    stop: 0 hold
+    stop: 16 1
+    seqend
+    
+item: sector    name: floater_e
+    seq
+    class: elevator morph_move2
+    event_mask: 16
+    speed: 12
+    angle: 90
+    stop: 0 hold
+        message: 0 floater_etrig(3) done
+    stop: 96 hold
+        message: 1 floater_etrig(3) done
+    flags: 2
+    sound: 1 repstart.voc
+    sound: 2 replift.voc
+    sound: 3 repstop.voc
+class: elevator change_light
+    speed: 8
+    stop: 31 0
+    stop: 20 0
+class: trigger
+    event_mask: 4
+    sound: 0
+    text: 1002
+    seqend
+
+item: sector    name: command
+    seq
+    class: elevator change_light
+    speed: 0
+    stop: 0 hold
+    stop: 0 hold
+    stop: 0 hold
+    stop: 0 hold
+    stop: 0 hold
+    stop: 0 hold
+    stop: 0 hold
+	message: 6 commandplat next_stop
+	message: 6 commandplat(10) clear_bits 3 10
+	message: 6 commandplat(10) clear_bits 1 1
+	message: 6 commandplat(0) clear_bits 3 10
+	message: 6 commandplat(0) clear_bits 1 1
+	message: 6 wlevel1(14) clear_bits 1 1
+	message: 6 elevel1(12) clear_bits 1 1
+    seqend
+    
+item: sector	name: commandplat
+    seq
+    class: elevator move_floor
+    speed: 6
+		stop: @1 hold
+		stop: @-8 hold
+		stop: @20 hold
+			message: 2 wlevel2(8) done
+			message: 2 wlevel3(8) done
+			message: 2 wlevel4(8) done
+			message: 2 elevel2(7) done
+			message: 2 elevel2(7) done
+			message: 2 elevel2(7) done
+            message: 2 n2 master_on
+            message: 2 n3 master_on
+	class: elevator morph_move2
+	event_mask: 4
+	speed: 0
+	stop: 0 hold
+	stop: 0 hold
+	stop: 0 0
+		message: 2 kriegholo next_stop 65536
+    stop: 0 terminate
+    seqend
+
+item: line    name: commandplat    num: 4
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: commandplat
+    seqend
+    
+item: sector	name: kriegholo
+	seq
+	class: elevator move_floor
+	event_mask: 65536
+	speed: 6
+	stop: @0 hold
+	stop: @12 2.5
+	stop: @12 1
+		message: 2 kriegholo(1) set_bits 1 1
+		message: 2 kriegholo master_on 131072
+	stop: @12 5
+		page: 3 krieg01a.voc
+	stop: @12 5
+		page: 4 krieg01b.voc
+	stop: @12 8
+		page: 5 krieg01c.voc
+	stop: @12 6
+		page: 6 kyle005.voc
+	stop: @12 8
+		page: 7 krieg02a.voc
+	stop: @12 terminate
+	sound: 1 0
+	sound: 2 0
+	sound: 3 0
+	slave: kriegholo2
+	slave: kriegholo3
+	slave: kriegholo4
+	class: elevator change_light
+	event_mask: 131072
+	speed: 0
+     stop: 31 0.025
+        adjoin: 0 kriegback 16 kriegholo 1
+        adjoin: 0 kriegfront 9 kriegholo 0
+        adjoin: 0 kriegfront 8 kriegholo 3
+        adjoin: 0 kriegfront 7 kriegholo 2
+     stop: 31 0.025
+        adjoin: 1 kriegback 16 kriegholo2 1
+        adjoin: 1 kriegfront 9 kriegholo2 0
+        adjoin: 1 kriegfront 8 kriegholo2 3
+        adjoin: 1 kriegfront 7 kriegholo2 2
+     stop: 31 0.025
+        adjoin: 2 kriegback 16 kriegholo3 1
+        adjoin: 2 kriegfront 9 kriegholo3 0
+        adjoin: 2 kriegfront 8 kriegholo3 3
+        adjoin: 2 kriegfront 7 kriegholo3 2
+     stop: 31 0.025
+        adjoin: 3 kriegback 16 kriegholo4 1
+        adjoin: 3 kriegfront 9 kriegholo4 0
+        adjoin: 3 kriegfront 8 kriegholo4 3
+        adjoin: 3 kriegfront 7 kriegholo4 2
+     sound: 1 0
+     sound: 2 0
+     sound: 3 0
+     master: off
+	seqend
+
+     
+item: sector name: wplatelev
+    seq
+            class: elevator move_floor
+
+            stop: wplatelev hold
+			message: 0 wplatelev(0) done
+			message: 0 wplat(3) done
+            stop: wplat 8
+			message: 1 wplatelev(0) done
+			message: 1 wplat(3) done
+            speed: 6
+	seqend
+
+item: line    name: wplatelev    num: 0
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: wplatelev
+    seqend
+
+item: line    name: wplat    num: 8
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: wplatelev
+    seqend
+
+item: sector name: eplatelev
+    seq
+            class: elevator move_floor
+            stop: wplatelev hold
+			message: 0 eplatelev(6) done
+			message: 0 eplat(12) done
+            stop: wplat 8
+			message: 1 eplatelev(6) done
+			message: 1 eplat(12) done
+            speed: 6
+	seqend
+
+item: line    name: eplatelev    num: 6
+    seq
+    class: trigger switch1
+    event_mask: 16
+
+    client: eplatelev
+    seqend
+
+
+item: line    name: eplat    num: 12
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: eplatelev
+    seqend
+
+item: line    name: wlevel2    num: 8
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: command
+    seqend
+
+item: line    name: wlevel3    num: 8
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: command
+    seqend
+
+item: line    name: wlevel4    num: 8
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: command
+    seqend
+
+item: line    name: elevel2    num: 7
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: command
+    seqend
+
+item: line    name: elevel3    num: 7
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: command
+    seqend
+
+item: line    name: elevel4    num: 7
+    seq
+    class: trigger switch1
+    event_mask: 16
+    client: command
+    seqend
+
+item: line    name: eleveldoors    num: 3
+
+    seq
+    class: trigger switch1
+    event_mask: 256
+    entity_mask: 8
+    client: eleveldoor
+    client: elevel2door
+    client: elevel3door
+    seqend
+
+item: line    name: wleveldoors    num: 0
+    seq
+    class: trigger switch1
+    event_mask: 256
+    entity_mask: 8
+    client: wleveldoor
+    client: wlevel2door
+    client: wlevel3door
+    seqend
+
+item: sector name: wleveldoor
+    seq
+            class: elevator move_floor
+            stop: @16 hold
+            stop: @0 terminate
+            speed: 2
+seqend
+
+item: sector name: wlevel2door
+    seq
+            class: elevator move_floor
+            stop: @16 hold
+            stop: @0 terminate
+            speed: 2
+seqend
+
+item: sector name: wlevel3door
+    seq
+            class: elevator move_floor
+            stop: @16 hold
+            stop: @0 terminate
+            speed: 2
+seqend
+
+item: sector name: eleveldoor
+    seq
+            class: elevator move_floor
+            stop: @16 hold
+            stop: @0 terminate
+            speed: 2
+seqend
+
+item: sector name: elevel2door
+    seq
+            class: elevator move_floor
+            stop: @16 hold
+            stop: @0 terminate
+            speed: 2
+seqend
+
+item: sector name: elevel3door
+    seq
+            class: elevator move_floor
+            stop: @16 hold
+            stop: @0 terminate
+            speed: 2
+seqend
