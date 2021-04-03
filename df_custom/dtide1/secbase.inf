@@ -1030,6 +1030,7 @@ item: sector	name: cagedummy
 			message: 1 bardoor next_stop
 			message: 1 bar1 next_stop
 			message: 1 axes1 next_stop
+			message: 1 bardoor(0) master_on
 		stop: 2 terminate
 	seqend
 
@@ -1054,7 +1055,19 @@ item: sector	name: bardoor
 		speed: 60
 		stop: @8 hold
 		stop: @0 hold
-		seqend
+		stop: @8 1
+		stop: @8 terminate
+	seqend
+	
+item: line	name: bardoor num: 0
+    seq
+	    class: trigger single
+		master: off
+		event_mask: 48
+		client: bardoor
+		message: next_stop
+		sound: 0
+	seqend
 	
 item: sector	name: axes1
 	seq
