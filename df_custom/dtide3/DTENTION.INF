@@ -493,7 +493,7 @@ item: sector    name: e4
     stop: 1 .25
         message: 1 open4 master_on
         message: 1 e3 master_off
-        message: 1 e2 master_of
+        message: 1 e2 master_off
         message: 1 e1 master_off
     seqend
     
@@ -559,6 +559,10 @@ item: sector    name: resetter
         message: 2 t2(3) done
         message: 2 t3(3) done
         message: 2 t4(3) done
+        message: 2 open1 master_off
+        message: 2 open2 master_off
+        message: 2 open3 master_off
+        message: 2 open4 master_off
     seqend
     
 item: sector    name: opener
