@@ -9,12 +9,12 @@ item: sector        name: complete
     seq
    class: elevator move_floor
        speed: 0
-     stop: 0 hold
      stop: 1 hold
      stop: 2 hold
-         message: 2 droidoff_msg m_trigger 131072
-         message: 2 droiddummy master_on
-     stop: 3 complete
+     stop: 3 hold
+         message: 3 droidoff_msg m_trigger 131072
+         message: 3 droiddummy master_on
+     stop: 4 complete
     seqend
     
 item: line    name: traintriptrig    num: 3
@@ -493,7 +493,7 @@ item: sector    name: e4
     stop: 1 .25
         message: 1 open4 master_on
         message: 1 e3 master_off
-        message: 1 e2 master_off
+        message: 1 e2 master_of
         message: 1 e1 master_off
     seqend
     
@@ -559,10 +559,6 @@ item: sector    name: resetter
         message: 2 t2(3) done
         message: 2 t3(3) done
         message: 2 t4(3) done
-		message: 2 open1 master_off
-        message: 2 open2 master_off
-        message: 2 open3 master_off
-        message: 2 open4 master_off
     seqend
     
 item: sector    name: opener
