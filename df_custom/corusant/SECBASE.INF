@@ -7,7 +7,7 @@ AUTHOR
 EMAIL  
 */
  
-ITEMS 163
+ITEMS 164
  
  
  
@@ -32,9 +32,8 @@ item: sector name: wakeup_trigg3
 item: sector name: d16
  seq
    class: elevator move_ceiling
-       master: off
-       event_mask: 0
        speed: 20
+       event_mask: 0
      stop: -10 0
      stop: -10 hold
        message: 1 dc-16(0) done  
@@ -1135,8 +1134,10 @@ item: sector name: e18
 item: line   name: dc-16 num: 0
  seq
    class: trigger switch1
+       sound: 0
        event_mask: 48
      client: d16
+     client: dc-16-sound
  seqend
  
  
@@ -1538,9 +1539,10 @@ item: sector name: boss
        speed: 0
      stop: 0 0
      stop: 0 hold
+       message: 1 dc-16(0) m_trigger  
      stop: 1 hold
        message: 2 d15 master_on  
-       message: 2 d16 master_on  
+       message: 2 dc-16(0) done  
      stop: 2 hold
        message: 3 d19 next_stop  
      stop: 3 hold
@@ -1941,3 +1943,16 @@ item: sector name: e37
      stop: 50 hold
  seqend
  
+
+item: sector name: dc-16-sound
+ seq
+   class: elevator change_light
+       sound: 1 switch3.voc
+       sound: 2 0
+       sound: 3 0
+       speed: 0
+       event_mask: 0
+     stop: 0 hold
+     stop: 1 hold
+ seqend
+
