@@ -7,7 +7,7 @@ INF 1.0
 
 LEVELNAME AGAMAR
 
-ITEMS 54
+ITEMS 55
 /*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
 ÚÄÙ                   Complete elevator and Level Goals                   ÚÄÙ                                                                                                                                                     ;
 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
@@ -128,8 +128,15 @@ ITEMS 54
 		seqend
 	item: line      name: b01control        num: 2
 		seq
-			class:  trigger switch1
-			client: bridge01
+			class:  		trigger switch1
+			client: 		bridge01
+		seqend
+	item: line      name: b01control        num: 2
+		seq
+			class:          trigger
+			message:        goto_stop 0
+			client:         b01door01
+			client:         b01door02
 		seqend
 	item: line      name: b01tower  num: 5
 		seq
