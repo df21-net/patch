@@ -200,27 +200,31 @@ items 60
 			class: trigger toggle
 			event_mask: 0048
 			client: hockabout2
-			client: arm1
-			client: arm1shell
-			client: arm2
-			client: arm2shell
-			client: fakearm2
 		seqend
 	item:   sector          name:   hockabout2
 		seq
 			class: elevator move_floor
 			stop: 0 hold
-			stop: 10 0
-				message: 1 hockabout next_stop
-			stop: 200 hold
-			stop: 210 0
-				message: 3 hockabout next_stop
+			stop: -2 0
+				message: 10 hockabout next_stop		
+				message: 10 arm1 next_stop
+				message: 10 arm1shell next_stop
+				message: 10 arm2shell next_stop
+				message: 10 fakearm2 next_stop
+			stop: -27.5 hold
+			stop: -29 0
+				message: 30 hockabout next_stop
+				message: 30 arm1 next_stop
+				message: 30 arm1shell next_stop
+				message: 30 arm2shell next_stop
+				message: 30 fakearm2 next_stop				
 			speed: 10
 			eventmask: 0
 		seqend
 	item:   sector          name:   hockabout
 		seq
 			class:  elevator scroll_wall
+			client: hockabout
 			angle: 0
 			speed: 0
 			stop: 0 hold
@@ -281,75 +285,74 @@ items 60
 			event_mask: 0
 			center: -63.0625 -407.5187
 			stop:   0  hold
-			stop:   -26  0
-				message: 1 arm2(0) clear_bits 1 1024
-				message: 1 arm2(1) clear_bits 1 1024
-				message: 1 arm2(2) clear_bits 1 1024
-				message: 1 arm2(3) clear_bits 1 1024
-				message: 1 arm2(4) clear_bits 1 1024
-				message: 1 arm2(5) clear_bits 1 1024
-				message: 1 arm2(6) clear_bits 1 1024 
-				message: 1 arm2(7) clear_bits 1 1024
-				message: 1 arm2(0) set_bits 1 2048
-				message: 1 arm2(1) set_bits 1 2048
-				message: 1 arm2(2) set_bits 1 2048
-				message: 1 arm2(3) set_bits 1 2048
-				message: 1 arm2(4) set_bits 1 2048
-				message: 1 arm2(5) set_bits 1 2048
-				message: 1 arm2(6) set_bits 1 2048
-				message: 1 arm2(7) set_bits 1 2048
-				message: 1 arm1(0) clear_bits 1 2048
-				message: 1 arm1(1) clear_bits 1 2048
-				message: 1 arm1(2) clear_bits 1 2048
-				message: 1 arm1(3) clear_bits 1 2048
-				message: 1 arm1(4) clear_bits 1 2048
-				message: 1 arm1(5) clear_bits 1 2048
-				message: 1 arm1(6) clear_bits 1 2048 
-				message: 1 arm1(7) clear_bits 1 2048
-				message: 1 arm1(0) set_bits 1 1024
-				message: 1 arm1(1) set_bits 1 1024
-				message: 1 arm1(2) set_bits 1 1024
-				message: 1 arm1(3) set_bits 1 1024
-				message: 1 arm1(4) set_bits 1 1024
-				message: 1 arm1(5) set_bits 1 1024
-				message: 1 arm1(6) set_bits 1 1024
-				message: 1 arm1(7) set_bits 1 1024
+				message: 0 arm2(0) clear_bits 1 1024
+				message: 0 arm2(1) clear_bits 1 1024
+				message: 0 arm2(2) clear_bits 1 1024
+				message: 0 arm2(3) clear_bits 1 1024
+				message: 0 arm2(4) clear_bits 1 1024
+				message: 0 arm2(5) clear_bits 1 1024
+				message: 0 arm2(6) clear_bits 1 1024 
+				message: 0 arm2(7) clear_bits 1 1024
+				message: 0 arm2(0) set_bits 1 2048
+				message: 0 arm2(1) set_bits 1 2048
+				message: 0 arm2(2) set_bits 1 2048
+				message: 0 arm2(3) set_bits 1 2048
+				message: 0 arm2(4) set_bits 1 2048
+				message: 0 arm2(5) set_bits 1 2048
+				message: 0 arm2(6) set_bits 1 2048
+				message: 0 arm2(7) set_bits 1 2048
+				message: 0 arm1(0) clear_bits 1 2048
+				message: 0 arm1(1) clear_bits 1 2048
+				message: 0 arm1(2) clear_bits 1 2048
+				message: 0 arm1(3) clear_bits 1 2048
+				message: 0 arm1(4) clear_bits 1 2048
+				message: 0 arm1(5) clear_bits 1 2048
+				message: 0 arm1(6) clear_bits 1 2048 
+				message: 0 arm1(7) clear_bits 1 2048
+				message: 0 arm1(0) set_bits 1 1024
+				message: 0 arm1(1) set_bits 1 1024
+				message: 0 arm1(2) set_bits 1 1024
+				message: 0 arm1(3) set_bits 1 1024
+				message: 0 arm1(4) set_bits 1 1024
+				message: 0 arm1(5) set_bits 1 1024
+				message: 0 arm1(6) set_bits 1 1024
+				message: 0 arm1(7) set_bits 1 1024
 			stop:   -27.5 hold
-				adjoin: 2 arm1 5 lock1a 2
-				message: 2 middoor1a goto_stop 1
-			stop:   -1 0
-				message: 3 arm1(0) clear_bits 1 1024
-				message: 3 arm1(1) clear_bits 1 1024
-				message: 3 arm1(2) clear_bits 1 1024
-				message: 3 arm1(3) clear_bits 1 1024
-				message: 3 arm1(4) clear_bits 1 1024
-				message: 3 arm1(5) clear_bits 1 1024
-				message: 3 arm1(6) clear_bits 1 1024 
-				message: 3 arm1(7) clear_bits 1 1024
-				message: 3 arm1(0) set_bits 1 2048
-				message: 3 arm1(1) set_bits 1 2048
-				message: 3 arm1(2) set_bits 1 2048
-				message: 3 arm1(3) set_bits 1 2048
-				message: 3 arm1(4) set_bits 1 2048
-				message: 3 arm1(5) set_bits 1 2048
-				message: 3 arm1(6) set_bits 1 2048
-				message: 3 arm1(7) set_bits 1 2048
-				message: 3 arm2(0) clear_bits 1 2048
-				message: 3 arm2(1) clear_bits 1 2048
-				message: 3 arm2(2) clear_bits 1 2048
-				message: 3 arm2(3) clear_bits 1 2048
-				message: 3 arm2(4) clear_bits 1 2048
-				message: 3 arm2(5) clear_bits 1 2048
-				message: 3 arm2(6) clear_bits 1 2048 
-				message: 3 arm2(7) clear_bits 1 2048
-				message: 3 arm2(0) set_bits 1 1024
-				message: 3 arm2(1) set_bits 1 1024
-				message: 3 arm2(2) set_bits 1 1024
-				message: 3 arm2(3) set_bits 1 1024
-				message: 3 arm2(4) set_bits 1 1024
-				message: 3 arm2(5) set_bits 1 1024
-				message: 3 arm2(6) set_bits 1 1024
-				message: 3 arm2(7) set_bits 1 1024
+				adjoin: 1 arm1 5 lock1a 2
+				message: 1  middoor1a goto_stop 1
+				message: 1 arm1(0) clear_bits 1 1024
+				message: 1 arm1(1) clear_bits 1 1024
+				message: 1 arm1(2) clear_bits 1 1024
+				message: 1 arm1(3) clear_bits 1 1024
+				message: 1 arm1(4) clear_bits 1 1024
+				message: 1 arm1(5) clear_bits 1 1024
+				message: 1 arm1(6) clear_bits 1 1024 
+				message: 1 arm1(7) clear_bits 1 1024
+				message: 1 arm1(0) set_bits 1 2048
+				message: 1 arm1(1) set_bits 1 2048
+				message: 1 arm1(2) set_bits 1 2048
+				message: 1 arm1(3) set_bits 1 2048
+				message: 1 arm1(4) set_bits 1 2048
+				message: 1 arm1(5) set_bits 1 2048
+				message: 1 arm1(6) set_bits 1 2048
+				message: 1 arm1(7) set_bits 1 2048
+				message: 1 arm2(0) clear_bits 1 2048
+				message: 1 arm2(1) clear_bits 1 2048
+				message: 1 arm2(2) clear_bits 1 2048
+				message: 1 arm2(3) clear_bits 1 2048
+				message: 1 arm2(4) clear_bits 1 2048
+				message: 1 arm2(5) clear_bits 1 2048
+				message: 1 arm2(6) clear_bits 1 2048 
+				message: 1 arm2(7) clear_bits 1 2048
+				message: 1 arm2(0) set_bits 1 1024
+				message: 1 arm2(1) set_bits 1 1024
+				message: 1 arm2(2) set_bits 1 1024
+				message: 1 arm2(3) set_bits 1 1024
+				message: 1 arm2(4) set_bits 1 1024
+				message: 1 arm2(5) set_bits 1 1024
+				message: 1 arm2(6) set_bits 1 1024
+				message: 1 arm2(7) set_bits 1 1024
+				
 		seqend
 	item:   line            name:  kportdoor         num: 4
 		seq
@@ -358,7 +361,6 @@ items 60
 			message: goto_stop 1
 			client: arm1
 			client: arm1shell
-			client: arm2
 			client: arm2shell
 			client: fakearm2
 			client: middoor1
