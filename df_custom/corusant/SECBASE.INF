@@ -1201,13 +1201,13 @@ item: sector name: wake_up!1
 item: sector name: slider0
  seq
    class: elevator morph_move1
-       event_mask: 0
        angle: 0
        speed: 15
+       event_mask: 0
      stop: 0 0
      stop: 0 hold
-       message: 1 dc0-180a done  
-       message: 1 dc0-180b done  
+       message: 1 dc0-180a(24) done  
+       message: 1 dc0-180b(2) done  
      stop: 8.5 5
  seqend
  
@@ -1215,13 +1215,13 @@ item: sector name: slider0
 item: sector name: slider180
  seq
    class: elevator morph_move1
-       event_mask: 0
        angle: 180
        speed: 15
+       event_mask: 0
      stop: 0 0
      stop: 0 hold
-       message: 1 dc0-180a done  
-       message: 1 dc0-180b done  
+       message: 1 dc0-180a(24) done  
+       message: 1 dc0-180b(2) done  
      stop: 8.5 5
  seqend
  
