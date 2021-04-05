@@ -1,0 +1,506 @@
+INF 1.0
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ      This file contains information definitions for a single level    ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+
+LEVELNAME fuelstat
+
+items 60
+       item:    sector          name:   echobelly
+		seq
+			class: elevator move_ceiling
+			stop: 0 hold
+			stop: 11.5 3
+			event_mask: 32
+		seqend
+       item:    sector          name:   nico
+		seq
+			class:  elevator move_floor
+			stop:   -15 hold
+			stop:   15 hold
+			event_mask: 52
+			speed: 30
+		seqend
+       item:    sector          name:   helen
+		seq
+			class: elevator door
+			key: yellow
+		seqend
+       item:    sector          name:   smuggler_elev2
+		seq
+			class: elevator move_floor
+			stop:   @0 hold
+			stop:   @-15 hold
+			event_mask: 52
+		seqend
+       item:    sector          name:   bar1
+		seq
+			class:  elevator door
+			key:    blue
+		seqend
+      item:    sector          name:   middoor1
+		seq
+			class:  elevator move_ceiling
+			stop:   10 hold
+			stop:   0 hold
+			event_mask: 0
+			speed: 30
+		seqend
+       item:    sector          name:   middoor1a
+		seq
+			class:  elevator move_ceiling
+			stop:   0 hold
+			stop:   10 hold
+			event_mask: 0
+		seqend
+       item:    sector          name:   middoor2
+		seq
+			class:  elevator move_ceiling
+			stop:   0 hold
+			stop:   10 hold
+			event_mask: 48
+		seqend
+       item:    sector          name:   middoor3
+		seq
+			class:  elevator move_ceiling
+			stop:   0 hold
+			stop:   10 hold
+			event_mask: 48
+		seqend
+       item:    sector          name:   plant
+		seq
+			class: trigger
+			client: goal0a
+		seqend
+       item:    sector          name: goal0a
+		seq
+			class: elevator move_floor
+			stop: 0 hold
+			stop: 1 0
+				message: 1 complete complete 0
+				message: 1 vocelev1 next_stop
+			stop: 2 terminate
+			speed: 0
+		seqend
+      item:    line            name:   plant      num: 0
+		seq
+			class:  trigger switch1
+			client: miserablelie
+				message: master_on
+			event_mask: 48
+			class: trigger switch1
+			client: thischarmingman
+				message: next_stop
+		seqend
+       item:    sector          name:   miserablelie
+		seq
+			class: elevator move_floor
+			master: off
+			stop: 0 hold
+			stop: 1 hold
+				message: 1 vocelev2 next_stop
+			speed: 0
+		seqend
+       item:    sector          name:   thischarmingman
+		seq
+			class: elevator move_floor
+			master: off
+			stop: 0 hold
+			stop: 1 0
+				message: 1 vocelev2 next_stop
+			stop: 2 terminate
+			speed: 0
+		seqend      
+       item:    sector          name:   vocelev1
+		seq
+			class:  elevator move_floor
+			stop:   0 hold
+			stop:   1 0
+				page: 1 m12kyl01.voc
+			stop:   4 0
+				page: 2 m12jan01.voc
+			stop:   6 0
+				message: 3 miserablelie next_stop
+				message: 3 thischarmingman master_on
+			stop:   7 terminate
+			speed:  1
+		seqend
+       item:    sector          name:   vocelev2
+		seq
+			class: elevator move_floor
+			stop:   5 hold
+			stop:   6 0
+				page: 1 m12kyl02.voc
+			stop:   46 0
+				page: 2 m12jan02.voc
+			stop:   47 0
+				message: 3 complete complete 1
+			stop:   48 terminate
+			speed: 10
+		seqend
+	item:   sector          name:   complete
+		seq
+			class: elevator move_floor
+			stop:  0 hold
+			stop:  1 hold
+			stop:  2 0
+				message: 2 echobelly master_off
+			stop:  3 complete
+			speed: 0
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                             Arm Two                                   ÚÄÙ
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item:   sector          name:   arm2elev
+		seq
+			class:  elevator move_floor
+			stop: 17 hold
+				message: 0 arm2elev(6) done
+			stop: 0 hold
+				message: 1 arm2elev(6) done
+				adjoin: 1 jam 3 arm2elev 1
+			event_mask: 32
+		seqend
+	item:   line            name:   arm2elev        num: 6
+		seq
+			class:  trigger switch1
+			client: arm2elev
+				message: next_stop
+		seqend
+	item:   sector          name:   roman2
+		seq
+			class:  elevator move_ceiling
+			stop:   17 hold
+			stop:   25 hold
+		seqend
+	item:   sector          name:   arm2shell
+		seq
+			class:  elevator morph_spin1
+			event_mask: 0
+			speed:  10
+			center: -63.0625 -407.5187
+			stop:   0 hold
+				message: 0 roman1 goto_stop 0
+				message: 0 roman2 goto_stop 1
+			stop:   -27.5 hold
+				message: 1 roman1 goto_stop 1
+				message: 1 roman2 goto_stop 0
+		seqend
+	item:   sector          name:   fakearm2
+		seq
+			class: elevator morph_spin2
+			event_mask: 0
+			speed: 2.5
+			center: -123.5 -369.5
+			stop: 0 hold
+			stop: -50 hold
+		seqend
+	item:   line            name:   hockabout        num:    2
+		seq
+			class: trigger toggle
+			event_mask: 0048
+			client: hockabout2
+			client: arm1
+			client: arm1shell
+			client: arm2
+			client: arm2shell
+			client: fakearm2
+		seqend
+	item:   sector          name:   hockabout2
+		seq
+			class: elevator move_floor
+			stop: 0 hold
+			stop: 10 0
+				message: 1 hockabout next_stop
+			stop: 200 hold
+			stop: 210 0
+				message: 3 hockabout next_stop
+			speed: 10
+			eventmask: 0
+		seqend
+	item:   sector          name:   hockabout
+		seq
+			class:  elevator scroll_wall
+			angle: 0
+			speed: 0
+			stop: 0 hold
+			stop: -64 hold
+			event_mask: 0
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                             Arm One                                   ÚÄÙ
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item:   sector          name:   inftsumaranai
+		seq
+			class: elevator move_floor
+			stop: -16 hold
+			stop: 16 hold
+			event_mask: 0
+		seqend
+	item:   line         name:   inftsumaranai  num: 2
+		seq
+			class: trigger toggle
+			client: inftsumaranai
+			message: next_stop
+		seqend
+	item:   sector          name:   arm1elev
+		seq
+			class:  elevator move_floor
+			stop: 0 hold
+				message: 0 arm1elev(6) done
+			stop: 17 hold
+				message: 1 arm1elev(6) done
+			event_mask: 32
+		seqend
+	item:   line            name:   arm1elev        num: 6
+		seq
+			class:  trigger switch1
+			client: arm1elev
+				message: next_stop
+		seqend
+	item:   sector          name:   roman1
+		seq
+			class:  elevator move_ceiling
+			stop:   17 hold
+			stop:   @8 hold
+			event_mask: 0
+		seq
+	item:   sector          name:   arm1
+		seq
+			class:  elevator move_ceiling
+			event_mask: 0
+			speed:      0
+			stop: 1 hold
+			stop: 16 hold
+			      adjoin: 1 arm1 1 lock1 3
+		seqend
+	item:   sector          name:   arm1shell
+		seq
+			class:  elevator morph_spin1
+			speed:  10
+			event_mask: 0
+			center: -63.0625 -407.5187
+			stop:   0  hold
+			stop:   -26  0
+				message: 1 arm2(0) clear_bits 1 1024
+				message: 1 arm2(1) clear_bits 1 1024
+				message: 1 arm2(2) clear_bits 1 1024
+				message: 1 arm2(3) clear_bits 1 1024
+				message: 1 arm2(4) clear_bits 1 1024
+				message: 1 arm2(5) clear_bits 1 1024
+				message: 1 arm2(6) clear_bits 1 1024 
+				message: 1 arm2(7) clear_bits 1 1024
+				message: 1 arm2(0) set_bits 1 2048
+				message: 1 arm2(1) set_bits 1 2048
+				message: 1 arm2(2) set_bits 1 2048
+				message: 1 arm2(3) set_bits 1 2048
+				message: 1 arm2(4) set_bits 1 2048
+				message: 1 arm2(5) set_bits 1 2048
+				message: 1 arm2(6) set_bits 1 2048
+				message: 1 arm2(7) set_bits 1 2048
+				message: 1 arm1(0) clear_bits 1 2048
+				message: 1 arm1(1) clear_bits 1 2048
+				message: 1 arm1(2) clear_bits 1 2048
+				message: 1 arm1(3) clear_bits 1 2048
+				message: 1 arm1(4) clear_bits 1 2048
+				message: 1 arm1(5) clear_bits 1 2048
+				message: 1 arm1(6) clear_bits 1 2048 
+				message: 1 arm1(7) clear_bits 1 2048
+				message: 1 arm1(0) set_bits 1 1024
+				message: 1 arm1(1) set_bits 1 1024
+				message: 1 arm1(2) set_bits 1 1024
+				message: 1 arm1(3) set_bits 1 1024
+				message: 1 arm1(4) set_bits 1 1024
+				message: 1 arm1(5) set_bits 1 1024
+				message: 1 arm1(6) set_bits 1 1024
+				message: 1 arm1(7) set_bits 1 1024
+			stop:   -27.5 hold
+				adjoin: 2 arm1 5 lock1a 2
+				message: 2 middoor1a goto_stop 1
+			stop:   -1 0
+				message: 3 arm1(0) clear_bits 1 1024
+				message: 3 arm1(1) clear_bits 1 1024
+				message: 3 arm1(2) clear_bits 1 1024
+				message: 3 arm1(3) clear_bits 1 1024
+				message: 3 arm1(4) clear_bits 1 1024
+				message: 3 arm1(5) clear_bits 1 1024
+				message: 3 arm1(6) clear_bits 1 1024 
+				message: 3 arm1(7) clear_bits 1 1024
+				message: 3 arm1(0) set_bits 1 2048
+				message: 3 arm1(1) set_bits 1 2048
+				message: 3 arm1(2) set_bits 1 2048
+				message: 3 arm1(3) set_bits 1 2048
+				message: 3 arm1(4) set_bits 1 2048
+				message: 3 arm1(5) set_bits 1 2048
+				message: 3 arm1(6) set_bits 1 2048
+				message: 3 arm1(7) set_bits 1 2048
+				message: 3 arm2(0) clear_bits 1 2048
+				message: 3 arm2(1) clear_bits 1 2048
+				message: 3 arm2(2) clear_bits 1 2048
+				message: 3 arm2(3) clear_bits 1 2048
+				message: 3 arm2(4) clear_bits 1 2048
+				message: 3 arm2(5) clear_bits 1 2048
+				message: 3 arm2(6) clear_bits 1 2048 
+				message: 3 arm2(7) clear_bits 1 2048
+				message: 3 arm2(0) set_bits 1 1024
+				message: 3 arm2(1) set_bits 1 1024
+				message: 3 arm2(2) set_bits 1 1024
+				message: 3 arm2(3) set_bits 1 1024
+				message: 3 arm2(4) set_bits 1 1024
+				message: 3 arm2(5) set_bits 1 1024
+				message: 3 arm2(6) set_bits 1 1024
+				message: 3 arm2(7) set_bits 1 1024
+		seqend
+	item:   line            name:  kportdoor         num: 4
+		seq
+			class: trigger single
+			event_mask: 0048
+			message: goto_stop 1
+			client: arm1
+			client: arm1shell
+			client: arm2
+			client: arm2shell
+			client: fakearm2
+			client: middoor1
+				message: goto_stop 1
+			client: hockabout
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                        Official access elevator                       ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+       item: sector            name: testdoor
+		seq
+			class: elevator morph_spin1
+			stop: 0 hold
+			stop: -45 5
+			speed: 30
+			center: 171.5337 -570.8277
+		seqend
+	item: sector            name: testdoor2
+		seq
+			class: elevator morph_spin2
+			stop: 0 hold
+			stop: 45 5
+			speed: 30
+			center: 171.5337 -570.8277
+		seqend
+	item:   sector          name:   entry1a
+		seq
+			class: trigger
+			event_mask: 4
+			message: trigger
+			client: testdoor
+			client: testdoor2
+		seqend
+	item:   sector          name:   entry1b
+		seq
+			class: trigger
+			event_mask: 8
+			client: testdoor
+			client: testdoor2
+		seqend
+	item: sector            name: elev01access
+		seq
+			class: elevator morph_spin1
+			stop: 0 hold
+			stop: 85 10
+			speed: 30
+			center: -61.8604 -101.4138
+			event_mask: 052
+		seqend
+	item: sector            name: elev02access
+		seq
+			class: elevator morph_spin1
+			stop: 0 hold
+			stop: 85 10
+			speed: 30
+			center: -313.65 -232.57
+			event_mask: 052
+		seqend
+	item: line              name: elev01panel       num: 16
+		seq
+			class: trigger switch1
+			client: dummy
+		seqend
+	item: sector            name: dummy
+		seq
+			class: elevator move_floor
+			stop: 16 hold
+				message: 0 elev01panel(16) done
+			stop: 0 0
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                        The donut Things                               ÚÄÙ
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item:  sector          name:  middle1
+		seq
+			class:  elevator morph_spin1
+			speed:  2.5
+			flags:  7
+			center: -75.6 -398.65
+			event_mask: 0
+			stop: 0 hold
+			stop: 90 hold
+			stop: 180 hold
+			stop: 270 hold
+			stop: 361 hold
+		seqend
+	item:   line          name:   platform1 num:    5
+		seq
+			class:  trigger toggle
+			client: middle1
+			event_mask: 0048
+			message: goto_stop 1
+			class: trigger toggle
+		seqend
+	item:   line          name:   platform2 num:    19
+		seq
+			class:  trigger toggle
+			client: middle1
+			message: goto_stop 2
+			event_mask: 0048
+		seqend
+	item:   line          name:   platform3 num:    5
+		seq
+			class:  trigger toggle
+			client: middle1
+			event_mask: 0048
+			message: goto_stop 3
+		seqend
+	 item:   line          name:   tank? num: 26
+		seq
+			class:  trigger toggle
+			client: middle1
+			message: goto_stop 0
+			event_mask: 0048
+		seqend
+	item:   sector          name:   elev500
+		seq
+			class: elevator move_floor
+			stop: 16 hold
+				message: 0 elev500(12) done
+				message: 0 dean(3) done
+			stop: 58 hold
+				message: 1 elev500(12) done
+				message: 1 dean(3) done
+			event_mask: 0 
+			slave: elev500s
+		seqend
+	item:   line           name:    dean    num: 3
+		seq
+			class: trigger switch1
+			client: elev500
+			message: next_stop
+		seqend
+	item:   line           name:    elev500 num: 12
+		seq
+			class:  trigger switch1
+			client: elev500
+		seqend
+	item:   sector          name:   elev500s
+		seq
+			class: elevator move_floor
+			stop: 16 hold
+			stop: 58 hold
+			event_mask: 0
+		seqend
