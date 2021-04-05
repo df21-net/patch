@@ -1539,12 +1539,11 @@ item: sector name: boss
      stop: 0 0
      stop: 0 hold
      stop: 1 hold
+       message: 2 d15 master_on  
+       message: 2 d16 master_on  
      stop: 2 hold
-       message: 3 d15 master_on  
-       message: 3 d16 master_on  
+       message: 3 d19 next_stop  
      stop: 3 hold
-       message: 4 d19 next_stop  
-     stop: 4 hold
  seqend
  
  
