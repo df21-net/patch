@@ -1,0 +1,427 @@
+
+
+INF 1.0
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ      This file contains information definitions for a single level    ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+
+LEVELNAME AGAMAR
+
+ITEMS 54
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                   Complete elevator and Level Goals                   ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: complete
+		seq
+			class: elevator move_floor
+			stop: 0 1
+			stop: 0.1 3
+				page: 1 takeoff1.voc
+			stop: 0.2 0
+				page: 2 takeoff2.voc
+			stop: 0.3 hold
+			stop: 0.5 hold
+			stop: 1 0
+				message: 5 stupid master_on
+				message: 5 gen1 master_on 
+				message: 5 gen2 master_on 
+				message: 5 gen3 master_on 
+				message: 5 gen4 master_on 
+				message: 5 gen5 master_on 
+				message: 5 gen6 master_on 
+				message: 5 gen7 master_on 
+				page:   5 m02kyl01.voc
+			stop: 13 0
+				page:   6 m02jan01.voc
+			stop: 28 0
+				page:   7 m02kyl02.voc
+			stop: 56 0
+				page:   8 m02jan02.voc
+			stop: 79 hold
+			stop: 79.1 2
+			stop: 79.5 0
+				page: 11 landing1.voc
+			stop: 80 complete
+			speed: 10
+		seqend
+	item: sector            name: initiate
+		seq
+			class: elevator move_floor
+			stop: 0 0
+			stop: 1 0
+				message: 1 t_servo wakeup
+			stop: 2 terminate
+		seqend
+	item: sector            name: m_duchamp
+		seq
+			class: trigger standard
+			event_mask: 04
+			client: stupid
+			message: m_trigger
+		seqend
+	item: sector            name: stupid
+		seq
+			class: elevator move_floor
+			stop: 0 hold
+			stop: 1 0
+				message: 1 bed wakeup
+				message: 1 complete next_stop
+				message: 1 complete complete 1
+			stop: 2 terminate
+			master: off
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                            capital building                           ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: line      name: cbopanel  num: 7
+		seq
+			class:          trigger switch1
+			client:         cbosecret
+		seqend
+	item: sector    name: cbosecret
+		seq
+			class:          elevator move_ceiling
+			event_mask:     0
+			stop:           cbosecret hold
+			 message:       0 cbopanel(7) done
+			stop:           14 hold
+		seqend
+	item: line      name: cbo       num: 9
+		seq
+			class:          trigger
+			event_mask:     2
+			client:         cbosecret
+		seqend
+	item: sector    name: busted
+		seq
+			class: elevator inv
+			event_mask: 52
+			stop: 11.19 hold
+			stop: 12.19 1
+			stop: 7.5 .5
+			stop: 9 .3
+			stop: 11 .3
+			stop: 9 .3
+			stop: 11 .3
+			stop: 9 .3
+			stop: 11 .3
+			stop: 14 .8
+			stop: 7 terminate
+			sound: 2 electric.voc
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                          Big Swinging Bridge                          ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector    name: bridge01
+		seq
+			class:          elevator morph_spin2
+			event_mask:     0
+			center:         397 340
+			stop:           0 hold
+			 message:       0 b01tower(5) done
+			 message:       0 b01control(2) done
+			 message:       0 b01door01 goto_stop 1
+			stop:           -180 hold
+			 message:       1 b01tower(5) done
+			 message:       1 b01control(2) done
+			 message:       1 b01door02 goto_stop 1
+		seqend
+	item: line      name: b01control        num: 2
+		seq
+			class:  trigger switch1
+			client: bridge01
+		seqend
+	item: line      name: b01tower  num: 5
+		seq
+			class:          trigger switch1
+			client:         bridge01
+		seqend
+	item: line      name: b01tower  num: 5
+		seq
+			class:          trigger
+			message:        goto_stop 0
+			client:         b01door01
+			client:         b01door02
+		seqend
+	item: sector    name: b01door01
+		seq
+			class:          elevator        move_ceiling
+			event_mask:     0
+			stop:           b01door01 hold
+			stop:           14 hold
+		seqend
+	item: sector    name: b01door02
+		seq
+			class:          elevator        move_ceiling
+			event_mask:     0
+			stop:           b01door02 hold
+			stop:           14 hold
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                           River     Sectors                           ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector    name: river00
+		seq
+			class: elevator scroll_floor
+			angle: 200
+			speed: 3
+		seqend
+	item: sector    name: river01
+		seq
+			class:          elevator scroll_wall
+			angle:          0
+			speed:          64
+		seqend
+	item: sector    name: river01
+		seq
+			class:          elevator scroll_floor
+			angle:          180
+			speed:          3
+		seqend
+	item: sector    name: river02
+		seq
+			class:          elevator scroll_floor
+			angle:          180
+			speed:          3
+		seqend
+	item: sector    name: river02
+		seq
+			class:          elevator scroll_wall
+			angle:          0
+			speed:          24
+		seqend
+	item: sector    name: river02a
+		seq
+			class:          elevator scroll_wall
+			angle:          0
+			speed:          24
+		seqend
+	item: sector    name: river02a
+		seq
+			class:          elevator scroll_floor
+			angle:          265
+			speed:          3
+		seqend
+	item: sector    name: river02b
+		seq
+			class:          elevator scroll_floor
+			angle:          265
+			speed:          3
+		seqend
+	item: sector    name: river03
+		seq
+			class:          elevator scroll_wall
+			angle:          0
+			speed:          24
+		seqend
+	item: sector    name: river03
+		seq
+			class:          elevator scroll_floor
+			angle:          270
+			speed:          3
+		seqend
+	item: sector    name: river03a
+		seq
+			class:          elevator scroll_floor
+			angle:          0
+			speed:          1
+		seqend
+	item: sector    name: river03b
+		seq
+			class:          elevator scroll_floor
+			angle:          0
+			speed:          1
+		seqend
+	item: sector    name: river03c
+		seq
+			class:          elevator scroll_floor
+			angle:          0
+			speed:          1
+		seqend
+	item: sector    name: river03d
+		seq
+			class:          elevator scroll_floor
+			angle:          0
+			speed:          1
+		seqend
+	item: sector    name: b01door04
+		seq
+			class:          elevator scroll_floor
+			angle:          0
+			speed:          1
+		seqend
+	item: sector    name: river04
+		seq
+			class:          elevator scroll_floor
+			angle:          270
+			speed:          3
+		seqend
+	item: sector    name: river05
+		seq
+			class:          elevator scroll_floor
+			angle:          270
+			speed:          3
+		seqend
+	item: sector    name: river06
+		seq
+			class:          elevator scroll_floor
+			angle:          270
+			speed:          3
+		seqend
+	item: sector    name: river06
+		seq
+			class:          elevator scroll_wall
+			angle:          0
+			speed:          18
+		seqend
+	item: sector    name: river06a
+		seq
+			class:          elevator scroll_floor
+			angle:          180
+			speed:          3
+		seqend
+	item: sector    name: river06a
+		seq
+			class:          elevator scroll_wall
+			angle:          0
+			speed:          18
+		seqend
+	item: sector    name: river07
+		seq
+			class:          elevator scroll_wall
+			angle:          0
+			speed:          24
+		seqend
+	item: sector    name: river07
+		seq
+			class:          elevator scroll_floor
+			angle:          180
+			speed:          3
+		seqend
+	item: sector    name: river08
+		seq
+			class:          elevator scroll_floor
+			angle:          180
+			speed:          3
+		seqend
+	item: sector    name: river09
+		seq
+			class:          elevator scroll_floor
+			angle:          180
+			speed:          3
+		seqend
+	item: sector    name: river10
+		seq
+			class:          elevator scroll_floor
+			angle:          180
+			speed:          3
+		seqend
+	item: sector    name: river11
+		seq
+			class:          elevator scroll_floor
+			angle:          180
+			speed:          3
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                                Bridge 2                               ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector    name: b02elev
+		seq
+			class:          elevator move_floor
+			event_mask:     36
+			stop:           b02control hold
+			stop:           b02door hold
+			master:         off
+		seqend
+/*      item: sector    name: b02door
+		seq
+			class:          elevator move_floor
+			event_mask:     0
+			stop:           18 hold
+				message:        0 b02control(3) done
+			stop:           b02door 5
+			master:         off
+		seqend
+	item: line      name: b02control        num: 3
+		seq
+			class:          trigger switch1
+			client:         b02door
+		seqend
+	item: line      name: b02step           num: 0
+		seq
+			class:          trigger
+			event_mask:     1
+			message:        goto_stop 1
+			client:         b02door
+		seqend */
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                            Power Generator                            ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector    name: dummy
+		seq
+			class: elevator move_floor
+			stop: 0 hold
+			stop: 1 hold
+				message: 1 blade00 master_on
+				message: 1 powerdoor01 master_on
+				message: 1 powerdoor02 master_on
+				message: 1 powerdoor03 master_on
+				message: 1 powerdoor04 master_on
+				message: 1 powerdoor05 master_on
+				message: 1 powerdoor06 master_on
+				message: 1 b02door master_on
+				message: 1 b02elev master_on
+				message: 1 system lights
+				message: 1 complete complete 0 
+		seqend
+	item: line      name: power     num: 0
+		seq
+			class: trigger switch1
+			client: dummy
+		seqend
+	item: sector    name: blade00
+		seq
+			class:          elevator morph_spin2
+			center:         227.61 26.41
+			slave: blade01
+			slave: blade02
+			event mask: 0
+			speed: 9
+			master: off
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                   Disabled doors for power generator                    |
+|                     Also see b02door and b02elev                        ÚÄÙ
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector    name: powerdoor01
+		seq
+			class:          elevator door
+			master:         off
+		seqend
+	item: sector    name: powerdoor02
+		seq
+			class:          elevator door
+			master:         off
+		seqend
+	item: sector    name: powerdoor03
+		seq
+			class:          elevator door
+			master:         off
+		seqend
+	item: sector    name: powerdoor04
+		seq
+			class:          elevator door
+			master:         off
+		seqend
+	item: sector    name: powerdoor05
+		seq
+			class:          elevator door
+			master:         off
+		seqend
+	item: sector    name: powerdoor06
+		seq
+			class:          elevator door
+			master:         off
+		seqend
+
+
