@@ -96,6 +96,8 @@ ITEMS 140
 				page: 2 m11kyl03.voc
 			stop: 3 hold
 				message: 3 exit-door m_trigger
+				message: 3 holycow(8) clear_bits 3 8
+				message: 3 kludge2(3) clear_bits 3 8
 			     /*   message: 3 hc2 next_stop    */
 		       stop: 4 1 
 			stop: 5 complete

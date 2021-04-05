@@ -15351,7 +15351,7 @@ SECTOR 402   #ACAD: 707D4052
     WALL LEFT:   5  RIGHT:   6  MID:  26   0.00   0.00   0  TOP:  67   5.88 -11.00   0  BOT:  12   0.00  -9.00   0  SIGN:  -1 -2345.16 -2345.46  ADJOIN: 175  MIRROR:   1  WALK: 175  FLAGS: 1056 0 4  LIGHT: 6
     WALL LEFT:   6  RIGHT:   7  MID:  26   0.00   0.00   0  TOP:  67   3.38   5.00   0  BOT:  12   0.00  -9.00   0  SIGN:  -1 1220.64 1156.78  ADJOIN: 176  MIRROR:   1  WALK: 176  FLAGS: 1056 0 4  LIGHT: 9
     WALL LEFT:   7  RIGHT:   8  MID:  60   0.00   0.00   0  TOP:  60   1.00   5.00   0  BOT:  60   0.00  -9.00   0  SIGN:  -1 1994.67 2730.54  ADJOIN:  -1  MIRROR:  -1  WALK:  -1  FLAGS: 32 0 0  LIGHT: 6
-    WALL LEFT:   8  RIGHT:   9  MID:  60   0.00   0.00   0  TOP:  60   1.50 -10.69   0  BOT:  60   0.00  -9.00   0  SIGN:  -1 1895.40 -2296.85  ADJOIN: 447  MIRROR:   3  WALK: 447  FLAGS: 2080 0 0  LIGHT: 0
+    WALL LEFT:   8  RIGHT:   9  MID:  60   0.00   0.00   0  TOP:  60   1.50 -10.69   0  BOT:  60   0.00  -9.00   0  SIGN:  -1 1895.40 -2296.85  ADJOIN: 447  MIRROR:   3  WALK: 447  FLAGS: 2080 0 8  LIGHT: 0
     WALL LEFT:   9  RIGHT:   0  MID:  60   0.00   0.00   0  TOP:  60   1.00   5.00   0  BOT:  60   0.00  -9.00   0  SIGN:  -1 2902.84 4074.96  ADJOIN:  -1  MIRROR:  -1  WALK:  -1  FLAGS: 32 0 0  LIGHT: 6
 
 
@@ -17321,7 +17321,7 @@ SECTOR 447   #ACAD: 8FD28235
 #               S e c t o r   D e f i n i t i o n
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 SECTOR 448   #ACAD: 8FD2823C
-  NAME
+  NAME     kludge2
   AMBIENT  22
   FLOOR TEXTURE     28    0.00    0.00  2
   FLOOR ALTITUDE   -178.50
@@ -17344,4 +17344,4 @@ SECTOR 448   #ACAD: 8FD2823C
     WALL LEFT:   0  RIGHT:   1  MID:  60   0.00   0.00   0  TOP:  60   0.00   0.00   0  BOT:  60   0.00   0.00   0  SIGN:  -1   0.00   0.00  ADJOIN:  -1  MIRROR:  -1  WALK:  -1  FLAGS: 0 0 0  LIGHT: 8
     WALL LEFT:   1  RIGHT:   2  MID:  60   0.00   0.00   0  TOP:  60   0.00   0.00   0  BOT:  60   0.00   0.00   0  SIGN:  -1   0.00   0.00  ADJOIN:  -1  MIRROR:  -1  WALK:  -1  FLAGS: 0 0 0  LIGHT: 0
     WALL LEFT:   2  RIGHT:   3  MID:  60   0.00   0.00   0  TOP:  60   0.00   0.00   0  BOT:  60   0.00   0.00   0  SIGN:  -1   0.00   0.00  ADJOIN:  -1  MIRROR:  -1  WALK:  -1  FLAGS: 0 0 0  LIGHT: 8
-    WALL LEFT:   3  RIGHT:   0  MID:  58   0.00   0.00   0  TOP:  58   0.00   0.00   0  BOT:  58   0.00   0.00   0  SIGN:  -1   0.00   0.00  ADJOIN: 447  MIRROR:   1  WALK: 447  FLAGS: 0 0 0  LIGHT: 0
+    WALL LEFT:   3  RIGHT:   0  MID:  58   0.00   0.00   0  TOP:  58   0.00   0.00   0  BOT:  58   0.00   0.00   0  SIGN:  -1   0.00   0.00  ADJOIN: 447  MIRROR:   1  WALK: 447  FLAGS: 0 0 8  LIGHT: 0
