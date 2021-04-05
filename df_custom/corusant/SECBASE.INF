@@ -7,7 +7,7 @@ AUTHOR
 EMAIL  
 */
  
-ITEMS 164
+ITEMS 166
  
  
  
@@ -48,6 +48,26 @@ item: sector name: slidetrac
        message: next_stop  
      client: slide270
      client: slide90
+ seqend
+
+
+item: line name: slide90 num: 2
+ seq
+   class: trigger
+       event_mask: 48
+	   message: next_stop
+	   client: slide270
+	   client: slide90
+ seqend
+ 
+
+item: line name: slide270 num: 7
+ seq
+   class: trigger
+       event_mask: 48
+	   message: next_stop
+	   client: slide270
+	   client: slide90
  seqend
  
  
