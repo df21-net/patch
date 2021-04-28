@@ -1,7 +1,7 @@
 MSG 1.0
 
 # number of actual messages
-MSGS 112
+MSGS 113
 
 # internal game messages
 0    0:  "Joystick Off"
@@ -100,6 +100,18 @@ MSGS 112
 460  1:  "Ship will arrive in 10 seconds."
 461  1:  "Mission Objectives Complete"
 462  1:  "Press <ESC> Key to End Mission"
+
+
+#------- Fan Added Messages -----
+#          Let's use from about 470-490
+#          And don't forget to increment the "MSG xx" line
+#        at the top when you add a new message. - bitcores
+
+470  1:  "Locked"
+
+
+#-------
+
 
 501  1:  "Code Key 1"
 502  1:  "Code Key 2"
