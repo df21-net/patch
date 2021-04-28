@@ -1,0 +1,858 @@
+INF 1.0
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ      This file contains information definitions for a single level    ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+LEVELNAME gromas
+
+ITEMS 100
+	item:   sector          name:   indigo
+		seq
+			class: trigger
+			message: master_on
+			client: intdrill00 
+			client: intdrill01 
+			client: intdrill02 
+			client: elev01 
+		seqend
+	item:   sector          name:   pulse1
+		seq
+			class: elevator change_light
+			event_mask: 0
+			stop: 30 0
+			stop: 10 0
+			slave: pulse2
+		seqend
+	item:   sector          name:   vocelev
+		seq
+			class: elevator move_floor
+			stop: 0 hold
+			stop: 1 hold
+				page: 1 m05kyl01.voc
+			stop: 20 terminate
+			speed: 10
+		seqend
+	item:   sector          name:   elevstrt
+		seq
+			class:  elevator move_floor
+			stop:   -2 hold
+			stop:   8 hold
+				message: 1 intdrill00 master_on
+				message: 1 intdrill01 master_on
+				message: 1 intdrill02 master_on
+				message: 1 elev01     master_on  
+		       event_mask: 52
+		       speed: 2
+		seqend
+   /*     item:   sector          name:   hang
+		seq
+			class:  trigger
+			sound: 1 0
+			sound: 2 0
+			sound: 3 0
+				client: drill01a   
+					message: master_on
+				client: drill01b   
+					message: master_on
+				client: drill01c   
+					message: master_on
+				client: drill01d   
+					message: master_on
+				client: drillsp1   
+					message: master_on
+				client: drill02    
+					message: master_on
+				client: drill03    
+					message: master_on
+				client: drill04    
+					message: master_on
+				client: drill05    
+					message: master_on
+		seqend */
+	item:   sector          name:   bossisdead
+		seq
+			class:  elevator move_ceiling
+			stop:   -96 hold
+			stop:   -88 hold
+				message: 1 elevstrt goto_stop 1
+			event_mask: 0
+		seqend
+	item:   sector          name:   boss
+		seq
+			class:  elevator move_floor
+			stop:   0 hold
+			stop:   1 0
+				message: 1 bossisdead goto_stop 1
+				page: 1 m05kyl02.voc
+			stop:   600 hold
+				page: 2 m05jan01.voc
+			stop:   1000 terminate
+			speed:  100
+		seqend 
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ     Power Generator                                                   ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item:   sector          name: brotherhood
+		seq
+			class:  trigger
+			client: hollow
+			sound:  0 0
+			sound:  1 0
+			sound:  2 0
+		seqend
+	item:   sector          name: hollow
+		seq
+			class:  elevator move_floor
+			stop: 0 hold
+			stop: 1 hold
+			message: 1 intdrill00 master_off
+			message: 1 intdrill01 master_off
+			message: 1 intdrill02 master_off
+			message: 1 elev01     master_off  
+			message: 1 gen1 master_on
+			message: 1 gen2 master_on
+			message: 1 gen3 master_on
+			message: 1 gen1a master_on
+			message: 1 gen2a master_on
+			message: 1 gen3a master_on
+		seqend
+	item:   sector          name: gen1
+		seq
+			class:  elevator change_light
+			master: off
+			stop:   11 .5
+			stop:   31 .5
+			speed: 100
+			sound: 1 power1.voc
+			sound: 2 power1.voc
+			sound: 3 power1.voc
+		seqend
+	item:   sector          name: gen2
+		seq
+			class:  elevator change_light
+			master: off
+			stop:   11 .5
+			stop:   31 .5
+			speed: 100
+		seqend
+	item:   sector          name: gen3
+		seq
+			class:  elevator change_light
+			master: off
+			stop:   11 .5
+			stop:   31 .5
+			speed: 100
+		seqend
+	item:   sector         name: gen1a
+		seq
+			class: elevator morph_spin1
+			master: off
+			center: -399.55 372.78
+			speed: 60
+			slave: gen1b
+			slave: gen1c
+			slave: gen1d
+			slave: gen1e
+			slave: gen1f
+			slave: gen1g
+			slave: gen1h
+		seqend
+	item:   sector         name: gen2a
+		seq
+			class: elevator morph_spin1
+			master: off
+			center: -383.02 341.75
+			speed: 60
+			slave: gen2b
+			slave: gen2c
+			slave: gen2d
+			slave: gen2e
+			slave: gen2f
+			slave: gen2g
+			slave: gen2h
+		seqend
+	item:   sector         name: gen3a
+		seq
+			class: elevator morph_spin1
+			master: off
+			center: -416.07 341.75
+			speed: 60
+			slave: gen3b
+			slave: gen3c
+			slave: gen3d
+			slave: gen3e
+			slave: gen3f
+			slave: gen3g
+			slave: gen3h
+		seqend
+	item:   line            name:   hatred1    num: 3
+		seq
+			class:  trigger single
+				client: monster
+				message: next_stop
+				text: 450
+				sound: switch1.voc
+			event_mask: 16
+		seqend  
+	item:   sector          name:   blinker
+		seq
+			class:  elevator move_floor
+			master: off
+			stop: 0 1
+				message: 0 hatred1 goto_stop 1
+			stop: 1 1
+				message: 1 hatred1 goto_stop 2
+			speed: 0
+		seqend
+	item:   sector          name:   hatred1
+		seq
+			class:  elevator scroll_wall
+			angle:  0
+			stop:   0 hold
+			stop:   @-256 hold
+			stop:   @-512 hold
+			speed:  0
+		seqend
+	item:   sector          name:   hatred2
+		seq
+			class:  elevator move_floor
+			master: off
+			event_mask: 0
+			stop:   -91 0
+			stop:   -96 hold
+				message: 1 complete complete 0
+				message: 1 london master_on
+				message: 1 hatred2(0) clear_bits 1 2048
+				message: 1 argh(7) clear_bits 1 2048
+				message: 1 hatred2(0) set_bits 1 1024
+				message: 1 argh(7) set_bits 1 1024
+			speed:  4
+			slave:  hatred1
+			slave:  hatred3
+		seqend
+	item:   sector          name:   monster
+		seq
+			class:  elevator move_floor
+			stop:   0 hold
+			stop:   1 0
+				message: 1 blinker master_on 
+				message: 1 vocelev next_stop
+				message: 1 gen1 master_off
+				message: 1 gen2 master_off
+				message: 1 gen3 master_off
+			stop:   30 1        
+				message: 2 gen1a master_off
+				message: 2 gen2a master_off
+				message: 2 gen3a master_off
+			stop:   40 hold
+				message: 3 hope next_stop
+				message: 3 panic1 master_on
+				message: 3 argh master_on
+				message: 3 hatred2 master_on
+				message: 3 rourke master_on
+			speed:  15
+		seqend
+	item:   sector          name:   hope
+		seq
+			class:  elevator move_floor
+			stop:   0 hold
+			stop:   4 hold
+				message: 1 core next_stop
+			speed:  2
+		seqend
+	item:   sector          name:   argh
+		seq
+			class: elevator move_fc
+			master: off
+				stop: -96 0
+				stop: -96.15 0
+				speed: 0
+				event_mask: 0
+			slave: panic7
+			slave: panic2
+			slave: panic3
+			slave: panic5
+			slave: panic6
+			slave: panic1
+			slave: hatred1
+			slave: hatred2
+			slave: hatred3
+			sound: 1 0
+			sound: 2 0
+			sound: 3 0
+		seqend
+	item:   sector          name:   core
+		seq
+			class:  elevator move_fc
+			stop:   -120 hold
+			stop:   -96  hold
+				message: 1 argh master_off
+				message: 1 rourke master_off
+			speed:  4
+			event_mask: 0
+		    /*    sound: 1 elev3-1.voc
+			sound: 2 rumble.voc
+			sound: 3 elev3-3.voc */
+	       seqend
+	item:   sector  name: rourke
+		seq
+			class: elevator move_floor
+			master: off
+			speed: 0
+			stop: 0 .5
+			stop: 1 .5
+			sound: 1 beep-01.voc
+			sound: 2 0
+			sound: 3 beep-01.voc
+		seqend
+	item:   sector  name: panic1
+		seq
+			class: elevator change_light
+			master: off
+			speed: 0
+			stop: 14 .5
+			stop:  5 .5
+			slave: panic2
+			slave: panic3
+			slave: panic5
+			slave: panic6
+			slave: panic7
+			slave: hatred1
+			slave: hatred2
+			slave: hatred3
+			slave: argh
+			slave: core
+	       seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ     One-Way Doors                                                     ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item:   sector          name:   doora
+		seq
+			class: elevator move_ceiling
+			stop: -32 hold
+				message: 0 jam6(0) done
+			stop: -24 9
+			event_mask: 0
+		seqend
+	item:   line            name:   jam6    num:0
+		seq
+			class:  trigger switch1
+			client: doora
+			message: goto_stop 1
+		seqend
+	item:   sector          name:   bosselevator
+		seq
+			class:  elevator move_floor
+			stop:   -56 hold
+		    /*    stop:   -75 0
+				message: 1 drill01a   master_off
+				message: 1 drill01b   master_off
+				message: 1 drill01c   master_off
+				message: 1 drill01d   master_off
+				message: 1 drillsp1   master_off
+				message: 1 drill02    master_off
+				message: 1 drill03    master_off
+				message: 1 drill04    master_off
+				message: 1 drill05    master_off   */
+			stop:   -96 terminate
+			event_mask:     4
+		seqend
+	item:   sector          name:   intdrill00
+		seq
+			class:  elevator        morph_spin1
+			master: off
+			center: -248 349
+			speed:  -355
+			sound:  2 elevrun2.voc
+		seqend
+	item:   sector          name:   intdrill01
+		seq
+			class:  elevator        morph_spin1
+			master: off
+			center: -38 344
+			speed:  -355
+			sound: 2 elevrun2.voc
+		seqend
+	item:   sector          name:   intdrill02
+		seq
+			class:  elevator        morph_spin1
+			master: off
+			center: 180 343
+			speed:  -355
+			sound:  2 elevrun2.voc
+		seqend
+	item:   sector          name:   elev01
+		seq
+			class:  elevator        morph_spin2
+				center: -370 349
+				master: off
+				speed: -20
+				flags:  1
+			class:  elevator        move_floor
+				master: off
+				flags:  1
+				stop:   48 3
+				stop:   elev01hole 3
+				sound: 1 elev2-1.voc
+				sound: 2 elevrun2.voc
+				sound: 3 elev3-3.voc
+		seqend
+	item:   sector          name:   drill01a
+		seq
+			class:  elevator move_ceiling
+			stop:   -15  1
+			stop:   -36.5  1
+			event_mask: 0
+			sound: 1 elevoff3.voc
+			sound: 2 elev2-2.voc
+			sound: 3 elevoff3.voc
+		seqend
+	item:   sector          name:   drill01b
+		seq
+			class:  elevator move_ceiling
+			stop:   -15  1
+			stop:   -36.5  1
+			event_mask: 0
+			sound: 1 elevoff3.voc
+			sound: 2 elev2-2.voc
+			sound: 3 elevoff3.voc
+		seqend
+	item:   sector          name:   drill01c
+		seq
+			class:  elevator move_ceiling
+			stop:   -15 1
+			stop:   -36.5 1
+			event_mask: 0
+			sound: 1 elevoff3.voc
+			sound: 2 elev2-2.voc
+			sound: 3 elevoff3.voc
+		seqend
+	item:   sector          name:   drill01d
+		seq
+			class:  elevator move_ceiling
+			stop:   -15  1
+			stop:   -36.5  1
+			event_mask: 0
+			sound: 1 elevoff3.voc
+			sound: 2 elev2-2.voc
+			sound: 3 elevoff3.voc
+		seqend
+	item:   sector          name:   drillsp1
+		seq
+			class:  elevator move_ceiling
+			stop:   -16  1
+			stop:   -48 1
+			event_mask: 0
+			sound: 1 elevoff3.voc
+			sound: 2 elev2-2.voc
+			sound: 3 elevoff3.voc
+		seqend
+	item:   sector          name:   drill02
+		seq
+			class:  elevator move_ceiling
+			stop:   -20 1
+			stop:   -101.5 1
+			event_mask: 0
+			sound: 1 elevoff3.voc
+			sound: 2 elev2-2.voc
+			sound: 3 elevoff3.voc
+		seqend
+	item:   sector          name:   drill03
+		seq
+			class:  elevator move_ceiling
+			stop:   -25  1
+			stop:   -46.5  1
+			event_mask: 0
+			sound: 1 elevoff3.voc
+			sound: 2 elev2-2.voc
+			sound: 3 elevoff3.voc
+		seqend
+	item:   sector          name:   drill04
+		seq
+			class:  elevator move_ceiling
+			stop:   -31  1
+			stop:   -52.5  1
+			event_mask: 0
+			sound: 1 elevoff3.voc
+			sound: 2 elev2-2.voc
+			sound: 3 elevoff3.voc
+		seqend
+	item:   sector          name:   drill05
+		seq
+			class:  elevator move_ceiling
+			stop:   -23  1
+			stop:   -44.5  1
+			event_mask: 0
+			sound: 1 elevoff3.voc
+			sound: 2 elev2-2.voc
+			sound: 3 elevoff3.voc
+		seqend
+	item:   sector          name:   door00
+		seq
+			class:  elevator door_mid
+		seqend
+	item:   sector          name:   door01
+		seq
+			class:  elevator door_mid
+		seqend
+	item:   sector          name:   doorentry
+		seq
+			class:  elevator move_ceiling
+			stop:   38 hold
+			stop:   30 terminate
+		seqend
+	item:   sector          name:   elev00
+		seq
+			class:  elevator        basic
+			stop:   20 hold
+			stop:   32 hold 
+			event_mask:     52
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ     Doors Requiring Keys                                              ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector    name: keydoor
+		seq
+		       class:           elevator door
+		       key:             blue
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ     Mine Elevators                                                    ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector    name: elev2a
+		seq
+			class:          elevator move_floor
+			stop:           -104 hold
+			stop:           -32  10
+			speed:          50
+			event_mask:     4
+		seqend
+	item: sector    name: return
+		seq
+			class:          elevator move_floor
+			stop:           -96 hold
+			stop:           30 hold
+				message: 1 doorentry next_stop
+				message: 1 doorexit next_stop
+				message: 1 elev01 master_on
+				message: 1 elevstrt master_off
+				message: 1 miserable1 master_on
+				message: 1 miserable2 master_on
+				message: 1 blocking master_on
+				message: 1 center master_on
+			speed:          50
+			event_mask:     52
+		seqend
+	item:   sector  name: doorexit
+		seq
+			class:          elevator move_ceiling
+			stop:           30 hold
+			stop:           46 terminate
+			speed:          10
+		seqend
+	item:   sector  name:   litup
+		seq
+			class:  trigger
+			client: litupdoor
+				message: next_stop
+			event_mask: 4
+		seqend
+	item:   sector  name:   litupdoor
+		seq
+			class:  elevator move_ceiling
+			stop:   30 hold
+			stop:   38 10
+			event_mask: 0
+		seqend
+	item:   line    name:   vicar      num: 3
+		seq
+			class:  trigger switch1
+			client: thorn1
+				message: goto_stop 1
+			client: thorn3
+				message: goto_stop 1
+			client: thorn3a
+				message: goto_stop 1
+			client: thorn4
+				message: goto_stop 1
+			client: thorn5
+				message: goto_stop 1
+			client: thorn5a
+				message: goto_stop 1
+			client: thorn6
+				message: goto_stop 1
+			sound:  switch1.voc
+		seqend
+	item:   line    name:   light2  num: 2
+		seq
+			class: trigger switch1
+			client: thorn1
+				message: goto_stop 1
+		seqend
+	item:   line    name:   light3  num: 2
+		seq
+			class: trigger switch1
+			client: thorn1
+				message: goto_stop 1
+			client: thorn3
+				message: goto_stop 1
+			client: thorn3a
+				message: goto_stop 1
+		seqend
+	item:   line    name:   light4  num: 2
+		seq
+			class: trigger switch1
+			client: thorn1
+				message: goto_stop 1
+			client: thorn3
+				message: goto_stop 1
+			client: thorn3a
+				message: goto_stop 1
+			client: thorn4
+				message: goto_stop 1
+		seqend
+	item:   line    name:   light5  num:    2
+		seq
+			class: trigger switch1
+			client: thorn1
+				message: goto_stop 1
+			client: thorn3
+				message: goto_stop 1
+			client: thorn3a
+				message: goto_stop 1
+			client: thorn4
+				message: goto_stop 1
+			client: thorn5
+				message: goto_stop 1
+			client: thorn5a
+				message: goto_stop 1
+		seqend
+	item:   sector name: thorn1
+		seq
+			class: elevator move_floor
+			stop:  41 hold
+				message: 0 light2(2) done
+				message: 0 light3(2) done
+				message: 0 light4(2) done
+				message: 0 light5(2) done
+				message: 0 vicar(3)  done
+			stop:  31 hold
+				message: 1 vicar(3)  done
+			speed: 1
+		seqend
+	item:   sector name: thorn3a
+		seq
+			class: elevator move_ceiling
+			stop: 31 hold
+				message: 0 light3(2) done
+				message: 0 light4(2) done
+				message: 0 light5(2) done
+			stop: 41 hold
+			speed: .5
+		seqend
+	item:   sector name: thorn3
+		seq
+			class: elevator move_floor
+			stop: 41 hold
+				message: 0 light3(2) done
+				message: 0 light4(2) done
+				message: 0 light5(2) done
+			stop: 31 hold
+			speed: .5
+		seqend
+	item:   sector name: thorn4
+		seq
+			class: elevator move_floor
+			stop: 41 hold
+				message: 0 light4(2) done
+				message: 0 light5(2) done
+			stop: 31 hold
+			speed: .7
+		seqend
+	item:   sector name: thorn5
+		seq
+			class: elevator move_ceiling
+			stop: 31 hold
+				message: 0 light5(2) done
+			stop: 41 hold
+			speed: .35
+		seqend
+	item:   sector name: thorn5a
+		seq
+			class: elevator move_floor
+			stop: 41 hold
+				message: 0 light5(2) done
+			stop: 31 hold
+			speed: .6
+		seqend
+	item:   sector name: thorn6
+		seq
+			class: elevator move_floor
+			stop:  41 hold
+			stop:  31 hold
+			speed: .6
+		seqend
+	item:   line  name: vicar     num: 2
+		seq
+		class: trigger
+			client: thorn1
+				message: goto_stop 0
+			client: thorn3
+				message: goto_stop 0
+			client: thorn3a
+				message: goto_stop 0
+			client: thorn4
+				message: goto_stop 0
+			client: thorn5
+				message: goto_stop 0
+			client: thorn5a
+				message: goto_stop 0
+			client: thorn6
+				message: goto_stop 0
+			event_mask: 1
+		seqend
+	item:   sector  name: light1
+		seq
+			class: elevator change_light
+			stop: 4 .52
+			stop: 14 .52
+			event_mask: 0
+			speed: 0
+		seqend
+	item:   sector  name: light2
+		seq
+			class: elevator change_light
+			stop:  4 .52
+			stop: 14 .52
+			event_mask: 0
+			speed: 0
+		seqend
+	item:   sector  name: light3
+		seq
+			class: elevator change_light
+			stop:  4 .52
+			stop: 14 .52
+			event_mask: 0
+			speed: 0
+		seqend
+	item:   sector  name: light4
+		seq
+			class: elevator change_light
+			stop:  4 .52
+			stop: 14 .52
+			event_mask: 0
+			speed: 0
+		seqend
+	item:   sector  name: light5
+		seq
+			class: elevator change_light
+			stop:  4 .52
+			stop: 14 .52
+			event_mask: 0
+			speed: 0
+		seqend
+	item:   sector  name: miserable1
+		seq
+			class: elevator change_light
+			master: off
+			stop: 14 0
+			stop: 24 0
+		seqend
+	item:   sector  name: miserable2
+		seq
+			class: elevator change_light
+			master: off
+			stop:  4 0
+			stop:  14  0
+		seqend
+	item:   sector  name: center
+		seq
+			class: elevator change_light
+			master: off
+			stop: 14 0
+			stop: 24 0
+		seqend
+	item:   sector  name: blocking
+		seq
+			class: elevator change_light
+			master: off
+			stop:  4 0
+			stop:  14 0
+		seqend
+	item:   sector  name:   ha      
+		seq
+			class:  trigger
+			client: manchester
+		seqend
+	item:   sector  name:   oasis
+		seq
+			class: trigger
+			client: manchester
+		seqend
+	item:   sector  name:   london
+		seq
+			class: elevator move_floor
+			master: off
+			speed: 0
+			stop: 0 hold
+			stop: 1 0
+				message: 1 complete complete 1
+			stop: 2 terminate
+			event_mask: 0
+		seqend
+	item:   sector  name:   manchester2
+		seq
+			class:  elevator move_floor
+			speed: 0
+			stop: 0 0
+			stop: 10 0
+				message: 1 oldhouse wakeup
+			stop: 11 3         
+				page:   2 takeoff1.voc
+			stop: 12 3  
+				page:   3 takeoff2.voc
+			stop: 50 terminate
+		seqend          
+	item:   sector  name:   manchester
+		seq
+			class: elevator move_floor
+			master: off
+			speed: 10
+			stop: 0 hold
+			stop: 10 0
+				message: 1 vuewake wakeup
+				message: 1 wakevue wakeup
+			stop: 76 0
+				page:   2 landing1.voc
+			stop: 120 terminate
+			event_mask: 0
+		seqend
+	item:   line    name: cc     num: 2
+		seq
+			class: trigger single
+			client: london
+				message: next_stop
+			event_mask: 3
+			sound: 1 0
+			sound: 2 0
+			sound: 3 0
+	       seqend         
+	item:   line    name: chrysler num: 2
+		seq
+			class: trigger single
+			client: london
+				message: next_stop
+			event_mask: 3
+			sound: 1 0
+			sound: 2 0
+			soudn: 3 0
+		seqend
+	item:   sector  name: complete
+		seq
+			class: elevator move_floor
+			stop: 0 hold
+			stop: 1 hold
+			      message: 1 manchester master_on 
+			stop: 2 1
+			stop: 3 complete
+			speed: 0
+		seqend
