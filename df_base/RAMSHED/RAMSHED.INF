@@ -1,0 +1,344 @@
+INF 1.0
+LEVELNAME ramshed
+ITEMS 100
+item: sector name: complete
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    stop: @0 hold
+    stop: @1 0
+    stop: @2 complete
+  seqend 
+item: sector name: vocelev
+  seq
+  class: elevator move_floor
+    speed: 0
+    stop: @0 hold
+    stop: @1 3
+    page: 1 m07kyl01.voc
+    stop: @2 4
+    page: 2 m07jan01.voc
+    stop: @3 terminate
+  seqend
+item: sector name: engine.door.0
+  seq
+  class: elevator door_mid
+    event_mask: 48
+    addon: 0
+    speed: 10
+    addon: 1
+    speed: 10
+  seqend
+item: sector name: track_dev
+  seq
+  class: trigger
+    event_mask: 32
+    client: xx.track_dev
+  class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    angle: 180
+    stop: @0 hold
+    stop: @64 terminate
+  seqend
+item: sector name: xx.track_dev
+  seq
+  class: elevator move_floor
+    stop: @0 hold
+    stop: @1 0
+      message: 1 complete complete 0
+      message: 1 vocelev
+      message: 1 track_dev next_stop
+  seqend
+item: sector name: cargoelev.0a
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    speed: 30
+    stop: @23 hold
+    stop: @1
+  seqend
+item: sector name: cargoelev.1
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    key: yellow
+    speed: 20
+    stop: @30 hold
+    stop: @1
+  seqend
+item: sector name: cargoelev.2
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    stop: @15 hold
+    stop: @1
+  seqend
+item: sector name: cargoelev.3
+  seq
+  class: elevator move_floor
+    event_mask: 512
+    stop: @0 hold
+    stop: @31
+  seqend
+item: sector name: cargoelev.4
+  seq
+  class: elevator move_fc
+    event_mask: 52
+    stop: @-24 hold
+    stop: @0
+  seqend
+item: line name: cargobay.0 num: 2
+  seq
+  class: trigger switch1
+    event_mask: 16
+      message: goto_stop 1
+    client: cargogate.high
+  seqend
+item: line name: cargobay.1 num: 0
+  seq
+  class: trigger switch1
+    event_mask: 16
+      message: goto_stop 1
+    client: cargogate.high
+  seqend
+item: line name: cargogate.low num: 1
+  seq
+  class: trigger switch1
+    entity_mask: 2147483656
+    event_mask: 304
+      message: goto_stop 0
+    client: cargogate.low
+  seqend
+item: sector name: cargogate.high
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 8
+    stop: @0 hold
+      message: 0 cargobay.0(2) done
+      message: 0 cargobay.1(0) done
+    stop: @16 hold
+      adjoin: 1 cargobay.0 20 cargogate.low 0
+      adjoin: 1 cargobay.1 27 cargogate.low 2
+      message: 1 cargogate.low next_stop
+  seqend
+item: sector name: cargogate.low
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    speed: 8
+    stop: @1 hold
+      adjoin: 0 cargobay.0 20 cargogate.high 0 
+      adjoin: 0 cargobay.1 27 cargogate.high 2
+      message: 0 cargogate.high next_stop
+    stop: @17 hold
+      message: 1 cargogate.low(1) done
+  seqend
+item: sector name: crateelev.0
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    stop: @1 hold
+    stop: @11
+      message: 1 crate.0 goto_stop 3
+      message: 1 seccrate.0 goto_stop 1
+  seqend
+item: sector name: seccrate.0
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    stop: @8 hold
+    stop: @1
+  seqend
+item: line name: seccrate.0 num: 3
+  seq
+  class: trigger
+    event_mask: 32
+    client: seccrate.0
+  seqend
+item: sector name: crateelev.1
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    speed: 20
+    stop: @1 hold
+    stop: @27 hold
+  seqend
+item: line name: cratemaze.0 num: 5
+  seq
+  class: trigger toggle
+    event_mask: 16
+      message: goto_stop 0
+    client: crate.0
+  seqend
+item: line name: cratemaze.1 num: 1
+  seq
+  class: trigger toggle
+    event_mask: 16
+      message: goto_stop 1
+    client: crate.0
+  seqend
+item: line name: cratemaze.2 num: 3
+  seq
+  class: trigger toggle
+    event_mask: 16
+      message: goto_stop 2
+    client: crate.0
+  seqend
+item: sector name: crate.0
+  seq
+  class: elevator morph_move2
+    event_mask: 0
+    speed: 30
+    angle: 90
+    start: 1
+    stop: @0 hold
+    stop: @8 hold
+    stop: @16 hold
+    stop: @24 hold
+    slave: crate.1
+  seqend
+item: sector name: red_door
+  seq
+  class: elevator move_ceiling
+    event_mask: 32
+    key: red
+    stop: @0 hold
+    stop: @10
+  seqend
+item: sector name: red_door.elev
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    stop: @1 hold
+    stop: @7
+  seqend
+item: sector name: bldoor.0
+  seq
+  class: elevator door_mid
+    event_mask: 32
+    addon: 0
+    speed: 10
+    addon: 1
+    speed: 10
+  seqend
+item: sector name: bldoor.1
+  seq
+  class: elevator door_mid
+    event_mask: 32
+    addon: 0
+    speed: 10
+    addon: 1
+    speed: 10
+  seqend
+item: sector name: blue_doorjamb1
+  seq
+  class: elevator scroll_wall
+    speed: 0
+    event_mask: 32
+    key: blue
+    angle: 0
+    stop: 0 hold
+    stop: 32 hold
+      message: 1 blue_door next_stop
+  seqend
+item: line name: blue_door num: 0
+  seq
+  class: trigger
+    event_mask: 48
+    client: blue_door
+  seqend
+item: sector name: blue_door
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    stop: @11 hold
+      message: 0 blue_doorjamb1 goto_stop 0
+    stop: @1
+  seqend
+item: sector name: ovalhallelev0
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    stop: @7 hold
+    stop: @1 hold
+  seqend
+item: sector name: oval0
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @8 hold
+    stop: @16 terminate
+  seqend
+item: sector name: ovalpit0
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 30
+    stop: @1 hold
+      message: 0 ovalpit1(0) done
+    stop: @15 1
+  seqend
+item: sector name: ovalpit1
+  seq
+  class: trigger
+    event_mask: 4
+      message: next_stop
+    client: oval0
+    client: ovalhall
+  seqend
+item: line name: ovalpit1 num: 0
+  seq
+  class: trigger switch1
+    entity_mask: *
+    event_mask: 272
+      message: next_stop
+    client: ovalpit0
+  seqend
+item: sector name: ovalhall
+  seq
+  class: elevator move_floor
+    stop: @8 hold
+    stop: @0 terminate
+  seqend
+item: sector name: ovalhallelev1
+  seq
+  class: elevator move_floor
+    event_mask: 4
+    stop: @15 hold
+      message: 0 ovalhallelev1(2) done
+    stop: @1 
+  seqend
+item: line name: ovalhallelev1 num: 2
+  seq
+  class: trigger switch1
+    entity_mask: *
+    event_mask: 272
+    client: ovalhallelev1
+  seqend
+item: sector name: bldoor.2
+  seq
+  class: elevator door_mid
+    event_mask: 32
+    speed: 10
+    addon: 0
+    speed: 10
+    addon: 1
+    speed: 10
+  seqend
+item: sector name: br_elev0
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    stop: @1 hold
+    stop: @15
+      message: 1 br_elev0.door next_stop
+  seqend
+item: sector name: br_elev0.door
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @0 hold
+    stop: @8
+  seqend
