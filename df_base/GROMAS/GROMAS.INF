@@ -372,6 +372,14 @@ item: sector name: litupdoor
      stop: 38 10
  seqend
  
+
+item: line   name: litupdoor num: 1
+ seq
+   class: trigger 
+   client: litupdoor
+   event_mask: 48
+ seqend
+
  
 item: sector name: thorn4
  seq
