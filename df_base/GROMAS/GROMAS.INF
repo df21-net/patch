@@ -134,6 +134,14 @@ item: sector name: doorexit
      stop: 46 terminate
  seqend
  
+item: line   name: doorexit num: 0
+ seq
+   class: trigger 
+       event_mask: 48
+       sound: elevoff3.voc
+       text: 470
+ seqend
+ 
  
 item: sector name: vicar
  seq
@@ -800,6 +808,7 @@ item: sector name: return
        message: 1 doorentry next_stop  
        message: 1 doorentry(3) master_on  
        message: 1 doorexit next_stop  
+	   message: 1 doorexit(0) master_off
        message: 1 elev01 master_on  
        message: 1 elevstrt master_off  
        message: 1 elevstrt(0) master_on  
