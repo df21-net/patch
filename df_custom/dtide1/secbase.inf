@@ -191,7 +191,7 @@ item: sector		name: sludgelift2
 		event_mask: 0
 		stop: @0 hold
 			message: 0 sludgelift2(0) done
-			message: 1 sludgelift2trig(0) done
+			message: 0 sludgelift2trig(0) done
 		stop: @106 10 
 			message: 1 sludgelift2trig(0) done 
 			message: 1 sludgelift2(0) done
