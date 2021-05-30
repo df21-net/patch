@@ -1,0 +1,1529 @@
+O 1.1
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+  This file has been created from TALAY.DXF.
+
+ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~*/
+
+LEVELNAME TALAY
+
+PODS 2
+    POD: _8X16.3DO           
+    POD: KYL3DO.3DO          
+
+SPRS 9
+    SPR: IARMOR.WAX          
+    SPR: LIT2.WAX            
+    SPR: TALLIT1.WAX         
+    SPR: LIT1.WAX            
+    SPR: STORMFIN.WAX        
+    SPR: OFFCFIN.WAX         
+    SPR: COMMANDO.WAX        
+    SPR: ILIFE.WAX           
+    SPR: IINVINC.WAX         
+
+FMES 12
+    FME: IENERGY.FME         
+    FME: SMALITE1.FME        
+    FME: SMALITE2.FME        
+    FME: DEDBODY3.FME        
+    FME: DEDBODY2.FME        
+    FME: DEDBODY1.FME        
+    FME: IDTGUN.FME          
+    FME: IMEDKIT.FME         
+    FME: IBATTERY.FME        
+    FME: ICHARGE.FME         
+    FME: IGOGGLES.FME        
+    FME: IST-GUNU.FME        
+
+SOUNDS 0
+
+OBJECTS 352
+    /* name: me */
+    CLASS: SPIRIT     DATA: 0   X: -4.13  Y: 0.00   Z: 132.74 PCH: 0.00   YAW: 318.20 ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      PLAYER    
+            EYE:       TRUE      
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 309.97 Y: 4.00   Z: 299.08 PCH: 0.00   YAW: 180.00 ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 379.47 Y: -3.73  Z: 231.66 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 354.63 Y: -4.00  Z: 190.93 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 358.58 Y: -4.00  Z: 191.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 357.00 Y: -6.00  Z: 92.00  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 440.00 Y: -10.00 Z: 48.00  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 438.00 Y: -10.00 Z: 44.00  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 435.00 Y: -10.00 Z: 40.00  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 412.00 Y: -2.00  Z: 36.00  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 154.00 Y: 0.00   Z: 245.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 421.54 Y: -2.00  Z: 266.25 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 421.54 Y: -2.00  Z: 257.25 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -2
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 386.33 Y: -2.00  Z: 217.80 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 386.40 Y: -6.40  Z: 270.26 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 355.52 Y: -4.00  Z: 176.54 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 359.62 Y: -4.00  Z: 176.54 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 357.00 Y: -2.00  Z: 83.00  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 327.00 Y: 2.00   Z: 538.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 350.00 Y: -4.20  Z: 279.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 1   X: 485.00 Y: -2.00  Z: 496.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 2   X: 408.52 Y: -2.00  Z: 429.19 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 2   X: 384.31 Y: -2.00  Z: 428.61 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 3   X: 189.00 Y: -2.00  Z: 226.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 3   X: 181.00 Y: -2.00  Z: 246.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 3   X: 189.00 Y: -2.00  Z: 197.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 3   X: 186.00 Y: -2.00  Z: 175.00 PCH: 0.00   YAW: 185.87 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 3   X: 185.00 Y: -2.00  Z: 142.00 PCH: 0.00   YAW: 185.87 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 3   X: 186.13 Y: -2.00  Z: 123.76 PCH: 0.00   YAW: 185.87 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: FRAME      DATA: 1   X: 284.00 Y: -2.00  Z: 100.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+    CLASS: FRAME      DATA: 1   X: 284.00 Y: -2.00  Z: 107.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+    CLASS: FRAME      DATA: 1   X: 284.00 Y: -2.00  Z: 113.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+    CLASS: FRAME      DATA: 1   X: 284.00 Y: -2.00  Z: 120.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+    CLASS: FRAME      DATA: 2   X: 404.00 Y: -6.00  Z: 93.00  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+    CLASS: SAFE       DATA: 0   X: 167.00 Y: -10.00 Z: 153.50 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+    CLASS: SAFE       DATA: 0   X: 396.90 Y: -5.50  Z: 493.53 PCH: 0.00   YAW: 85.92  ROL: 0.00   DIFF: 1
+    CLASS: FRAME      DATA: 3   X: 230.00 Y: -2.00  Z: 232.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 218.00 Y: -2.00  Z: 231.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 197.40 Y: -2.00  Z: 112.99 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 207.83 Y: -2.00  Z: 122.64 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 114.09 Y: 0.00   Z: 190.88 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 233.07 Y: -2.00  Z: 256.42 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 462.89 Y: -2.00  Z: 264.90 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 401.67 Y: -2.00  Z: 63.38  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 129.58 Y: 0.00   Z: 117.99 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 131.46 Y: 0.00   Z: 111.89 PCH: 0.00   YAW: 260.54 ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 276.40 Y: -4.00  Z: 113.29 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 357.05 Y: -2.00  Z: 76.55  PCH: 0.00   YAW: 169.69 ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 122.87 Y: 0.00   Z: 224.41 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 326.46 Y: -2.00  Z: 216.47 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 534.92 Y: 3.00   Z: 514.44 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 380.18 Y: -2.00  Z: 82.49  PCH: 0.00   YAW: 63.45  ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 368.99 Y: -6.00  Z: 91.90  PCH: 0.00   YAW: 90.00  ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 121.20 Y: 0.00   Z: 202.91 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 298.51 Y: -2.00  Z: 242.61 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 413.10 Y: -2.00  Z: 239.99 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 336.48 Y: -2.00  Z: 282.14 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 150.70 Y: 0.00   Z: 245.26 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 347.99 Y: -2.00  Z: 174.82 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 134.58 Y: 0.00   Z: 161.86 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 136.85 Y: 0.00   Z: 171.93 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 110.92 Y: -12.00 Z: 161.29 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 326.64 Y: -2.00  Z: 98.75  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 338.42 Y: -2.00  Z: 115.68 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 296.25 Y: -2.00  Z: 105.16 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 367.19 Y: -2.00  Z: 76.31  PCH: 0.00   YAW: 302.46 ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 424.67 Y: -2.00  Z: 119.23 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 308.83 Y: -6.00  Z: 555.20 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 305.29 Y: -4.00  Z: 641.22 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 304.93 Y: -6.00  Z: 561.04 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 428.73 Y: -5.50  Z: 510.38 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 302.18 Y: -9.00  Z: 653.12 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 309.16 Y: -9.00  Z: 654.46 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 358.33 Y: -7.00  Z: 710.88 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 334.88 Y: -5.00  Z: 705.30 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 344.00 Y: -5.00  Z: 671.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 339.00 Y: -5.00  Z: 667.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 342.62 Y: -5.00  Z: 666.83 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 366.58 Y: -7.00  Z: 671.49 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 376.24 Y: -7.00  Z: 727.93 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 429.92 Y: -7.00  Z: 667.44 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 425.33 Y: -7.00  Z: 662.17 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 434.07 Y: -7.00  Z: 667.83 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 434.77 Y: -7.00  Z: 672.07 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 397.15 Y: -7.00  Z: 772.19 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 310.69 Y: -9.00  Z: 661.43 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 277.50 Y: -9.00  Z: 709.14 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 316.68 Y: -9.00  Z: 755.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 281.68 Y: -13.00 Z: 760.91 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 308.62 Y: -13.00 Z: 761.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 295.00 Y: -13.00 Z: 761.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 331.96 Y: -19.00 Z: 719.62 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 460.99 Y: -17.00 Z: 680.24 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 429.42 Y: -19.00 Z: 691.98 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 419.32 Y: -19.00 Z: 743.06 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 429.68 Y: -19.00 Z: 710.10 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    /* name: catwalk 8x16 */
+    CLASS: 3D         DATA: 0   X: 397.50 Y: -18.90 Z: 753.50 PCH: 0.00   YAW: 90.00  ROL: 0.00   DIFF: 1
+    CLASS: FRAME      DATA: 3   X: 499.33 Y: -6.00  Z: 543.94 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 480.54 Y: -6.00  Z: 542.12 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 329.38 Y: 2.00   Z: 540.36 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 472.33 Y: -4.00  Z: 662.70 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 439.52 Y: -4.00  Z: 657.03 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 6   X: 487.00 Y: -16.00 Z: 710.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     DT_WEAPON 
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 506.22 Y: 2.00   Z: 680.85 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 495.10 Y: 2.00   Z: 672.38 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 469.23 Y: -15.00 Z: 688.58 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 412.80 Y: -7.00  Z: 696.85 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 457.43 Y: -16.00 Z: 733.59 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: SPRITE     DATA: 1   X: 309.00 Y: -2.00  Z: 496.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 454.57 Y: -15.00 Z: 668.33 PCH: 0.00   YAW: 165.13 ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      TROOP     
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 489.14 Y: 2.00   Z: 757.92 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 483.14 Y: 2.00   Z: 754.92 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 478.14 Y: 2.00   Z: 749.92 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 345.54 Y: -19.00 Z: 726.42 PCH: 0.00   YAW: 90.07  ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      TROOP     
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 496.49 Y: -2.00  Z: 254.51 PCH: 0.00   YAW: 44.65  ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      TROOP     
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 501.81 Y: -6.00  Z: 126.67 PCH: 0.00   YAW: 90.00  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 510.81 Y: -6.00  Z: 126.67 PCH: 0.00   YAW: 90.00  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 432.51 Y: -6.00  Z: 181.14 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 435.67 Y: -6.00  Z: 183.73 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 126.63 Y: -9.50  Z: 179.43 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 130.78 Y: -9.50  Z: 185.32 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 136.56 Y: 0.00   Z: 110.03 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 128.51 Y: -0.53  Z: 188.52 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 2.97   Y: -10.00 Z: 156.70 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 3.84   Y: -10.00 Z: 169.95 PCH: 0.00   YAW: 182.60 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 33.37  Y: 0.00   Z: 185.90 PCH: 0.00   YAW: 344.16 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 80.67  Y: 0.00   Z: 141.85 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 89.77  Y: -10.00 Z: 151.41 PCH: 0.00   YAW: 278.13 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 89.68  Y: -10.00 Z: 179.75 PCH: 0.00   YAW: 257.01 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 144.78 Y: -10.00 Z: 174.11 PCH: 0.00   YAW: 181.79 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 169.42 Y: -10.00 Z: 146.76 PCH: 0.00   YAW: 248.38 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 168.90 Y: 0.00   Z: 141.16 PCH: 0.00   YAW: 327.34 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 170.43 Y: 0.00   Z: 136.32 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 173.46 Y: 0.00   Z: 136.32 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 183.75 Y: -2.00  Z: 168.12 PCH: 0.00   YAW: 354.47 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 224.85 Y: -2.00  Z: 166.61 PCH: 0.00   YAW: 85.33  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 223.30 Y: -2.00  Z: 191.66 PCH: 0.00   YAW: 83.05  ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 194.33 Y: -2.00  Z: 247.19 PCH: 0.00   YAW: 86.21  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 325.85 Y: -2.00  Z: 66.10  PCH: 0.00   YAW: 98.47  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 337.48 Y: -2.00  Z: 76.49  PCH: 0.00   YAW: 157.37 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 341.17 Y: -2.00  Z: 206.84 PCH: 0.00   YAW: 79.47  ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 328.55 Y: -2.00  Z: 150.39 PCH: 0.00   YAW: 83.05  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 336.13 Y: -2.00  Z: 191.62 PCH: 0.00   YAW: 256.34 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 361.75 Y: -2.00  Z: 216.96 PCH: 0.00   YAW: 354.02 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 335.56 Y: -2.00  Z: 175.21 PCH: 0.00   YAW: 299.93 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 362.69 Y: -4.00  Z: 191.01 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 396.39 Y: -2.00  Z: 158.95 PCH: 0.00   YAW: 87.03  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 427.46 Y: -2.00  Z: 139.64 PCH: 0.00   YAW: 329.69 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 363.83 Y: -4.00  Z: 176.54 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 389.88 Y: -2.00  Z: 191.35 PCH: 0.00   YAW: 115.51 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 367.95 Y: -2.00  Z: 184.25 PCH: 0.00   YAW: 93.36  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 357.51 Y: -2.00  Z: 158.42 PCH: 0.00   YAW: 17.40  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 415.42 Y: -2.00  Z: 192.68 PCH: 0.00   YAW: 157.81 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 372.48 Y: -2.00  Z: 200.06 PCH: 0.00   YAW: 329.69 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 350.82 Y: -2.00  Z: 247.52 PCH: 0.00   YAW: 50.23  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 323.66 Y: -2.00  Z: 219.49 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 366.95 Y: -2.00  Z: 262.12 PCH: 0.00   YAW: 115.51 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 302.43 Y: -2.00  Z: 237.26 PCH: 0.00   YAW: 358.96 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 403.70 Y: -2.00  Z: 221.57 PCH: 0.00   YAW: 329.69 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 431.41 Y: -2.00  Z: 246.09 PCH: 0.00   YAW: 173.66 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 446.05 Y: -2.00  Z: 199.72 PCH: 0.00   YAW: 359.38 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 492.61 Y: -5.00  Z: 154.32 PCH: 0.00   YAW: 359.38 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 549.39 Y: -6.00  Z: 177.05 PCH: 0.00   YAW: 183.74 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 565.36 Y: -6.00  Z: 165.93 PCH: 0.00   YAW: 17.40  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 536.80 Y: -6.00  Z: 149.91 PCH: 0.00   YAW: 187.51 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 432.51 Y: -6.00  Z: 176.62 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 472.62 Y: -6.00  Z: 152.65 PCH: 0.00   YAW: 189.80 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 548.57 Y: -6.00  Z: 182.53 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 567.12 Y: -6.00  Z: 132.21 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 445.55 Y: -6.00  Z: 134.23 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 390.55 Y: -3.73  Z: 237.51 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 328.79 Y: -0.01  Z: 251.52 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 333.60 Y: -0.01  Z: 243.93 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 443.75 Y: -6.00  Z: 155.77 PCH: 0.00   YAW: 261.26 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 444.72 Y: -6.00  Z: 143.71 PCH: 0.00   YAW: 285.23 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 559.18 Y: -6.00  Z: 137.01 PCH: 0.00   YAW: 123.68 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 115.65 Y: 0.00   Z: 125.66 PCH: 0.00   YAW: 236.23 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 88.12  Y: 0.00   Z: 136.55 PCH: 0.00   YAW: 180.00 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 57.46  Y: 0.00   Z: 223.88 PCH: 0.00   YAW: 265.99 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 85.10  Y: 0.00   Z: 194.37 PCH: 0.00   YAW: 343.77 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 301.50 Y: -2.00  Z: 99.89  PCH: 0.00   YAW: 337.68 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 291.09 Y: -2.00  Z: 101.37 PCH: 0.00   YAW: 345.30 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 336.99 Y: -2.00  Z: 103.74 PCH: 0.00   YAW: 1.04   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 274.37 Y: -4.00  Z: 107.91 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 378.88 Y: -2.00  Z: 132.36 PCH: 0.00   YAW: 184.87 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 374.25 Y: -2.00  Z: 100.09 PCH: 0.00   YAW: 177.46 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 363.92 Y: -2.00  Z: 100.34 PCH: 0.00   YAW: 177.46 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 418.23 Y: -2.00  Z: 117.60 PCH: 0.00   YAW: 268.24 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 425.42 Y: -3.00  Z: 77.69  PCH: 0.00   YAW: 274.87 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 425.67 Y: -6.00  Z: 41.99  PCH: 0.00   YAW: 337.68 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 436.42 Y: -6.00  Z: 53.04  PCH: 0.00   YAW: 345.30 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 392.12 Y: -2.00  Z: 100.19 PCH: 0.00   YAW: 157.81 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 399.90 Y: -2.00  Z: 99.62  PCH: 0.00   YAW: 214.13 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 385.23 Y: -2.00  Z: 76.31  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 400.79 Y: -2.00  Z: 56.22  PCH: 0.00   YAW: 157.37 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 226.61 Y: -2.00  Z: 29.27  PCH: 0.00   YAW: 48.36  ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 230.63 Y: -2.00  Z: 24.24  PCH: 0.00   YAW: 37.61  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 381.78 Y: -2.00  Z: 64.24  PCH: 0.00   YAW: 136.03 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 170.25 Y: -10.00 Z: 187.53 PCH: 0.00   YAW: 85.33  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 170.22 Y: -10.00 Z: 174.54 PCH: 0.00   YAW: 83.05  ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 164.20 Y: 0.00   Z: 184.09 PCH: 0.00   YAW: 354.47 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 141.88 Y: 0.00   Z: 191.99 PCH: 0.00   YAW: 91.04  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 381.00 Y: -6.00  Z: 280.33 PCH: 0.00   YAW: 2.81   ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 393.93 Y: -6.00  Z: 280.75 PCH: 0.00   YAW: 2.51   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 405.84 Y: -6.00  Z: 281.20 PCH: 0.00   YAW: 358.88 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 347.17 Y: -4.20  Z: 280.18 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 444.72 Y: -2.00  Z: 281.85 PCH: 0.00   YAW: 321.73 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 453.89 Y: -2.00  Z: 287.73 PCH: 0.00   YAW: 331.79 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 442.76 Y: -6.00  Z: 261.22 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -2
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 511.64 Y: -2.00  Z: 247.87 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    0         
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 408.46 Y: -4.00  Z: 262.51 PCH: 0.00   YAW: 1.59   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 385.33 Y: -6.00  Z: 395.64 PCH: 0.00   YAW: 186.09 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 410.36 Y: -6.00  Z: 396.96 PCH: 0.00   YAW: 178.88 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 398.11 Y: -6.00  Z: 392.91 PCH: 0.00   YAW: 177.10 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 407.86 Y: -4.00  Z: 409.74 PCH: 0.00   YAW: 268.88 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 413.38 Y: -4.00  Z: 455.72 PCH: 0.00   YAW: 202.91 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 379.97 Y: -4.00  Z: 455.48 PCH: 0.00   YAW: 332.30 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 391.08 Y: -4.00  Z: 471.07 PCH: 0.00   YAW: 177.10 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 479.31 Y: -6.00  Z: 287.06 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 397.73 Y: -6.00  Z: 337.51 PCH: 0.00   YAW: 180.28 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: FRAME      DATA: 4   X: 472.39 Y: -2.00  Z: 472.13 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 509.15 Y: 3.00   Z: 466.27 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 419.91 Y: -6.00  Z: 277.54 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 417.67 Y: -6.00  Z: 277.54 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 509.15 Y: 3.00   Z: 470.40 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 370.23 Y: 2.00   Z: 546.57 PCH: 0.00   YAW: 78.49  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 391.05 Y: -3.00  Z: 522.46 PCH: 0.00   YAW: 189.72 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 411.12 Y: -5.50  Z: 508.19 PCH: 0.00   YAW: 177.10 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 293.83 Y: -6.00  Z: 578.23 PCH: 0.00   YAW: 78.49  ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 312.28 Y: -6.00  Z: 548.20 PCH: 0.00   YAW: 331.79 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 276.90 Y: -6.00  Z: 605.61 PCH: 0.00   YAW: 189.72 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 495.83 Y: -6.00  Z: 554.17 PCH: 0.00   YAW: 189.72 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 523.93 Y: -6.00  Z: 607.73 PCH: 0.00   YAW: 195.70 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 501.99 Y: -6.00  Z: 542.75 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 472.15 Y: -4.00  Z: 651.90 PCH: 0.00   YAW: 177.10 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 326.07 Y: -4.00  Z: 642.55 PCH: 0.00   YAW: 144.02 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 528.27 Y: 3.00   Z: 525.23 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 433.67 Y: -19.00 Z: 708.89 PCH: 0.00   YAW: 265.28 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 433.14 Y: -19.00 Z: 687.46 PCH: 0.00   YAW: 265.28 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 433.14 Y: -19.00 Z: 727.41 PCH: 0.00   YAW: 265.28 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 362.04 Y: -19.00 Z: 718.66 PCH: 0.00   YAW: 189.72 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 364.85 Y: -7.00  Z: 711.17 PCH: 0.00   YAW: 189.03 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 277.95 Y: -7.00  Z: 688.14 PCH: 0.00   YAW: 50.22  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 277.73 Y: -7.00  Z: 680.74 PCH: 0.00   YAW: 141.57 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 410.79 Y: -7.00  Z: 657.79 PCH: 0.00   YAW: 6.91   ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 361.45 Y: -19.00 Z: 726.81 PCH: 0.00   YAW: 93.41  ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 302.08 Y: -9.00  Z: 729.92 PCH: 0.00   YAW: 182.82 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 281.27 Y: -9.00  Z: 731.04 PCH: 0.00   YAW: 77.00  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 286.79 Y: -9.00  Z: 753.61 PCH: 0.00   YAW: 124.28 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 317.41 Y: -9.00  Z: 746.63 PCH: 0.00   YAW: 182.82 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 402.37 Y: -7.00  Z: 705.81 PCH: 0.00   YAW: 85.61  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 379.95 Y: -7.00  Z: 766.22 PCH: 0.00   YAW: 103.72 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 375.38 Y: -7.00  Z: 772.18 PCH: 0.00   YAW: 97.81  ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 335.74 Y: -19.00 Z: 722.91 PCH: 0.00   YAW: 331.62 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 463.63 Y: -16.00 Z: 730.07 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 485.71 Y: -16.00 Z: 724.63 PCH: 0.00   YAW: 85.61  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 487.57 Y: -16.00 Z: 686.45 PCH: 0.00   YAW: 189.03 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 470.20 Y: -16.00 Z: 730.43 PCH: 0.00   YAW: 265.28 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 490.02 Y: -16.00 Z: 709.14 PCH: 0.00   YAW: 189.72 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 455.50 Y: -16.00 Z: 698.08 PCH: 0.00   YAW: 7.90   ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 533.51 Y: 2.00   Z: 658.89 PCH: 0.00   YAW: 307.89 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 526.72 Y: 2.00   Z: 652.89 PCH: 0.00   YAW: 295.16 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 461.05 Y: -17.00 Z: 683.25 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 304.06 Y: -6.00  Z: 555.97 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 281.03 Y: -4.00  Z: 647.67 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 461.04 Y: -17.00 Z: 677.33 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: 3D         DATA: 1   X: -60.57 Y: -20.13 Z: 167.87 PCH: 0.00   YAW: 142.14 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     KEY       
+            VUE:       TALAY_TO.VUE "KYLES"
+            PAUSE:     TRUE      
+            VUE_APPEND: TALAY_LD.VUE "KYLES"
+        SEQEND
+    CLASS: SAFE       DATA: 0   X: 488.06 Y: 3.00   Z: 465.56 PCH: 0.00   YAW: 85.92  ROL: 0.00   DIFF: 1
+    CLASS: SAFE       DATA: 0   X: 389.28 Y: -4.00  Z: 630.38 PCH: 0.00   YAW: 3.45   ROL: 0.00   DIFF: 1
+    CLASS: SPRITE     DATA: 7   X: 168.38 Y: 0.00   Z: 165.89 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     LIFE      
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 173.92 Y: 0.00   Z: 195.54 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 174.16 Y: 0.00   Z: 188.71 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 174.24 Y: 0.00   Z: 181.18 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 174.01 Y: 0.00   Z: 174.59 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 4   X: 396.88 Y: -2.00  Z: 217.48 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     GENERATOR STORM1
+            NUM_TERMINATE: 3         
+            DELAY:     0         
+            INTERVAL:  20        
+            MAX_ALIVE: 1         
+            MAX_DIST:  200       
+            MIN_DIST:  70        
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 4   X: 375.50 Y: 2.00   Z: 560.80 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     GENERATOR STORM1
+            DELAY:     0         
+            MAX_ALIVE: 2         
+            MIN_DIST:  40        
+            MAX_DIST:  200       
+            NUM_TERMINATE: 4         
+            MASTER:    OFF       
+            INTERVAL:  10        
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 513.06 Y: -1.00  Z: 517.92 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 520.00 Y: -1.00  Z: 517.92 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 498.66 Y: 3.00   Z: 450.56 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 150.81 Y: 0.00   Z: 172.87 PCH: 0.00   YAW: 181.79 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 6   X: 19.62  Y: 0.00   Z: 220.98 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     GENERATOR COMMANDO
+            DELAY:     0         
+            MAX_ALIVE: 3         
+            MIN_DIST:  70        
+            MAX_DIST:  200       
+            MASTER:    OFF       
+            INTERVAL:  2         
+            NUM_TERMINATE: 3         
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 6   X: 198.33 Y: -2.00  Z: 120.75 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     GENERATOR COMMANDO
+            DELAY:     0         
+            MAX_ALIVE: 1         
+            MIN_DIST:  100       
+            MAX_DIST:  200       
+            MASTER:    OFF       
+            NUM_TERMINATE: 6         
+            INTERVAL:  7         
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 277.05 Y: -4.00  Z: 118.80 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 382.41 Y: -6.00  Z: 169.07 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 382.41 Y: -6.00  Z: 199.19 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -2
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 6   X: 143.13 Y: -10.00 Z: 161.69 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     GENERATOR COMMANDO
+            DELAY:     0         
+            INTERVAL:  10        
+            MAX_ALIVE: 3         
+            MIN_DIST:  30        
+            MAX_DIST:  200       
+            NUM_TERMINATE: 5         
+            MASTER:    OFF       
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 461.95 Y: -2.00  Z: 258.54 PCH: 0.00   YAW: 331.79 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 510.72 Y: 3.00   Z: 463.13 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 4   X: 448.66 Y: 2.00   Z: 545.35 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     GENERATOR STORM1
+            MIN_DIST:  30        
+            MAX_DIST:  200       
+            NUM_TERMINATE: 5         
+            MASTER:    OFF       
+            INTERVAL:  3         
+            MAX_ALIVE: 3         
+            DELAY:     0         
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 105.71 Y: 0.00   Z: 203.41 PCH: 0.00   YAW: 142.30 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 30.15  Y: -7.00  Z: 159.07 PCH: 0.00   YAW: 216.55 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 68.62  Y: -3.00  Z: 164.35 PCH: 0.00   YAW: 275.08 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: SPRITE     DATA: 5   X: 191.54 Y: -2.00  Z: 144.43 PCH: 0.00   YAW: 177.84 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     I_OFFICER 
+        SEQEND
+    CLASS: FRAME      DATA: 8   X: 424.69 Y: -10.00 Z: 37.41  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     BATTERY   
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 4   X: 370.91 Y: -2.00  Z: 199.78 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     GENERATOR STORM1
+            DELAY:     0         
+            MIN_DIST:  70        
+            MAX_DIST:  200       
+            NUM_TERMINATE: 2         
+            MASTER:    OFF       
+            MAX_ALIVE: 2         
+            INTERVAL:  2         
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 4   X: 216.06 Y: -2.00  Z: 239.00 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     GENERATOR STORM1
+            DELAY:     0         
+            INTERVAL:  4         
+            MIN_DIST:  70        
+            MAX_DIST:  200       
+            NUM_TERMINATE: 7         
+            MASTER:    OFF       
+            MAX_ALIVE: 4         
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 4   X: 492.92 Y: -2.00  Z: 193.49 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     GENERATOR STORM1
+            DELAY:     0         
+            INTERVAL:  4         
+            MIN_DIST:  40        
+            MAX_DIST:  200       
+            NUM_TERMINATE: 4         
+            MASTER:    OFF       
+            MAX_ALIVE: 3         
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 4   X: 312.90 Y: 2.00   Z: 578.08 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     GENERATOR STORM1
+            INTERVAL:  1         
+            MIN_DIST:  30        
+            MAX_DIST:  200       
+            NUM_TERMINATE: 10        
+            MASTER:    OFF       
+            MAX_ALIVE: 6         
+            DELAY:     0         
+        SEQEND
+    CLASS: FRAME      DATA: 9   X: 296.06 Y: -9.00  Z: 740.28 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     SUPERCHARGE
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 347.22 Y: -7.00  Z: 676.61 PCH: 0.00   YAW: 10.59  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 344.17 Y: -2.00  Z: 116.66 PCH: 0.00   YAW: 94.87  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 208.89 Y: -2.00  Z: 141.85 PCH: 0.00   YAW: 117.27 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: FRAME      DATA: 10  X: 219.97 Y: -2.00  Z: 19.65  PCH: 0.00   YAW: 45.01  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     GOGGLES   
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 482.41 Y: -6.00  Z: 539.82 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 5   X: 305.62 Y: -9.00  Z: 744.78 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 382.40 Y: -19.00 Z: 752.69 PCH: 0.00   YAW: 145.04 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 476.39 Y: -16.00 Z: 674.88 PCH: 0.00   YAW: 2.40   ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 425.58 Y: -19.00 Z: 737.15 PCH: 0.00   YAW: 265.28 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 4   X: 214.01 Y: -2.00  Z: 185.10 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     GENERATOR STORM1
+            MIN_DIST:  70        
+            DELAY:     0         
+            INTERVAL:  20        
+            MAX_ALIVE: 2         
+            MAX_DIST:  200       
+            MASTER:    OFF       
+            NUM_TERMINATE: 4         
+            INTERVAL:  5         
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 488.63 Y: -16.00 Z: 697.86 PCH: 0.00   YAW: 85.61  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 444.91 Y: -15.00 Z: 673.57 PCH: 0.00   YAW: 90.48  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: FRAME      DATA: 9   X: 417.02 Y: -2.00  Z: 150.44 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            LOGIC:     SUPERCHARGE
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 327.66 Y: -2.00  Z: 104.00 PCH: 0.00   YAW: 1.04   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 382.02 Y: -2.00  Z: 99.57  PCH: 0.00   YAW: 177.46 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 409.39 Y: -19.00 Z: 753.33 PCH: 0.00   YAW: 265.28 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 8   X: 360.04 Y: -4.00  Z: 646.86 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            LOGIC:     INVINCIBLE
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: FRAME      DATA: 3   X: 362.48 Y: -4.00  Z: 643.28 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            RADIUS:    O         
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 445.91 Y: -6.00  Z: 177.76 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -2
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: SAFE       DATA: 0   X: 439.11 Y: -2.00  Z: 221.30 PCH: 0.00   YAW: 286.38 ROL: 0.00   DIFF: 1
+    CLASS: SAFE       DATA: 0   X: 390.23 Y: -2.00  Z: 176.31 PCH: 0.00   YAW: 14.57  ROL: 0.00   DIFF: 1
+    CLASS: SAFE       DATA: 0   X: 314.01 Y: 0.00   Z: 278.29 PCH: 0.00   YAW: 88.63  ROL: 0.00   DIFF: 1
+    CLASS: SPRITE     DATA: 0   X: 469.23 Y: -15.00 Z: 684.23 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 325.91 Y: -2.00  Z: 95.33  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 390.34 Y: -2.00  Z: 217.80 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -2
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 442.05 Y: -2.00  Z: 235.24 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 146.82 Y: -10.00 Z: 194.40 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 136.50 Y: 0.00   Z: 197.62 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 157.15 Y: 0.00   Z: 197.30 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 339.02 Y: -0.01  Z: 224.96 PCH: 0.00   YAW: 50.23  ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    /* name: Generator */
+    CLASS: SPRITE     DATA: 4   X: 334.75 Y: -2.00  Z: 143.46 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     GENERATOR STORM1
+            DELAY:     0         
+            NUM_TERMINATE: 4         
+            MIN_DIST:  70        
+            MAX_DIST:  200       
+            MASTER:    OFF       
+            MAX_ALIVE: 4         
+            INTERVAL:  2         
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 364.91 Y: -5.50  Z: 487.55 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 370.30 Y: -5.50  Z: 487.42 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: SPRITE     DATA: 0   X: 375.97 Y: -5.50  Z: 487.28 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -1
+        SEQ
+            LOGIC:     SHIELD    
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 291.59 Y: -9.00  Z: 739.17 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -2
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 295.24 Y: -9.00  Z: 739.17 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -2
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 298.89 Y: -9.00  Z: 739.17 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: -2
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 463.68 Y: -16.00 Z: 697.30 PCH: 0.00   YAW: 7.90   ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 6   X: 412.75 Y: -7.00  Z: 736.09 PCH: 0.00   YAW: 189.03 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     COMMANDO  
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 370.33 Y: -19.00 Z: 741.01 PCH: 0.00   YAW: 145.04 ROL: 0.00   DIFF: 3
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 313.12 Y: -9.00  Z: 657.64 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: FRAME      DATA: 0   X: 531.43 Y: 3.00   Z: 526.55 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            TYPE:      ENERGY    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 188.65 Y: -2.00  Z: 186.42 PCH: 0.00   YAW: 85.33  ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 224.53 Y: -2.00  Z: 135.38 PCH: 0.00   YAW: 265.09 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: SPRITE     DATA: 4   X: 221.10 Y: -2.00  Z: 217.68 PCH: 0.00   YAW: 264.41 ROL: 0.00   DIFF: 2
+        SEQ
+            LOGIC:     STORM1    
+        SEQEND
+    CLASS: FRAME      DATA: 11  X: 409.25 Y: -6.00  Z: 66.50  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     RIFLE     
+        SEQEND
+    CLASS: FRAME      DATA: 7   X: 412.75 Y: -6.00  Z: 64.00  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     MEDKIT    
+        SEQEND
+    CLASS: FRAME      DATA: 11  X: 409.25 Y: -6.00  Z: 69.50  PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     RIFLE     
+        SEQEND
+    CLASS: FRAME      DATA: 9   X: 465.06 Y: 2.30   Z: 633.14 PCH: 0.00   YAW: 0.00   ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SUPERCHARGE
+        SEQEND
+    CLASS: SPRITE     DATA: 2   X: 367.75 Y: -2.00  Z: 150.86 PCH: 0.00   YAW: 185.87 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 2   X: 410.05 Y: -2.00  Z: 150.86 PCH: 0.00   YAW: 185.87 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 2   X: 474.44 Y: -2.00  Z: 184.77 PCH: 0.00   YAW: 185.87 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+    CLASS: SPRITE     DATA: 2   X: 536.23 Y: -2.00  Z: 184.77 PCH: 0.00   YAW: 185.87 ROL: 0.00   DIFF: 1
+        SEQ
+            LOGIC:     SCENERY   
+            LOGIC:     ANIM      
+        SEQEND
+
