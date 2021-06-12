@@ -1,0 +1,1190 @@
+INF 1.0
+LEVELNAME dtention
+ITEMS 200
+item: sector name: xx-vue
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    stop: @0 2
+    stop: @1 3
+      message: 1 kyle_start wakeup
+    page: 1 takeoff1.voc
+    stop: @2 hold
+    page: 2 takeoff2.voc
+  seqend
+item: sector name: initialize
+  seq
+  class: elevator move_floor
+    stop: @0 0
+    stop: @1 0
+      adjoin: 1 e1 7 e1d0 10
+      adjoin: 1 e2 0 e2d-5 9
+    stop: @3 terminate
+  seqend
+item: sector name: unlock_sound
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 0
+    stop: @0 hold
+    page: 0 switch2.voc
+    stop: @1 hold
+    page: 1 switch2.voc
+  seqend
+item: sector name: complete
+  seq
+  class: elevator move_floor
+    speed: 0
+    stop: @0 hold
+    stop: @1 0
+    stop: @2 complete
+  seqend
+item: sector name: vocelev 
+  seq
+  class: elevator move_floor
+    stop: 0 hold
+    stop: 1 0
+    page: 1 m06kyl01.voc
+    stop: 30 0
+    page: 2 m06jan01.voc
+    stop: 70 terminate
+    speed: 10
+  seqend
+item: sector name: crixroom
+  seq
+  class: trigger
+    event_mask: 4
+    client: xx.crixroom
+  seqend
+item: sector name: xx.crixroom
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    stop: @0 hold
+    stop: @1 0
+      message: 1 complete complete 0
+      message: 1 vocelev next_stop
+    stop: @2 terminate
+  seqend
+item: sector name: red_key
+  seq
+  class: elevator move_ceiling
+    event_mask: 48
+    key: red
+    speed: 30
+    stop: @0 hold
+    stop: @8 0
+      message: 1 e1(1) clear_bits 3 2
+      message: 1 e1(3) clear_bits 3 2
+      message: 1 e2(2) clear_bits 3 2
+      message: 1 e2(6) clear_bits 3 2
+    stop: @8.1 terminate
+  seqend
+item: sector name: maintdoor00
+  seq
+  class: elevator move_ceiling
+    event_mask: 48
+    speed: 30
+    stop: @0 hold
+    stop: @6
+      message: 1 e1(1) clear_bits 3 2
+      message: 1 e2(2) clear_bits 3 2
+      message: 1 e2(4) clear_bits 3 2
+      message: 1 e2(6) clear_bits 3 2
+  seqend
+item: sector name: maintdoor01
+  seq
+  class: elevator move_ceiling
+    event_mask: 48
+    speed: 30
+    stop: @0 hold
+    stop: @8
+  seqend
+item: sector name: maintdoor02
+  seq
+  class: elevator move_ceiling
+    event_mask: 48
+    speed: 30
+    stop: @0 hold
+    stop: @8
+  seqend
+item: sector name: maintdoor03
+  seq
+  class: elevator move_ceiling
+    event_mask: 48
+    speed: 30
+    stop: @0 hold
+    stop: @8
+  seqend
+item: line name: maintdoor02.jamb num: 1
+  seq
+  class: trigger switch1
+    event_mask: 48
+    client: maintdoor04
+  seqend
+item: sector name: maintdoor04
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @0 hold
+      message: 0 maintdoor02.jamb(1) done
+    stop: @8 10
+  seqend
+item: sector name: fanduct0
+  seq
+  class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    angle: 0
+    stop: 000 0
+    stop: 064 0
+    slave: fanduct1
+    slave: fanduct2
+    slave: fanduct3
+    slave: fanduct4
+  class: elevator change_light
+    event_mask: 0
+    speed: 0
+    stop: 24 0
+    stop: 18 0
+    slave: fanduct1
+    slave: fanduct2
+    slave: fanduct3
+    slave: fanduct4
+  seqend
+item: sector name: e1
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 30
+    flags: 2
+    stop: e1d0 hold
+      message: 0 e1p0a goto_stop 0
+      message: 0 e1d0 goto_stop 1
+    stop: 116 0
+      adjoin: 1 e1 7 e1d-2 10
+    stop: e1d-2 hold
+      message: 2 e1p0a goto_stop 1
+      message: 2 e1d-2 goto_stop 1
+    stop: 52 0
+      adjoin: 3 e1 7 e1d-4 10
+    stop: e1d-4 hold
+      message: 4 e1p0a goto_stop 2
+      message: 4 e1d-4 goto_stop 1
+    stop: -12 0
+      adjoin: 5 e1 7 e1d-5 10
+    stop: e1d-5 hold
+      message: 6 e1p0a goto_stop 3
+      message: 6 e1d-5 goto_stop 1
+    stop: -12 0
+      adjoin: 7 e1 7 e1d-4 10
+    stop: e1d-4 0
+      message: 8 e1p0a goto_stop 2
+    stop: 52 0
+      adjoin: 9 e1 7 e1d-2 10
+    stop: e1d-2 0
+      message: 10 e1p0a goto_stop 1
+    stop: 116 0
+      adjoin: 11 e1 7 e1d0 10
+  seqend
+item: line name: e1 num: 0
+  seq
+  class: trigger switch1
+    event_mask: 16
+      message: goto_stop 0
+    client: e1.nowalk
+    client: e1d0
+    client: e1d-2
+    client: e1d-4
+    client: e1d-5
+  seqend
+item: sector name: e1.nowalk
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    stop: @0 0
+      message: 0 e1(1) set_bits 3 2
+    stop: @1 hold
+  seqend
+item: sector name: e1p0a
+  seq
+  class: elevator scroll_wall
+    speed: 1000
+    angle: 180
+    stop: 20 hold
+    stop: 12 hold
+    stop: 04 hold
+    stop: 00 hold
+    slave: e1p-2a
+    slave: e1p-4a
+    slave: e1p-5a
+  seqend
+item: sector name: e1d0
+  seq
+  class: elevator morph_spin1
+    event_mask: 0
+    center: 120 468
+    speed: 200
+    start: 1
+    stop: 0 hold
+      message: 0 e1(7) set_bits 3 2
+      message: 0 e1 next_stop
+    stop: -50 hold
+      message: 1 e1(7) clear_bits 3 2
+      message: 1 e1(0) done
+      message: 1 f0(10) done
+      message: 1 f-2(19) done
+      message: 1 f-4(19) done
+      message: 1 f-5a(21) done
+  seqend
+item: sector name: e1d-2
+  seq
+  class: elevator morph_spin1
+    event_mask: 0
+    center: 120 468
+    speed: 200
+    stop: 0 hold
+      message: 0 e1(7) set_bits 3 2
+      message: 0 e1 next_stop
+    stop: -50 hold
+      message: 1 e1(7) clear_bits 3 2
+      message: 1 e1(0) done
+      message: 1 f0(10) done
+      message: 1 f-2(19) done
+      message: 1 f-4(19) done
+      message: 1 f-5a(21) done
+  seqend
+item: sector name: e1d-4
+  seq
+  class: elevator morph_spin1
+    event_mask: 0
+    center: 120 468
+    speed: 200
+    stop: 0 hold
+      message: 0 e1(7) set_bits 3 2
+      message: 0 e1 next_stop
+    stop: -50 hold
+      message: 1 e1(7) clear_bits 3 2
+      message: 1 e1(0) done
+      message: 1 f0(10) done
+      message: 1 f-2(19) done
+      message: 1 f-4(19) done
+      message: 1 f-5a(21) done
+  seqend
+item: sector name: e1d-5
+  seq
+  class: elevator morph_spin1
+    event_mask: 0
+    center: 120 468
+    speed: 200
+    stop: 0 hold
+      message: 0 e1(7) set_bits 3 2
+      message: 0 e1 next_stop
+    stop: -50 hold
+      message: 1 e1(7) clear_bits 3 2
+      message: 1 e1(0) done
+      message: 1 f0(10) done
+      message: 1 f-2(19) done
+      message: 1 f-4(19) done
+      message: 1 f-5a(21) done
+  seqend
+item: line name: f0 num: 10
+  seq
+  class: trigger switch1
+    event_mask: 48
+      message: goto_stop 0
+    client: e1d0
+    client: e1d-2
+    client: e1d-4
+    client: e1d-5
+  seqend
+item: line name: f-2 num: 19
+  seq
+  class: trigger switch1
+    event_mask: 48
+      message: goto_stop 0
+    client: e1d0
+    client: e1d-2
+    client: e1d-4
+    client: e1d-5
+  seqend
+item: line name: f-4 num: 19
+  seq
+  class: trigger switch1
+    event_mask: 48
+      message: goto_stop 0
+    client: e1d0
+    client: e1d-2
+    client: e1d-4
+    client: e1d-5
+  seqend
+item: line name: f-5a num: 21
+  seq
+  class: trigger switch1
+    event_mask: 48
+      message: goto_stop 0
+    client: e1d0
+    client: e1d-2
+    client: e1d-4
+    client: e1d-5
+  seqend
+item: sector name: e2
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 30
+    flags: 2
+    stop: e2d-5 hold
+      message: 0 e2d-5 next_stop
+      message: 0 e2p-1a goto_stop 0
+    stop: 20 0
+      adjoin: 1 e2 0 e2d-3 9
+    stop: e2d-3 hold
+      message: 2 e2d-3 next_stop
+      message: 2 e2p-1a goto_stop 1
+    stop: 84 0
+      adjoin: 3 e2 0 e2d-1 9
+    stop: e2d-1 hold
+      message: 4 e2d-1 next_stop
+      message: 4 e2p-1a goto_stop 2
+    stop: 84 0
+      adjoin: 5 e2 0 e2d-3 9
+    stop: e2d-3 0
+      message: 6 e2p-1a goto_stop 1
+    stop: 20 0
+      adjoin: 7 e2 0 e2d-5 9
+  seqend
+item: line name: e2 num: 7
+  seq
+  class: trigger switch1
+    event_mask: 16
+      message: goto_stop 0
+    client: e2.nowalk
+    client: e2d-1
+    client: e2d-3
+    client: e2d-5
+  seqend
+item: sector name: e2.nowalk
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    stop: @0 0
+      message: 0 e2(2) set_bits 3 2
+      message: 0 e2(4) set_bits 3 2
+      message: 0 e2(6) set_bits 3 2
+    stop: @1 hold
+  seqend
+item: sector name: e2p-1a
+  seq
+  class: elevator scroll_wall
+    event_mask: 0
+    speed: 0
+    angle: 180
+    stop: 00 hold
+    stop: 08 hold
+    stop: 16 hold
+    slave: e2p-3a
+    slave: e2p-5a
+  seqend
+item: sector name: e2d-5
+  seq
+  class: elevator morph_spin1
+    event_mask: 0
+    center: 160 468
+    speed: 200
+    start: 1
+    stop: 0 hold
+      message: 0 e2(0) set_bits 3 2
+      message: 0 e2 next_stop
+    stop: 50 hold
+      message: 1 e2(0) clear_bits 3 2
+      message: 1 e2(7) done
+      message: 1 f-1(4) done
+      message: 1 f-3(10) done
+      message: 1 f-5b(26) done
+  seqend
+item: sector name: e2d-3
+  seq
+  class: elevator morph_spin1
+    event_mask: 0
+    center: 160 468
+    speed: 200
+    stop: 0 hold
+      message: 0 e2(0) set_bits 3 2
+      message: 0 e2 next_stop
+    stop: 50 hold
+      message: 1 e2(0) clear_bits 3 2
+      message: 1 e2(7) done
+      message: 1 f-1(4) done
+      message: 1 f-3(10) done
+      message: 1 f-5b(26) done
+  seqend
+item: sector name: e2d-1
+  seq
+  class: elevator morph_spin1
+    event_mask: 0
+    center: 160 468
+    speed: 200
+    stop: 0 hold
+      message: 0 e2(0) set_bits 3 2
+      message: 0 e2 next_stop
+    stop: 50 hold
+      message: 1 e2(0) clear_bits 3 2
+      message: 1 e2(7) done
+      message: 1 f-1(4) done
+      message: 1 f-3(10) done
+      message: 1 f-5b(26) done
+  seqend
+item: line name: f-1 num: 4
+  seq
+  class: trigger switch1
+    event_mask: 48
+      message: goto_stop 0
+    client: e2d-1
+    client: e2d-3
+    client: e2d-5
+  seqend
+item: line name: f-3 num: 10
+  seq
+  class: trigger switch1
+    event_mask: 48
+      message: goto_stop 0
+    client: e2d-1
+    client: e2d-3
+    client: e2d-5
+  seqend
+item: line name: f-5b num: 26
+  seq
+  class: trigger switch1
+    event_mask: 48
+      message: goto_stop 0
+    client: e2d-1
+    client: e2d-3
+    client: e2d-5
+  seqend
+item: sector name: shuttle
+  seq
+  class: elevator morph_move2
+    event_mask: 16
+    speed: 15
+    flags: 2
+    angle: 180
+    stop: 0 hold
+      message: 0 landing(6) done
+    stop: 173 5
+  class: elevator scroll_floor
+    event_mask: 16
+    flags: 0
+    speed: 15
+    angle: 180
+    stop: 0 hold
+    stop: 173 5
+  seqend
+item: line name: landing num: 6
+  seq
+  class: trigger switch1
+    event_mask: 16
+    client: shuttle
+  seqend
+item: line name: gateswitch1 num: 5
+  seq
+  class: trigger switch1
+    entity_mask: *
+    event_mask: 272
+    client: frontdoor00
+    client: frontdoor01
+  seqend
+item: sector name: frontdoor00
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    stop: @12 hold
+      message: 0 gateswitch1(5) done
+    stop: @1
+  seqend
+item: sector name: frontdoor01
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 30
+    stop: @12 hold
+      message: 0 gateswitch1(5) done
+    stop: @1
+  seqend
+item: line name: gateswitch0 num: 2
+  seq
+  class: trigger single
+    client: gateswitchdoor
+  seqend
+item: sector name: gateswitchdoor
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @0 hold
+    stop: @12 terminate
+  seqend
+item: line name: gateswitch2 num: 0
+  seq
+  class: trigger switch1
+    entity_mask: 2147483656
+    event_mask: 272
+    client: gateelev
+  seqend
+item: line name: gateswitch3 num: 0
+  seq
+  class: trigger switch1
+    entity_mask: 2147483656
+    event_mask: 272
+    client: gateelev
+  seqend
+item: sector name: gateelev
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    stop: @0 hold
+      message: 0 gateswitch2(0) done
+      message: 0 gateswitch3(0) done
+    stop: @17
+  seqend
+item: sector name: gate0
+  seq
+  class: elevator morph_move1
+    event_mask: 48
+    angle: 90
+    stop: 0 hold
+    stop: 24
+  seqend
+item: line name: courtroom num: 1
+  seq
+  class: trigger single
+    event_mask: 16
+    client: gate1.sw
+  seqend
+item: sector name: gate1.sw
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @0 hold
+    stop: @4 terminate
+  seqend
+item: line name: gate1.sw num: 0
+  seq
+  class: trigger switch1
+    event_mask: 48
+    client: gate1
+  seqend
+item: line name: gate1 num: 1
+  seq
+  class: trigger switch1
+    event_mask: 48
+    client: gate1
+  seqend
+item: sector name: gate1
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    stop: @17 hold
+      message: 0 gate1.sw(0) done
+      message: 0 gate1(1) done
+    stop: @1 hold
+      message: 1 gate1.sw(0) done
+      message: 1 gate1(1) done
+  seqend
+item: sector name: e3
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    speed: 25
+    stop: @1 hold
+    stop: @37
+  seqend
+item: sector name: code-1.0
+  seq
+  class: elevator scroll_wall
+    event_mask: 32
+    angle: 0
+    speed: 0
+    start: 5
+    stop: 00 hold
+      message: 0 xx-1.2 next_stop
+    stop: 16 hold
+      message: 1 xx-1.2 prev_stop
+    stop: 32 hold
+      message: 2 xx-1.0 next_stop
+    stop: 48 hold
+      message: 3 xx-1.1 next_stop
+      message: 3 xx-1.0 prev_stop
+    stop: 64 hold
+      message: 4 xx-1.1 prev_stop
+    stop: 80 hold
+    stop: 96 hold
+    stop: 112 hold
+  seqend
+item: sector name: code-1.1
+  seq
+  class: elevator scroll_wall
+    event_mask: 32
+    angle: 0
+    speed: 0
+    start: 7
+    stop: 00 hold
+    stop: 16 hold
+      message: 1 xx-1.2 next_stop
+    stop: 32 hold
+      message: 2 xx-1.2 prev_stop
+    stop: 48 hold
+      message: 3 xx-1.0 next_stop
+      message: 3 xx-1.1 next_stop
+    stop: 64 hold
+      message: 4 xx-1.1 prev_stop
+      message: 4 xx-1.0 prev_stop
+    stop: 80 hold
+    stop: 96 hold
+    stop: 112 hold
+  seqend
+item: sector name: code-1.2
+  seq
+  class: elevator scroll_wall
+    event_mask: 32
+    angle: 0
+    speed: 0
+    start: 1
+    stop: 00 hold
+    stop: 16 hold
+    stop: 32 hold
+      message: 2 xx-1.2 next_stop
+    stop: 48 hold
+      message: 3 xx-1.1 next_stop
+      message: 3 xx-1.2 prev_stop
+    stop: 64 hold
+      message: 4 xx-1.1 prev_stop
+      message: 4 xx-1.0 next_stop
+    stop: 80 hold
+      message: 5 xx-1.0 prev_stop
+    stop: 96 hold
+    stop: 112 hold
+  seqend
+item: sector name: xx-1.0
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    stop: @0 hold
+    stop: @1 hold
+    stop: @2 hold
+      message: 2 cell-1.0 goto_stop 0
+    stop: @3 hold
+      message: 3 cell-1.0 goto_stop 1
+      message: 3 unlock_sound
+  seqend
+item: sector name: xx-1.1
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    stop: @0 hold
+    stop: @1 hold
+    stop: @2 hold
+      message: 2 cell-1.1 goto_stop 0
+    stop: @3 hold
+      message: 3 cell-1.1 goto_stop 1
+      message: 3 unlock_sound
+  seqend
+item: sector name: xx-1.2
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    stop: @0 hold
+    stop: @1 hold
+    stop: @2 hold
+      message: 2 cell-1.2 goto_stop 0
+    stop: @3 hold
+      message: 3 cell-1.2 goto_stop 1
+      message: 3 unlock_sound
+  seqend
+item: sector name: cell-1.0
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @00 hold
+    stop: @12 hold
+  seqend
+item: sector name: cell-1.1
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @00 hold
+    stop: @12 hold
+  seqend
+item: sector name: cell-1.2
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @00 hold
+    stop: @12 hold
+  seqend
+item: sector name: block-1
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    stop: @16 hold
+    stop: @01 hold
+  seqend
+item: line name: block-1 num: 0
+  seq
+  class: trigger
+    event_mask: 32
+    client: block-1
+  seqend
+item: sector name: -2secret2.door
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @0 hold
+      message: 0 -2secret2(0) done
+    stop: @10 
+  seqend
+item: line name: -2secret2.door num: 3
+  seq
+  class: trigger
+    event_mask: 32
+    client: -2secret2.door
+  seqend
+item: line name: -2secret2 num: 0
+  seq
+  class: trigger switch1
+    event_mask: 256
+    entity_mask: 8
+    client: -2secret2.door
+  seqend
+item: sector name: -2secret.elev
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 5
+    stop: @15 hold
+      message: 0 -2secret.a(5) done
+      message: 0 -2secret.b(1) done
+    stop: @0 1
+  seqend
+item: line name: -2secret.a num: 5
+  seq
+  class: trigger switch1
+    event_mask: 48
+    client: -2secret.elev
+  seqend
+item: line name: -2secret.b num: 1
+  seq
+  class: trigger switch1
+    event_mask: 48
+    client: -2secret.elev
+  seqend
+item: sector name: code-2.0
+  seq
+  class: elevator scroll_wall
+    event_mask: 32
+    angle: 0
+    speed: 0
+    stop: 48 hold
+    stop: 64 hold
+    stop: 80 hold
+    stop: 96 hold
+    stop: 112 hold
+    stop: 00 hold
+    stop: 16 hold
+      message: 6 xx-2.0 next_stop
+    stop: 32 hold
+      message: 7 xx-2.0 prev_stop
+  seqend
+item: sector name: code-2.1
+  seq
+  class: elevator scroll_wall
+    event_mask: 32
+    angle: 0
+    speed: 0
+    stop: 00 hold
+    stop: 16 hold
+    stop: 32 hold
+    stop: 48 hold
+      message: 3 xx-2.0 next_stop
+    stop: 64 hold
+      message: 4 xx-2.0 prev_stop
+    stop: 80 hold
+    stop: 96 hold
+    stop: 112 hold
+  seqend
+item: sector name: code-2.2
+  seq
+  class: elevator scroll_wall
+    event_mask: 32
+    angle: 0
+    speed: 0
+    stop: 112 hold
+    stop: 00 hold
+    stop: 16 hold
+    stop: 32 hold
+    stop: 48 hold
+    stop: 64 hold
+    stop: 80 hold
+      message: 6 xx-2.0 next_stop
+    stop: 96 hold
+      message: 7 xx-2.0 prev_stop
+  seqend
+item: sector name: xx-2.0
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    stop: @0 hold
+    stop: @1 hold
+    stop: @2 hold
+      message: 2 door-2.0 goto_stop 0
+    stop: @3 hold
+      message: 3 door-2.0 goto_stop 1
+      message: 3 unlock_sound
+  seqend
+item: sector name: door-2.0
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @00 hold
+    stop: @12 hold
+  seqend
+item: sector name: elev-3.0
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    stop: @01 hold
+    stop: @15 hold
+  seqend
+item: sector name: elev-3.1
+  seq
+  class: elevator move_floor
+    event_mask: 52
+    stop: @01 hold
+    stop: @32
+      message: 1 elev-3.1.door next_stop
+  seqend
+item: sector name: elev-3.1.door
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @0 hold
+    stop: @8
+  seqend
+item: sector name: code-3.0
+  seq
+  class: elevator scroll_wall
+    event_mask: 32
+    angle: 0
+    speed: 0
+    stop: 00 hold
+    stop: 16 hold
+    stop: 32 hold
+    stop: 48 hold
+      message: 3 xx-3.1 next_stop
+    stop: 64 hold
+      message: 4 xx-3.1 prev_stop
+    stop: 80 hold
+    stop: 96 hold
+      message: 6 xx-3.0 next_stop
+    stop: 112 hold
+      message: 7 xx-3.0 prev_stop
+  seqend
+item: sector name: code-3.1
+  seq
+  class: elevator scroll_wall
+    event_mask: 32
+    angle: 0
+    speed: 0
+    start: 1 
+    stop: 00 hold
+      message: 0 xx-3.0 prev_stop
+    stop: 16 hold
+    stop: 32 hold
+    stop: 48 hold
+    stop: 64 hold
+    stop: 80 hold
+      message: 5 xx-3.1 next_stop
+    stop: 96 hold
+      message: 6 xx-3.1 prev_stop
+    stop: 112 hold
+      message: 7 xx-3.0 next_stop
+  seqend
+item: sector name: code-3.2
+  seq
+  class: elevator scroll_wall
+    event_mask: 32
+    angle: 0
+    speed: 0
+    start: 4 
+    stop: 00 hold
+      message: 0 xx-3.0 next_stop
+      message: 0 xx-3.1 prev_stop
+    stop: 16 hold
+      message: 1 xx-3.0 prev_stop
+    stop: 32 hold
+    stop: 48 hold
+    stop: 64 hold
+    stop: 80 hold
+    stop: 96 hold
+    stop: 112 hold
+      message: 7 xx-3.1 next_stop
+  seqend
+item: sector name: xx-3.0
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    stop: @0 hold
+    stop: @1 hold
+    stop: @2 hold
+      message: 2 cell-3.0 goto_stop 0
+    stop: @3 hold
+      message: 3 cell-3.0 goto_stop 1
+      message: 3 unlock_sound
+  seqend
+item: sector name: xx-3.1
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    stop: @0 hold
+    stop: @1 hold
+    stop: @2 hold
+      message: 2 cell-3.1 goto_stop 0
+    stop: @3 hold
+      message: 3 cell-3.1 goto_stop 1
+      message: 3 unlock_sound
+  seqend
+item: sector name: cell-3.0
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @00 hold
+    stop: @12 hold
+  seqend
+item: sector name: cell-3.1
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @00 hold
+    stop: @12 hold
+  seqend
+item: line name: -4duct num: 2
+  seq
+  class: trigger switch1
+    event_mask: 16
+    client: xx-4duct
+  seqend
+item: sector name: f-4laforza
+  seq
+  class: elevator change_light
+    event_mask: 0
+    speed: 200
+    stop: @2 0
+    stop: @32 0
+  seqend
+item: sector name: xx-4duct
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 0
+    stop: @0 hold
+      message: 0 f-4b(14) set_bits 3 10
+      message: 0 f-4room(1) set_bits 3 10
+      message: 0 f-4laforza set_bits 1 4096
+      message: 0 f-4laforza master_on
+      message: 0 -4duct(2) done
+      message: 0 f-4room.b(3) done
+    stop: @1 15
+      message: 1 f-4b(14) clear_bits 3 10
+      message: 1 f-4room(1) clear_bits 3 10
+      message: 1 f-4laforza clear_bits 1 4096
+      message: 1 f-4laforza master_off
+  seqend
+item: line name: f-4room.b num: 3
+  seq
+  class: trigger switch1
+    event_mask: 16
+    client: xx-4duct
+  seqend
+item: sector name: -4lockdoor.0
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 30
+    stop: @1 hold
+      message: 0 -4lockdoor.1 goto_stop 0
+    stop: @12 hold
+      message: 1 -4lockdoor.1 goto_stop 1
+  seqend
+item: sector name: -4lockdoor.1
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 30
+    stop: @12 hold
+      message: 0 -4lockdoor(2) done
+    stop: @1 hold
+      message: 1 -4lockdoor(2) done
+  seqend
+item: line name: -4lockdoor num: 2
+  seq
+  class: trigger switch1
+    event_mask: 16
+    client: -4lockdoor.0
+  seqend
+item: sector name: f-5laforza.0
+  seq
+  class: elevator change_light
+    event_mask: 0
+    speed: 200
+    stop: @8 0
+    stop: @32 0
+  seqend
+item: sector name: xx-f-5laforza.0
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    speed: 0
+    stop: @0 3
+      message: 0 f-5laforza.0a(1) set_bits 3 10
+      message: 0 f-5laforza.0b(4) set_bits 3 10
+      message: 0 f-5laforza.0 master_on
+    stop: @1 1
+      message: 1 f-5laforza.0 master_off
+      message: 1 f-5laforza.0a(1) clear_bits 3 10
+      message: 1 f-5laforza.0b(4) clear_bits 3 10
+  seqend
+item: sector name: f-5laforza.1
+  seq
+  class: elevator change_light
+    event_mask: 0
+    speed: 200
+    stop: @8 0
+    stop: @32 0
+  seqend
+item: sector name: xx-f-5laforza.1
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    sound: 1 0
+    sound: 2 0
+    sound: 3 0
+    speed: 0
+    stop: @0 3
+      message: 0 f-5laforza.1a(17) set_bits 3 10
+      message: 0 f-5laforza.1b(1) set_bits 3 10
+      message: 0 f-5laforza.1 master_on
+    stop: @1 1
+      message: 1 f-5laforza.1 master_off
+      message: 1 f-5laforza.1a(17) clear_bits 3 10
+      message: 1 f-5laforza.1b(1) clear_bits 3 10
+  seqend
+item: sector name: f-5laforza.1a
+  seq
+  class: elevator change_light
+    event_mask: 0
+    speed: 30
+    stop: @4 0
+    stop: @24 0
+  seqend
+item: sector name: condoor00
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @0 hold
+      message: 0 conroom(1) done
+    stop: @+8
+  seqend
+item: sector name: condoor01
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @0 hold
+      message: 0 conroom(1) done
+    stop: @+8
+  seqend
+item: line name: conroom num: 1
+  seq
+  class: trigger switch1
+    entity_mask: *
+    event_mask: 272
+    client: condoor00
+    client: condoor01
+  seqend
+item: sector name: compactor.0
+  seq
+  class: elevator move_ceiling
+    event_mask: 0
+    stop: @48 2
+    stop: @1 2
+  seqend
+item: sector name: compact1
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 4
+    sound: 0 0
+    sound: 1 0
+    sound: 2 0
+    stop: @9 0
+    stop: @17 0
+  seqend
+item: sector name: compact2
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 6
+    sound: 0 0
+    sound: 1 0
+    sound: 2 0
+    stop: @17 0
+    stop: @9 0
+  seqend
+item: sector name: compact3
+  seq
+  class: elevator move_floor
+    event_mask: 0
+    speed: 12
+    stop: @9 0
+    stop: @30 0
+  seqend
+item: sector name: compactdoor0
+  seq
+  class: elevator door_mid
+  seqend
+item: sector name: compactdoor1
+  seq
+  class: elevator door_mid
+  seqend
