@@ -10,7 +10,7 @@ EMAIL
 ÚÄÙ      This file contains information definitions for a single level    ÚÄÙ                                                                                                                                                     ;
 ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
  
-ITEMS 96
+ITEMS 101
  
  
  
@@ -186,7 +186,21 @@ item: line   name: vicar num: 2
  seq
  class: trigger
  client: vicarrst
+ message: master_on
+ event_mask: 1
+ seqend
+
+item: line   name: vicar num: 2
+ seq
+ class: trigger
  client: vicar
+ message: master_on
+ event_mask: 1
+ seqend
+
+item: line   name: vicar num: 2
+ seq
+ class: trigger
  client: no
  message: master_on
  event_mask: 1
@@ -212,6 +226,14 @@ item: line   name: vicar num: 2
  seq
  class: trigger
  client: vicar
+ message: goto_stop @0
+ message: master_off
+ event_mask: 2
+ seqend
+ 
+item: line   name: vicar num: 2
+ seq
+ class: trigger
  client: no
  message: goto_stop @0
  message: master_off
