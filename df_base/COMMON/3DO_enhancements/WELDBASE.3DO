@@ -1,0 +1,75 @@
+3DO 1.2
+# Textured welder base by Matt Hallaron (mhallaron@yahoo.com)
+# Textures revised by Patrick Haslow  (patrick@patrickhaslow.com)
+# February 2001
+# Original welder by LEC
+# This file has been converted from 3d Studio file 'weldrbm.ASC'.
+# The scale factor used was: 1.000000
+#
+3DONAME weldrbm
+OBJECTS 00001
+VERTICES 00012
+POLYGONS 00012
+PALETTE DEFAULT.PAL
+
+#-------------------------------------------------------
+TEXTURES 1
+ TEXTURE: WELD03W.BM    #0
+
+
+#---------------------------------------------------------------------------
+OBJECT "stand"
+TEXTURE 0  # 
+VERTICES 12
+#    num:        x           y           z
+      0:      -0.140      -7.591       0.229
+      1:      -0.761      -7.591       0.808
+      2:       0.050      -7.591       0.559
+      3:       0.862      -7.591       0.808
+      4:       0.241      -7.591       0.229
+      5:       0.050      -7.591      -0.598
+      6:      -0.689       0.000      -0.088
+      7:      -3.040       0.000       2.104
+      8:       0.033       0.000       1.163
+      9:       3.107       0.000       2.104
+     10:       0.756       0.000      -0.088
+     11:       0.033       0.000      -3.220
+
+TRIANGLES 12
+#    num:    < a >  < b >  < c > <color> <shading> #<material>
+      0:      7      1      0     51   TEXTURE      # DWHITEF
+      1:      6      7      0     51   TEXTURE      # DWHITEF
+      2:      8      2      1     40   TEXTURE      # WHITEF
+      3:      7      8      1     40   TEXTURE      # WHITEF
+      4:      9      3      2     51   TEXTURE      # DWHITEF
+      5:      8      9      2     51   TEXTURE      # DWHITEF
+      6:     10      4      3     40   TEXTURE      # WHITEF
+      7:      9     10      3     40   TEXTURE      # WHITEF
+      8:     11      5      4     51   TEXTURE      # DWHITEF
+      9:     10     11      4     51   TEXTURE      # DWHITEF
+     10:      6      0      5     40   TEXTURE      # WHITEF
+     11:     11      6      5     40   TEXTURE      # WHITEF
+
+TEXTURE VERTICES 6
+#     num:      <x>     <y>
+	0:	0.001	0.001
+	1:	0.250	0.999
+	2:	0.500	0.999
+	3:	0.500	0.001
+	4:	0.999	0.001
+	5:	0.750	0.999
+
+TEXTURE TRIANGLES 12
+#     num:      <1>     <2>     <3>
+	0:	0	1	2
+	1:	3	0	2
+	2:	3	2	5
+	3:	4	3	5
+	4:	0	1	2
+	5:	3	0	2
+	6:	3	2	5
+	7:	4	3	5
+	8:	0	1	2
+	9:	3	0	2
+	10:	3	2	5
+	11:	4	3	5

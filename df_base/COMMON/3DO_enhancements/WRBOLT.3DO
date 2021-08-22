@@ -1,0 +1,43 @@
+3DO 1.2
+#
+# Red laser bolt, texture mapped by Jereth Kok
+#
+3DONAME box1
+OBJECTS 1
+VERTICES 4
+POLYGONS 4
+PALETTE METAL.PAL
+
+TEXTURES 1
+     TEXTURE:     REDLSR.BM  #0
+
+#---------------------------------------------------------------------------
+OBJECT "OX01"
+TEXTURE 0
+
+VERTICES 4
+	0:	0	0.00	00.00
+	1:	-.1	0.00	70.00
+	2:	0	0.00	300.00
+	3:	.1	0.00	70.00
+
+
+QUADS 2
+# <unused>:	< a >	< b >	< c >	< d >	< color >
+	0:	0	1	2	3	06    TEXTURE
+	1:	3	2	1	0	06    TEXTURE
+
+TEXTURE VERTICES 4
+#       num:    <x>     <y>
+        0:      0.00    0.50
+        1:      0.50    1.00
+        2:      1.00    0.50
+        3:      0.50    0.00
+
+TEXTURE QUADS 2
+#       num:    <a>     <b>     <c>     <d>
+        0:      0       1       2       3
+        1:      0       1       2       3
+
+
+
