@@ -49,3 +49,17 @@ Textures: MOUSEBOT.BM
 7. Ramses Hed ship engine 
 New model
 By Jereth Kok
+
+8. Testbase fan 
+Texture mapped
+By Jereth Kok
+
+Models: TB_FAN.3DO
+
+9. Red and Green laser bolts 
+Texture mapped
+By Jereth Kok
+
+Models: WRBOLT.3DO and WGBOLT.3DO
+Textures: REDLSR.BM, GRNLSR.BM
+
