@@ -1776,10 +1776,10 @@ item: sector	name: commandplat
 	event_mask: 4
 	speed: 0
 	stop: 0 hold
-	stop: 0 hold
-	stop: 0 0
+	stop: 1 hold
+	stop: 2 0
 		message: 2 kriegholo next_stop 65536
-    stop: 0 terminate
+    stop: 3 terminate
     seqend
 
 item: line    name: commandplat    num: 4
@@ -1787,6 +1787,7 @@ item: line    name: commandplat    num: 4
     class: trigger switch1
     event_mask: 16
     client: commandplat
+	message: goto_stop 2
     seqend
     
 item: sector	name: kriegholo
@@ -1889,7 +1890,6 @@ item: line    name: eplatelev    num: 6
     seq
     class: trigger switch1
     event_mask: 16
-
     client: eplatelev
     seqend
 
