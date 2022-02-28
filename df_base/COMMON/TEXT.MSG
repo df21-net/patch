@@ -1,7 +1,7 @@
 MSG 1.0
 
 # number of actual messages
-MSGS 113
+MSGS 114
 
 # internal game messages
 0    0:  "Joystick Off"
@@ -108,6 +108,7 @@ MSGS 113
 #        at the top when you add a new message. - bitcores
 
 470  1:  "Locked"
+471  1:  "Anoat Sewer Lock Opened"
 
 
 #-------
