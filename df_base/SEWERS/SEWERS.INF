@@ -1,0 +1,2007 @@
+
+INF 1.0
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ      This file contains information definitions for a single level    ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+
+LEVELNAME SEWERS
+ITEMS 244
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                          mission completion                           ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: complete
+		seq
+			class: elevator move_floor
+			stop: 0 hold
+			stop: 1 0
+                        stop: 4 complete
+			speed: 10
+		seqend
+	item: line      name: miscomp   num: 5
+		seq
+			class: trigger
+			event_mask: 3
+			client: comp_dummy
+			message: next_stop
+		seqend
+	item: sector	name: comp_dummy
+		seq
+			class: elevator change_light
+			stop: 0 hold
+			stop: 1 0
+				message: 1 vocelev next_stop
+				message: 1 complete complete 0
+   			stop: 2 terminate
+  		seqend
+	item:   sector          name:   vocelev
+		seq
+			class: elevator move_floor
+			sound: 1 0
+			sound: 2 0
+			sound: 3 0
+			stop: 0 hold
+			stop: 1 3.5
+				page: 1 m03kyl01.voc
+			stop: 2 1
+				page: 2 m03jan01.voc
+			stop: 4 terminate
+			speed: 0
+		seqend
+	item: sector            name: elev01
+		seq
+			class: elevator move_floor
+			stop: @16 hold
+			stop: @15 0
+				adjoin: 1 elev01 1 elev01bot 0
+			stop: @0 hold
+			event_mask: 52
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                 control room and original sludge gates                ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: panel01   
+		seq
+			class: elevator         scroll_wall
+			speed: 0
+			angle: 180
+			event_mask: 32
+			stop: 0 hold
+			stop: 16 hold
+				message: 1 sludge03 goto_stop 1
+			stop: 32 0
+				message: 2 sludge03 goto_stop 0
+			stop: 32 hold
+				message: 3 sludge06 goto_stop 1
+			stop: 48 0
+				message: 4 sludge06 goto_stop 0
+			stop: 48 hold
+				message: 5 sludge09 goto_stop 1
+			stop: 64 0
+				message: 6 sludge09 goto_stop 0
+			stop: 64 hold
+				message: 7 sludge12 goto_stop 1
+			stop: 0 0
+				message: 8 sludge12 goto_stop 0
+		seqend 
+	item: sector    name: sludge03
+		seq
+			class: elevator inv
+			event_mask: 0
+			speed: 0
+			stop: -2 hold
+			stop: 4 hold
+		seqend
+	item: sector    name: sludge06
+		seq
+			class: elevator inv
+			event_mask: 0
+			speed: 0
+			stop: -1 hold
+			stop: 5 hold
+		seqend
+	item: sector    name: sludge09
+		seq
+			class: elevator inv
+			event_mask: 0
+			speed: 0
+			stop: -1 hold
+			stop: 5 hold
+		seqend
+	item: sector    name: sludge12
+		seq
+			class: elevator inv
+			event_mask: 0
+			speed: 0
+			stop: -2 hold
+			stop: 4 hold
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                   central sludge room mongo puzzle                    ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: thinker
+		seq
+			class: elevator move_floor
+			stop:  0 hold
+			stop:  1 hold
+				message: 1 centergate01 next_stop
+			stop:  2 hold
+				message: 2 centergate02 next_stop
+			stop:  3 hold
+				message: 3 centergate03 next_stop
+		seqend
+	item: sector            name: centergate01
+		seq
+			class: elevator inv
+			event_mask: 0
+			stop: -6 hold
+			stop: 2 hold
+				message: 1 fall next_stop       
+		seqend
+	item: sector            name: fall
+		seq
+			class: elevator move_floor
+			event_mask: 0
+			stop: -6 hold
+			stop: -32 hold
+				message: 1 center next_stop     
+		seqend
+	item: sector            name: fall
+		seq
+			class: elevator scroll_wall
+			speed: 92
+			angle: 0
+		seqend  
+	item: sector            name: centergate02
+		seq
+			class: elevator inv
+			event_mask: 0
+			stop: -18 hold
+			stop: -26 hold
+				message: 1 center
+		seqend
+	item: sector            name: centergate03
+		seq
+			class: elevator inv
+			event_mask: 0
+			stop: -8 hold
+			stop: -16 hold
+				message: 1 center
+		seqend
+	item: sector            name: center
+		seq
+			class: elevator move_floor
+			event_mask: 0
+			stop: -32 hold
+			stop: -26 hold
+			stop: -16 hold
+			stop: -6 hold
+			speed: 5
+		seqend
+	item: line              name: centercontrol01   num: 22
+		seq
+			class: trigger switch1
+			client: thinker
+		seqend
+	item: line              name: centercontrol02   num: 1
+		seq
+			class: trigger switch1
+			client: thinker
+		seqend  
+	item: line              name: centercontrol03   num: 5
+		seq
+			class: trigger switch1
+			client: thinker
+		seqend
+/*    Rem  Offshoots of the center room that may need to be triggered   */
+	item: sector            name: sludge17
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge17
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend 
+	item: sector            name: centergate01
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: cgate01jam
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: centergate02
+		seq
+			class: elevator scroll_floor
+			angle: 350
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: cgate02jam
+		seq
+			class: elevator scroll_floor
+			angle: 350
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: centergate03
+		seq
+			class: elevator scroll_floor
+			angle: 10
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: cgate01jam
+		seq
+			class: elevator scroll_floor
+			angle: 10
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ccontrol01elev
+		seq
+			class: elevator         move_floor
+			stop: -20 hold
+			stop: -4 hold
+			event_mask: 52
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                   Elevator From Big Dark Sludge Pit                   ÚÄÙ                                                                                                                                                     ;
+ÚÄÙ                        To Exterior Landing Area                       ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: tallelev
+		seq
+			class: elevator move_floor
+			event_mask: 52
+			speed: 20
+			stop: -57 hold
+			stop: 8 20
+				message: 1 landingsecret
+		seqend
+	item: sector            name: landingsecret
+		seq
+			class: elevator move_floor
+			event_mask: 0
+			stop: 24 hold
+			stop: 8 terminate
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ              Sludgeround-- round room filled with sludge              ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: sludgeround
+		seq
+			class: elevator move_floor
+				speed: 3
+				event_mask: 0
+				stop: -2 hold
+				stop: -12 hold
+			class: elevator scroll_wall
+				speed: 48
+				angle: 0
+			class: elevator scroll_floor
+				speed: 4
+				angle: 0
+		seqend
+	item: sector            name: rgate1
+		seq
+			class: elevator move_floor
+				event_mask: 0
+				speed: 3
+				stop: -2 hold
+				stop: -12 hold
+				slave: rgate2
+				slave: rgateslave1
+				slave: rgateslave2
+				slave: rgateslave3
+			class: elevator scroll_floor
+				speed: 7
+				angle: 0
+		seqend
+	item: sector            name: rgate2
+		seq
+			class: elevator scroll_floor
+				speed: 7
+				angle: 0
+		seqend
+	item: sector            name: rgatejam1
+		seq
+			class: elevator move_floor
+				event_mask: 0
+				speed: 3
+				stop: -2 hold
+				stop: -12 hold
+			class: elevator scroll_floor
+				speed: 7
+				angle: 0
+		seqend
+	item: sector            name: rgatejam2
+		seq
+			class: elevator scroll_wall
+				speed: 56
+				angle: 0
+			class: elevator scroll_floor
+				speed: 7
+				angle: 0
+		seqend
+	item: line              name: roundcontrol      num: 6
+		seq
+			class: trigger switch1
+				client: sludgeround
+				client: rgate1
+				client: rgatejam1
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                          Sewage Return System                         ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: dont_enter
+		seq
+		class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+  		class: elevator inv
+			stop: -36 hold
+			stop: -29 0.5
+			speed: 20
+			event_mask: 0 
+		seqend
+	item: sector            name: sludge57
+		seq
+		class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2                 
+		class: trigger standard
+			client: dont_enter
+			event_mask: 48
+			message: goto_stop 1
+		seqend
+	item: line              name: sucker    num: 4
+		seq
+			class: trigger switch1
+				client: lit1
+				client: lit2
+				client: sucker
+				event: 65536
+		seqend
+	item: sector            name: sludge45
+		seq
+			class: elevator scroll_floor
+				angle: 0
+				speed: 5
+				flags: 2
+			class: elevator scroll_wall
+				angle: 0
+				speed: 56
+			class: trigger standard
+				client: sucker_master2
+				message: goto_stop 0 
+		seqend
+	item: sector            name: lit1
+		seq
+			class: elevator scroll_wall
+				event_mask: 65536
+				speed: 0
+				sound: 1 beep-01.voc
+				angle: 0
+				stop: 0 hold
+				stop: 64 1
+				stop: 0 1
+				stop: 64 1
+				stop: 0 1
+				stop: 64 1
+				stop: 0 1
+				stop: 64 1
+				stop: 0 1
+				stop: 64 1
+			class: elevator change_light
+				event_mask: 65536
+				speed: 0
+				stop: 3 hold
+				stop: 32 1
+				stop: 4 1
+				stop: 32 1
+				stop: 4 1
+				stop: 32 1
+				stop: 4 1
+				stop: 32 1
+				stop: 4 1
+				stop: 32 1
+		seqend
+	item: sector            name: lit2
+		seq
+			class: elevator scroll_wall
+				event_mask: 65536
+				speed: 0
+				angle: 0
+				stop: 0 hold
+				stop: 64 1
+				stop: 0 1
+				stop: 64 1
+				stop: 0 1
+				stop: 64 1
+				stop: 0 1
+				stop: 64 1
+				stop: 0 1
+				stop: 64 1
+			class: elevator change_light
+				event_mask: 65536
+				speed: 0
+				stop: 3 hold
+				stop: 32 1
+				stop: 4 1
+				stop: 32 1
+				stop: 4 1
+				stop: 32 1
+				stop: 4 1
+				stop: 32 1
+				stop: 4 1
+				stop: 32 1
+		seqend
+	item: sector            name: sucker
+		seq
+			class: elevator change_light
+				event_mask: 65536
+				speed: 0
+				stop: 4 hold
+				stop: 28 1
+				stop: 4 1
+				stop: 28 1
+				stop: 4 1
+					message: 1 sucker_master m_trigger
+				stop: 28 1
+				stop: 4 1
+				stop: 28 1
+				stop: 4 1
+				stop: 28 1
+			class: elevator scroll_floor
+				event_mask: 131072
+				angle: 0
+				speed: 15
+				master: off
+				flags: 2
+		seqend
+	item: sector            name: sucker_master
+		seq
+			class: elevator move_floor
+				slave: sucker
+				sound: 1 creatur1.voc
+				sound: 2 0
+				sound: 3 0 
+				speed: 2
+				stop: -36 hold
+				stop: -36.5 0
+				stop: -35.5 0
+				stop: -36.6 0
+				stop: -35.4 0
+				stop: -36 0
+				stop: -37 0
+				stop: -36 0
+					message: 7 sucker_master2 m_trigger
+		seqend
+	item: sector            name: sucker_master2
+		seq
+			class: elevator move_floor
+				slave: sucker
+				sound: 1 0 
+				sound: 2 takeoff2.voc
+				sound: 3 0
+				speed: 20
+				stop: -36 hold
+					message: 0 sucker(4) done
+					message: 0 sucker master_off 131072
+				stop: 9 hold
+					message: 1 sucker master_on 131072
+		seqend
+	item: sector		name: sr10
+		seq
+			class: trigger standard
+				client: sucker_master2
+				message: goto_stop 0
+			class: elevator scroll_floor
+				angle: 180
+				speed: 18
+				flags: 2
+      		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                        Jumpin' Over The Sludge                        ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: maddogn
+		seq
+			class: elevator move_floor
+				stop: -25 hold
+				stop: -6 5
+				event_mask: 52
+		seqend
+	item: sector            name: elev02
+		seq
+			class: elevator move_floor
+			stop: -25 hold
+				message: 0 elev02(0) done
+			stop: -10 6
+			event_mask: 0
+		seqend
+	item: line              name: elev02    num: 0
+		seq
+			class: trigger switch1
+			client: elev02
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                              sludge_pool                              ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: sludge_pool
+		seq
+			class: elevator move_floor
+				event_mask: 0
+				speed: .5
+				sound: 1 0
+				sound: 2 0
+				sound: 3 0
+				stop: @-1 0
+				stop: @0 0
+		seqend          
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                            Mof Rebus' Lair                            ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector              name: lair1
+		seq
+			class: trigger standard
+				event_mask: 52
+				client: lair_gate1
+				client: lair_gate2
+		seqend
+	item: sector            name: lair_gate1
+		seq
+			class: elevator inv
+				event_mask: 0
+				stop: -6 hold
+				stop: 10 hold
+		seqend
+	item: sector            name: lair_gate2
+		seq
+			class: elevator inv
+				event_mask: 0
+				stop: -6 hold
+				stop: 10 hold
+		seqend
+	item: sector            name: lair_entrance
+		seq
+			class: trigger standard
+				event_mask: 4
+				client: lair_gate1
+				client: lair_gate2
+		seqend
+	item: line              name: inspect   num: 7
+		seq
+			class: trigger standard
+				event_mask: 2
+				client: lair_door1 
+			seqend
+	item: sector            name: lair_door1
+		seq
+			class: elevator inv
+			stop: -4 hold
+			stop: -4 0.5
+			stop: 8 0
+				message: 2 lair_door2 m_trigger  
+			stop: 8 terminate
+			event_mask: 0
+		seqend
+	item: sector            name: lair_door2
+		seq
+			class: elevator inv
+			stop: -4 hold
+			stop: 8 terminate
+			event_mask: 0
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                         basic everyday sludge                         ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: sludge01
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge01
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge02
+		seq
+			class: elevator scroll_floor
+				angle: 270
+				speed: 1
+				flags: 2
+			class: elevator scroll_wall
+				angle: 0
+				speed: 56
+		seqend
+	item: sector            name: sludge03
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge04
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge05
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge06
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge07
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge08
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge09
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge10
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge11
+		seq
+			class: elevator scroll_floor
+				angle: 90
+				speed: 1
+				flags: 2
+			class: elevator scroll_wall
+				angle: 0
+				speed: 56
+		seqend
+	item: sector            name: sludge12
+		seq		      
+			class: elevator scroll_floor
+			angle: 90
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge13
+		seq
+			class: elevator scroll_floor
+			angle: 90
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge14
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge14
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge15
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge15
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge16
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+/*   rem---  sludge 17 in central mongo puzzle at beginnning of file.  */
+	item: sector            name: sludge18
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge18
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge19
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge20
+		seq
+			class: elevator scroll_floor
+				angle: 270
+				speed: 5
+				flags: 2
+			class: elevator change_light
+				stop: 12 0
+				stop: 30 0
+		seqend
+	item: sector            name: sludge20
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge21
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge22
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge23
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge24
+		seq
+			class: elevator scroll_floor
+				angle: 270
+				speed: 5
+				flags: 2
+			class: elevator change_light
+				stop: 12 0
+				stop: 30 0
+		seqend
+	item: sector            name: sludge25
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 2
+			flags: 2
+		seqend
+	item: sector            name: sludge25
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge26
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 2
+			flags: 2
+		seqend
+	item: sector            name: sludge26
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge27
+		seq
+			class: elevator scroll_floor
+			angle: 180
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge28
+		seq
+			class: elevator scroll_floor
+			angle: 180
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge28a
+		seq
+			class: elevator scroll_floor
+			angle: 180
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge28a
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge28b
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 1
+			flags: 2
+		seqend
+	item: sector            name: sludge28b
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge29
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge29
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge30
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge31
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge32
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge33
+		seq
+			class: elevator scroll_floor
+			angle: 45
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge34
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge34
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge35
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge35
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge36
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge36
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge37
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge37
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge38
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge38
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge39
+		seq
+			class: elevator scroll_floor
+			angle: 45
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge39a
+		seq
+			class: elevator scroll_floor
+			angle: 45
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge39
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge40
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge40
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge41
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge41
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend  
+	item: sector            name: sludge42
+		seq
+			class: elevator scroll_floor
+			angle: 90
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge42
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge43
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge43
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+			flags: 2
+		seqend
+	item: sector            name: sludge44
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend              
+	item: sector            name: sludge44
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 56
+		seqend
+	item: sector            name: sludge44a
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend         
+	item: sector            name: sludge46
+		seq
+			class: elevator scroll_floor
+				angle: 0
+				speed: 5
+				flags: 2
+			class: elevator change_light
+				stop: 12 0
+				stop: 30 0
+		seqend
+	item: sector            name: sludge47
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge48
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge49
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge50
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge51
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge51
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 64
+		seqend
+	item: sector            name: sludge52
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge53
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge54
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge55
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge56
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge58
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: sludge58b
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                          Sewage Return System (straight)              ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: sr1
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr2
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr4
+		seq
+			class: elevator scroll_floor
+			angle: 90
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr7
+		seq
+			class: elevator scroll_floor
+			angle: 90
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr9
+		seq
+			class: elevator scroll_floor
+			angle: 180
+			speed: 18
+			flags: 2
+		seqend
+/* sr10 moved to sucker section 'cause it triggers sucker down.*/
+	item: sector            name: sr11
+		seq
+			class: elevator scroll_floor
+			angle: 180
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr12a
+		seq
+			class: elevator scroll_floor
+				angle: 270
+				speed: 18
+				flags: 2
+		seqend
+	item: sector            name: sr14
+		seq
+			class: elevator scroll_floor
+			angle: 180
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr15
+		seq
+			class: elevator scroll_floor
+			angle: 180
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr26
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr28
+		seq
+			class: elevator scroll_floor
+				angle: 90
+				speed: 18
+				flags: 2
+		seqend
+	item: sector            name: sr30
+		seq
+			class: elevator scroll_floor
+			angle: 180
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr33
+		seq
+			class: elevator scroll_floor
+			angle: 180
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr35
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr37
+		seq
+			class: elevator scroll_floor
+			angle: 270
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr39
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 18
+			flags: 2
+		seqend
+	item: sector            name: sr40
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 18
+			flags: 2
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                        Sewage Return  (curved)                        ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: sr3
+		seq
+			class: elevator scroll_floor
+				angle: 45
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 362 528
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr5
+		seq
+			class: elevator scroll_floor
+				angle: 135
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 436 528
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr6
+		seq
+			class: elevator scroll_floor
+				angle: 135
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 457 528
+				speed: 50
+				sound: 2 0
+		seqend
+	item: sector            name: sr8
+		seq
+			class: elevator scroll_floor
+				angle: 135
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 455 506
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr10a
+		seq
+			class: elevator scroll_floor
+				angle: 45
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 496 410
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr12
+		seq
+			class: elevator scroll_floor
+				angle: 225
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 475 330
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr13
+		seq
+			class: elevator scroll_floor
+				angle: 225
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 468 308
+				speed: 50
+				sound: 2 0
+		seqend
+	item: sector            name: sr16
+		seq
+			class: elevator scroll_floor
+				angle: 225
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 503 313
+				speed: 50
+				sound: 2 0
+		seqend
+	item: sector            name: sr17
+		seq
+			class: elevator scroll_floor
+				angle: 135
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 503 313
+				speed: 50
+				sound: 2 0
+		seqend
+	item: sector            name: sr18
+		seq
+			class: elevator scroll_floor
+				angle: 135
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 503 291
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr19
+		seq
+			class: elevator scroll_floor
+				angle: 225
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 503 291
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr20
+		seq
+			class: elevator scroll_floor
+				angle: 315
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 503 291
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr21
+		seq
+			class: elevator scroll_floor
+				angle: 315
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 481 291
+				speed: 50
+				sound: 2 0
+		seqend
+	item: sector            name: sr22
+		seq
+			class: elevator scroll_floor
+				angle: 225
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 481 291
+				speed: 50
+				sound: 2 0
+		seqend
+	item: sector            name: sr23
+		seq
+			class: elevator scroll_floor
+				angle: 135
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 481 291
+				speed: 50
+				sound: 2 0
+		seqend
+	item: sector            name: sr24
+		seq
+			class: elevator scroll_floor
+				angle: 135
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 481 269
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr25
+		seq
+			class: elevator scroll_floor
+				angle: 225
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 481 269
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr27
+		seq
+			class: elevator scroll_floor
+				angle: 135
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 468 209
+				speed: 50
+				sound: 2 0
+		seqend
+	item: sector            name: sr29
+		seq
+			class: elevator scroll_floor
+				angle: 135
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 475 187
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr31
+		seq
+			class: elevator scroll_floor
+				angle: 225
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 475 148
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr32
+		seq
+			class: elevator scroll_floor
+				angle: 225
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 475 126
+				speed: 50
+				sound: 2 0
+		seqend
+	item: sector            name: sr34
+		seq
+			class: elevator scroll_floor
+				angle: 225
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 438 53
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr36
+		seq
+			class: elevator scroll_floor
+				angle: 45
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 389 53
+				speed: -50
+				sound: 2 0
+		seqend
+	item: sector            name: sr38
+		seq
+			class: elevator scroll_floor
+				angle: 45
+				speed: 18
+				flags: 0
+			class: elevator morph_spin2
+				center: 290 53
+				speed: -50
+				sound: 2 0
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                           End Points ("ep"s)                          ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: ep1
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep2
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep3
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep4
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep5
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep6
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep7
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep8
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep9
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep10
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep11
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep12
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep13
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep14
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep15
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep16
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep17
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep18
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep19
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+	item: sector            name: ep20
+		seq
+			class: elevator scroll_floor
+			angle: 0
+			speed: 5
+			flags: 2
+		seqend
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                        Spiraling Pit O' Sludge                        ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: pit1
+		seq
+			class: elevator scroll_floor
+				angle: 23
+				speed: 7
+				flags: 2
+			class: elevator scroll_wall
+				angle: 0
+				speed: 64
+		seqend
+	item: sector            name: pit2
+		seq
+			class: elevator scroll_floor
+			angle: 337
+			speed: 8
+			flags: 2
+		seqend
+	item: sector            name: pit2
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 72
+		seqend
+	item: sector            name: pit3
+		seq
+			class: elevator scroll_floor
+			angle: 292
+			speed: 8
+			flags: 2
+		seqend
+	item: sector            name: pit3
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 80
+		seqend
+	item: sector            name: pit4
+		seq
+			class: elevator scroll_floor
+			angle: 242
+			speed: 9
+			flags: 2
+		seqend
+	item: sector            name: pit4
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 88
+		seqend
+	item: sector            name: pit5
+		seq
+			class: elevator scroll_floor
+			angle: 202
+			speed: 10
+			flags: 2
+		seqend
+	item: sector            name: pit5
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 96
+		seqend
+	item: sector            name: pit6
+		seq
+			class: elevator scroll_floor
+			angle: 157
+			speed: 10
+			flags: 2
+		seqend
+	item: sector            name: pit6
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 104
+		seqend
+	item: sector            name: pit7
+		seq
+			class: elevator scroll_floor
+			angle: 30
+			speed: 12
+			flags: 2
+		seqend
+	item: sector            name: pit7
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 112
+		seqend
+	item: sector            name: pit8
+		seq
+			class: elevator scroll_wall
+			angle: 0
+			speed: 112
+		seqend			     
+/*ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+ÚÄÙ                          Whirlpool O' Sludge                          ÚÄÙ                                                                                                                                                     ;
+ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ*/
+	item: sector            name: spiral01
+		seq
+			class: elevator scroll_floor
+			angle: 29
+			speed: 6
+		seqend
+	item: sector            name: spiral01
+		seq
+			class: elevator scroll_wall
+			speed: 48
+			angle: 0
+		seqend
+	item: sector            name: spiral01
+		seq
+			class: elevator morph_spin2
+			speed: -60
+			center: 116 373
+			sound: 2 0
+		seqend
+	item: sector            name: spiral02
+		seq
+			class: elevator scroll_floor
+			angle: 81
+			speed: 7
+		seqend
+	item: sector            name: spiral02
+		seq
+			class: elevator scroll_wall
+			speed: 56
+			angle: 0
+		seqend
+	item: sector            name: spiral02
+		seq
+			class: elevator morph_spin2
+			speed: -60
+			center: 116 373
+			sound: 2 0
+		seqend
+	item: sector            name: spiral03
+		seq
+			class: elevator scroll_floor
+			angle: 124
+			speed: 7
+		seqend
+	item: sector            name: spiral03
+		seq
+			class: elevator scroll_wall
+			speed: 56
+			angle: 0
+		seqend
+	item: sector            name: spiral03
+		seq
+			class: elevator morph_spin2
+			speed: -90
+			center: 116 373
+			sound: 2 0
+		seqend
+	item: sector            name: spiral04
+		seq
+			class: elevator scroll_floor
+			angle: 166
+			speed: 8
+		seqend
+	item: sector            name: spiral04
+		seq
+			class: elevator scroll_wall
+			speed: 64
+			angle: 0
+		seqend
+	item: sector            name: spiral04
+		seq
+			class: elevator morph_spin2
+			speed: -90
+			center: 116 373
+			sound: 2 0
+		seqend
+	item: sector            name: spiral05
+		seq
+			class: elevator scroll_floor
+			angle: 231
+			speed: 8
+		seqend
+	item: sector            name: spiral05
+		seq
+			class: elevator scroll_wall
+			speed: 64
+			angle: 0
+		seqend
+	item: sector            name: spiral05
+		seq
+			class: elevator morph_spin2
+			speed: -100
+			center: 116 373
+			sound: 2 0
+		seqend
+	item: sector            name: spiral06
+		seq
+			class: elevator scroll_floor
+			angle: 310
+			speed: 9
+		seqend
+	item: sector            name: spiral06
+		seq
+			class: elevator scroll_wall
+			speed: 72
+			angle: 0
+		seqend
+	item: sector            name: spiral06
+		seq
+			class: elevator morph_spin2
+			speed: -100
+			center: 116 373
+			sound: 2 0
+		seqend
+	item: sector            name: spiral07
+		seq
+			class: elevator scroll_floor
+			angle: 26
+			speed: 10
+		seqend
+	item: sector            name: spiral07
+		seq
+			class: elevator scroll_wall
+			speed: 80
+			angle: 0
+		seqend
+	item: sector            name: spiral07
+		seq
+			class: elevator morph_spin2
+			speed: -145
+			center: 116 373
+			sound: 2 0
+		seqend
+	item: sector            name: spiral08
+		seq
+			class: elevator scroll_floor
+			angle: 108
+			speed: 11
+		seqend
+	item: sector            name: spiral08
+		seq
+			class: elevator scroll_wall
+			speed: 88
+			angle: 0
+		seqend
+	item: sector            name: spiral08
+		seq
+			class: elevator morph_spin2
+			speed: -145
+			center: 116 373
+			sound: 2 0
+		seqend
+	item: sector            name: spiral09
+		seq
+			class: elevator scroll_floor
+			angle: 222
+			speed: 12
+		seqend
+	item: sector            name: spiral09
+		seq
+			class: elevator scroll_wall
+			speed: 96
+			angle: 0
+		seqend
+	item: sector            name: spiral09
+		seq
+			class: elevator morph_spin2
+			speed: -145
+			center: 116 373
+			sound: 2 0
+		seqend
+	item: sector            name: spiral10
+		seq
+			class: elevator scroll_wall
+			speed: 108
+			angle: 0
+		seqend
+	item: sector            name: spiral10
+		seq
+			class: elevator morph_spin2
+			speed: -180
+			center: 116 373
+			sound: 2 0
+		seqend
+
+
