@@ -1,7 +1,7 @@
 MSG 1.0
 
 # number of actual messages
-MSGS 114
+MSGS 117
 
 # internal game messages
 0    0:  "Joystick Off"
@@ -109,6 +109,9 @@ MSGS 114
 
 470  1:  "Locked"
 471  1:  "Anoat Sewer Lock Opened"
+472  1:  "Docking Arm moved to the Smuggler Ship"
+473  1:  "Docking Arm moved to your Ship"
+474  1:  "Smuggler Ship Boarded"
 
 
 #-------
