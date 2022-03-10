@@ -1,7 +1,7 @@
 MSG 1.0
 
 # number of actual messages
-MSGS 117
+MSGS 120
 
 # internal game messages
 0    0:  "Joystick Off"
@@ -112,20 +112,23 @@ MSGS 117
 472  1:  "Docking Arm moved to the Smuggler Ship"
 473  1:  "Docking Arm moved to your Ship"
 474  1:  "Smuggler Ship Boarded"
+475  1:  "Opening Inner Base Security Doors"
+476  1:  "Imperial Code addeted to the PDA Inventory"
+477  1:  "Press <F1> to access PDA Inventory"
 
 
 #-------
 
 
-501  1:  "Code Key 1"
-502  1:  "Code Key 2"
-503  1:  "Code Key 3"
-504  1:  "Code Key 4"
-505  1:  "Code Key 5"
-506  1:  "Code Key 6"
-507  1:  "Code Key 7"
-508  1:  "Code Key 8"
-509  1:  "Code Key 9"
+501  1:  "Code Key 1 added to PDA Inventory"
+502  1:  "Code Key 2 added to PDA Inventory"
+503  1:  "Code Key 3 added to PDA Inventory"
+504  1:  "Code Key 4 added to PDA Inventory"
+505  1:  "Code Key 5 added to PDA Inventory"
+506  1:  "Code Key 6 added to PDA Inventory"
+507  1:  "Code Key 7 added to PDA Inventory"
+508  1:  "Code Key 8 added to PDA Inventory"
+509  1:  "Code Key 9 added to PDA Inventory"
 
 
 	# map messages
