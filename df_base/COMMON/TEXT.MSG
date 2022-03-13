@@ -110,7 +110,7 @@ MSGS 120
 470  1:  "Locked"
 471  1:  "Anoat Sewer Lock Opened"
 472  1:  "Docking Arm moved to the Smuggler Ship"
-473  1:  "Docking Arm moved to your Ship"
+473  1:  "Docking Arm moved to the Moldy Crow"
 474  1:  "Smuggler Ship Boarded"
 475  1:  "Opening Inner Base Security Doors"
 476  1:  "Imperial Code addeted to the PDA Inventory"
