@@ -1,7 +1,7 @@
 MSG 1.0
 
 # number of actual messages
-MSGS 120
+MSGS 121
 
 # internal game messages
 0    0:  "Joystick Off"
@@ -115,6 +115,7 @@ MSGS 120
 475  1:  "Opening Inner Base Security Doors"
 476  1:  "Imperial Code addeted to the PDA Inventory"
 477  1:  "Press <F1> to access PDA Inventory"
+478  1:  "Locked - Unpowered Door"
 
 
 #-------
