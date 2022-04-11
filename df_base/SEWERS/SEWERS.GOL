@@ -1,0 +1,6 @@
+GOL 1.0
+GOAL: 0	TRIG:	0	# Disable First Lock
+GOAL: 1	TRIG:	1	# Disable Second Lock
+GOAL: 2	TRIG:	2	# Disable Third Lock
+GOAL: 3	TRIG:	3	# Reach Mof Rebus
+
