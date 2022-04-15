@@ -1,7 +1,7 @@
 MSG 1.0
 
 # number of actual messages
-MSGS 121
+MSGS 122
 
 # internal game messages
 0    0:  "Joystick Off"
@@ -101,6 +101,8 @@ MSGS 121
 461  1:  "Mission Objectives Complete"
 462  1:  "Press <ESC> Key to End Mission"
 
+463  1:  "Objective completed"
+
 
 #------- Fan Added Messages -----
 #          Let's use from about 470-490
@@ -113,9 +115,9 @@ MSGS 121
 473  1:  "Docking Arm moved to the Moldy Crow"
 474  1:  "Smuggler Ship Boarded"
 475  1:  "Opening Inner Base Security Doors"
-476  1:  "Imperial Code addeted to the PDA Inventory"
+476  1:  "Imperial Code added to the PDA Inventory"
 477  1:  "Press <F1> to access PDA Inventory"
-478  1:  "Locked - Unpowered Door"
+478  1:  "No power"
 
 
 #-------
