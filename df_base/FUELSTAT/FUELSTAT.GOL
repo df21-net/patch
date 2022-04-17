@@ -1,4 +1,4 @@
 GOL 1.0
-  GOAL: 0       TRIG:   0       # BOARD SMUGGLER SHIP
-  GOAL: 1       TRIG:   1       # HIJACK SHIP
-  
+  GOAL: 0       TRIG:   0       # Rotate arm
+  GOAL: 1       TRIG:   1       # BOARD SMUGGLER SHIP
+  GOAL: 2	TRIG: 	2	# HIJACK SHIP
