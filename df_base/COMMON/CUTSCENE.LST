@@ -1,0 +1,81 @@
+CUT 1.0
+
+CUTS 40
+
+# <num>                 <scene file>            <next scene>    <cutmuse.txt SEQ # (midi)>
+#       <resource.lfd>                  <speed>         <skip scene>    <% midi vol -- 110 = 10% higher than normal>
+
+# INTRODUCTION - 10
+10:     logo.lfd        logo            10      20      0       1       110
+20:     swlogo.lfd      swlogo          10      30      0       0       110
+# the Textcrawl must be #30 - it's hard coded in shell.c
+30:     ftextcra.lfd    ftextcra        10      40      0       0       110
+40:     1e.lfd          1e              10      41      0       0       110
+41:	gearup.lfd	gearup		10	42	0	0	110
+42:     darklogo.lfd    darklogo        7       0       0       0       110
+# SECBASE -- 100
+
+# TALAY - 200
+200:    kflyby.lfd      kflyby          10      209     0       2       80
+209:    execx.lfd       execx           8       210     0       0       80
+210:    execcomp.lfd    execcomp        9       211     0       0       80
+211:    arcext.lfd      arcext          9       215     0       0       80
+215:    tubecomp.lfd    tubecomp        6       216     0       0       80
+216:    succes.lfd      succes          9       220     0       0       80
+220:    neb1.lfd        neb1            8       225     0       0       80
+225:    brief1.lfd      brief1          9       230     0       0       80
+230:    holocu.lfd      holocu          9       235     0       0       80
+235:    brief2.lfd      brief2          9       240     0       0       80
+240:    exitneb.lfd     exitneb         7       0       0       0       90
+
+#  TESTBASE - 300
+#  Sewers - 400
+#  Gromas - 500
+500:    gromas1.lfd     gromas1         10      0       0       3       100
+
+550:    gromasx.lfd     gromasx         8       0       0       4       100
+
+#  Dtention - 600
+600:    arcfly.lfd      arcfly          6       605     0       5       90
+605:    madine1.lfd     madine1         9       610     0       0       80
+610:    boba.lfd        boba            9       0       0       0       90
+
+#  Ramshed - 700
+
+#  Robotics - 800
+800:    rob1.lfd        rob1            10      0       0       6       100
+#  after:                                                         
+850:    robotx.lfd      robotx          9       0       0       7       100
+
+#  Narshada - 900
+
+#  Jabship - 1000
+1000:   jabba1.lfd      jabba1          10      1010    0       8       100
+1010:   jabba2.lfd      jabba2          10      1020    0       0       100
+1020:   jabba3.lfd      jabba3          10      1030    0       0       100
+1030:   pit.lfd         pit             9       0       0       0       80
+
+1050:   jabescp.lfd     jabescp         10      0       0       9       100
+
+#  Imperial City - 1100
+#  Fuelstat - 1200
+
+#  Executor - 1300
+
+#  Arc Hammer - 1400
+1400:   cargo1.lfd      cargo1          10      1410    0       10      100
+1410:   cargo3.lfd      cargo3          10      0       0       0       100
+
+1450:   exp1xx.lfd      exp1xx          8       1451    0       11      110
+1451:   exp2x.lfd       exp2x           10      1452    0       0       110
+1452:   exp3xx.lfd      exp3xx          4       1460    0       0       90
+1460:   award1.lfd      award1          8       1470    0       0       110
+1470:   award2.lfd      award2          9       1472    0       0       110
+1472:   award3.lfd      award3          7       1475    0       0       110
+1475:   award4.lfd      award4          9       1480    0       0       110
+1480:   endfly.lfd      endfly          9       0       0       0       110
+
+#  Credits = 1500
+
+1500:   fullcred.lfd    fullcred        7       0       0       12      110
+
