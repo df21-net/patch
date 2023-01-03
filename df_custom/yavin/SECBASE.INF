@@ -159,7 +159,7 @@ item: sector name: disp_door
        message: 1 dispatch(4) m_trigger  
      stop: 8 4
      stop: 7 0
-       message: 8 dispatch(4) done  
+       message: 3 dispatch(4) done  
  seqend
  
  
