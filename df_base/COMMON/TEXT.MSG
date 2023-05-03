@@ -1,7 +1,7 @@
 MSG 1.0
 
 # number of actual messages
-MSGS 122
+MSGS 123
 
 # internal game messages
 0    0:  "Joystick Off"
@@ -105,10 +105,11 @@ MSGS 122
 
 
 #------- Fan Added Messages -----
-#          Let's use from about 470-490
+#          Let's use from about 469-490
 #          And don't forget to increment the "MSG xx" line
 #        at the top when you add a new message. - bitcores
 
+469  1:  "New Objective Added to the PDA"
 470  1:  "Locked"
 471  1:  "Anoat Sewer Lock Opened"
 472  1:  "Docking Arm moved to the Smuggler Ship"
