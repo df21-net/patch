@@ -637,27 +637,31 @@ item: line   name: maintdoor02.jamb num: 1
  
  
 item: sector name: fanduct0
- seq
-   class: elevator scroll_wall
-       angle: 0
-       speed: 0
-       event_mask: 0
-     stop: 000 0.03
-     stop: 064 0.03
-     slave: fanduct1
-     slave: fanduct2
-     slave: fanduct3
-     slave: fanduct4
-   class: elevator change_light
-       speed: 0
-       event_mask: 0
-     stop: 24 0.03
-     stop: 18 0.03
-     slave: fanduct1
-     slave: fanduct2
-     slave: fanduct3
-     slave: fanduct4
- seqend
+seq
+  class: elevator scroll_wall
+      angle: 0
+      speed: 0
+      event_mask: 0
+    stop: 000 0.04
+    stop: 192 0.04
+    stop: 128 0.04
+    stop: 064 0.04
+    slave: fanduct1
+    slave: fanduct2
+    slave: fanduct3
+    slave: fanduct4
+  class: elevator change_light
+      speed: 0
+      event_mask: 0
+    stop: 21 0.04
+    stop: 17 0.04
+    stop: 22 0.04
+    stop: 24 0.04
+    slave: fanduct1
+    slave: fanduct2
+    slave: fanduct3
+    slave: fanduct4
+seqend
  
  
 item: sector name: fanduct3
