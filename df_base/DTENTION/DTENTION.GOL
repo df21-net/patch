@@ -1,0 +1,6 @@
+GOL 1.0
+# GOAL: <goal number>  <type>: <number for type>
+  GOAL: 0       TRIG:   0       # Find Crix
+  GOAL: 1       TRIG:   1       # New Objective Alt Route
+  GOAL: 2       TRIG:   2       # Find Alt Route Success
+  GOAL: 3       TRIG:   3       # Crix Found
