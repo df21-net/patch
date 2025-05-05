@@ -12,18 +12,18 @@ Models: KYL3DO.3DO
 Textures: HDCROW.BM
 
 2. Imperial Shuttle 
-Remodelled and textured.
-By Matt Hallaron.
+Remodelled and textured with all-new texture.
+By Kevin Foley
 
 Models: SHUTTLE.3DO
-Textures: SHUBODY.BM, SHUWING.BM
+Textures: SHUBODY.BM, SHUWING.BM, SHUBODY.RAW, SHUWING.RAW
 
 3. TIE Fighter 
-Improved texture mapping
-By Matt Hallaron
+Textured with all-new texture.
+By Kevin Foley
 
 Models: TIELO-3.3DO
-Textures: TFWNG-L.BM, TFBLL-L.BM
+Textures: TIE.BM, TIE.RAW
 
 4. Welder 
 Texture mapped
@@ -33,15 +33,15 @@ Models: WELDARM.3DO and WELDBASE.3DO
 Textures: WELD01W.BM, WELD02W.BM, WELD03W.BM
 
 5. Gun turret 
-Recoloured and texture mapped
-By Jereth Kok
+Textured with all-new texture.
+By Kevin Foley
 
 Models: GUN.3DO and BASE.3DO
+Textures: TURBASE.BM, TURBRRL.bm, TURBASE.RAW, TURBRRL.RAW
 
 6. Mousebot 
-Texture mapped
-By Jereth Kok
-Texture adapted from Jedi Knight 2: Jedi Outcast by Raven Software
+Textured with all-new texture.
+By Kevin Foley
 
 Models: MOUSEBOT.3DO
 Textures: MOUSEBOT.BM

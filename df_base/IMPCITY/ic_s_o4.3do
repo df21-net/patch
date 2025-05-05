@@ -1,0 +1,112 @@
+3DO 1.2 
+#
+# Created by Jereth's Blender exporter 
+#
+3DONAME ic_s_o4.3do
+OBJECTS 4 
+VERTICES 20 
+POLYGONS 6 
+PALETTE DEFAULT.PAL
+
+TEXTURES 4
+ TEXTURE: ZPMARBB1.bm 	#0 
+ TEXTURE: ZWMARBW1.bm 	#1 
+ TEXTURE: ZPMARBB1.bm 	#2 
+ TEXTURE: ZPTILE4.bm 	#3 
+
+#---------------------------------------------------------------------
+OBJECT "bottom.0" 
+TEXTURE 0 
+
+VERTICES 4 
+# 	num: 	  x 	  y 	  z 
+	0:	5.000	-8.000	2.000
+	1:	5.000	-8.000	-2.000
+	2:	-5.000	-8.000	2.000
+	3:	-5.000	-8.000	-2.000
+
+QUADS 1 
+# 	num:	<a>	<b>	<c>	<d>	<color>	<shading> 
+	0:	0	2	3	1	40	PLANE
+
+TEXTURE VERTICES 0 
+
+TEXTURE QUADS 0 
+
+#---------------------------------------------------------------------
+OBJECT "sides.001.0" 
+TEXTURE 1 
+
+VERTICES 8 
+# 	num: 	  x 	  y 	  z 
+	0:	5.000	-48.000	2.000
+	1:	-5.000	-48.000	2.000
+	2:	5.000	-32.000	2.000
+	3:	-5.000	-32.000	2.000
+	4:	5.000	-16.000	2.000
+	5:	-5.000	-16.000	2.000
+	6:	5.000	-8.000	2.000
+	7:	-5.000	-8.000	2.000
+
+QUADS 3 
+# 	num:	<a>	<b>	<c>	<d>	<color>	<shading> 
+	0:	1	3	2	0	40	TEXTURE
+	1:	3	5	4	2	41	TEXTURE
+	2:	5	7	6	4	42	TEXTURE
+
+TEXTURE VERTICES 6 
+	0:	0.812	1.000
+	1:	0.812	0.000
+	2:	0.188	0.000
+	3:	0.188	1.000
+	4:	0.812	0.500
+	5:	0.188	0.500
+
+TEXTURE QUADS 3 
+	0:	3	2	1	0
+	1:	3	2	1	0
+	2:	3	5	4	0
+
+#---------------------------------------------------------------------
+OBJECT "sides.002.0" 
+TEXTURE 2 
+
+VERTICES 4 
+# 	num: 	  x 	  y 	  z 
+	0:	5.000	-16.000	-2.000
+	1:	-5.000	-16.000	-2.000
+	2:	5.000	-8.000	-2.000
+	3:	-5.000	-8.000	-2.000
+
+QUADS 1 
+# 	num:	<a>	<b>	<c>	<d>	<color>	<shading> 
+	0:	0	2	3	1	40	TEXTURE
+
+TEXTURE VERTICES 4 
+	0:	0.000	1.000
+	1:	0.000	0.000
+	2:	0.800	0.000
+	3:	0.800	1.000
+
+TEXTURE QUADS 1 
+	0:	3	2	1	0
+
+#---------------------------------------------------------------------
+OBJECT "top.003.0" 
+TEXTURE 3 
+
+VERTICES 4 
+# 	num: 	  x 	  y 	  z 
+	0:	5.000	-48.000	2.000
+	1:	5.000	-48.000	-2.000
+	2:	-5.000	-48.000	2.000
+	3:	-5.000	-48.000	-2.000
+
+QUADS 1 
+# 	num:	<a>	<b>	<c>	<d>	<color>	<shading> 
+	0:	1	3	2	0	40	PLANE
+
+TEXTURE VERTICES 0 
+
+TEXTURE QUADS 0 
+
