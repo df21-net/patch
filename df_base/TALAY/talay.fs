@@ -1,10 +1,10 @@
-void startOpeningCinematic()
+void startTalayOpeningCinematic()
 {
 	player.disableActions(ACTION_ALL);
 	level.getObject("opening_cam").setCamera();
 }
 
-void endOpeningCinematic()
+void endTalayOpeningCinematic()
 {
 	player.setCamera();
 	player.enableActions(ACTION_ALL);
@@ -24,10 +24,4 @@ void lightsCinematicB()
 void lightsCinematicC()
 {
 	level.getObject("lights_camC").setCamera();
-}
-
-void lightsCinematicD()
-{
-	player.setCamera();
-	player.enableActions(ACTION_ALL);
 }
