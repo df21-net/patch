@@ -1,5 +1,6 @@
 #include "talay.fs"
 #include "sewers.fs"
+#include "testbase.fs"
 
 void levelStart(string levelName)
 {
